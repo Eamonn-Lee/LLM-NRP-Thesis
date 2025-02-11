@@ -110,13 +110,14 @@ class OutputAgent:
 
     def optimize_schedule(self, init_schedule):
         #double quote to escape f-string {}
+        #need to insert shift types and skill types based on sce file
         prompt = f"""
         Given this assignment of nurses to shifts, Output the resulting assignments in a .json file, in the format:
         "assignments" : [ {{
             "nurse" : "nurse_name",
             "day" : "three letter abbreviation of day",
-            "shiftType" : ["Early", "Late", "Night"],
-            "skill" : ["Nurse", "HeadNurse"]
+            "shiftType" : {["Early", "Late", "Night"]},
+            "skill" : {["Nurse", "HeadNurse"]}
         }}]
 
         Current Schedule:
