@@ -28,3 +28,6 @@ def construct_command(input, validator):
 
     validate_comm = f"java -jar {validator} --sce {sce_file} --his {his_file} --weeks {' '.join(week_files)} --sols {' '.join(sol)}"
     return validate_comm
+
+def bad_outcome(result):
+    return True
