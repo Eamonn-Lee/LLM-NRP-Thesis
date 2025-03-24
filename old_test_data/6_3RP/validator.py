@@ -1,5 +1,6 @@
 import os
 
+#
 def construct_command(input, validator):
     #input = "n030w4_1_6-2-9-1"
 
@@ -17,7 +18,7 @@ def construct_command(input, validator):
 
     #replace with actual solution files + path
     #sol = ["INRC2_Dataset/n005w4/Solution_H_0-WD_1-2-3-3/Sol-n005w4-1-0.txt", "INRC2_Dataset/n005w4/Solution_H_0-WD_1-2-3-3/Sol-n005w4-2-1.txt", "INRC2_Dataset/n005w4/Solution_H_0-WD_1-2-3-3/Sol-n005w4-3-2.txt", "INRC2_Dataset/n005w4/Solution_H_0-WD_1-2-3-3/Sol-n005w4-3-3.txt"]
-    sol = ["24_3_o3mh/1-0.json","24_3_o3mh/2-1.json","24_3_o3mh/3-2.json","24_3_o3mh/3-3.json"]
+    sol = ["6_3full/1-0.json","6_3full/2-1.json","6_3full/3-2.json","6_3full/3-3.json"]
 
     #check instance files valid
     data_files = [sce_file, his_file] + week_files + sol
