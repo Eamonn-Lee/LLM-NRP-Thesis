@@ -1,0 +1,147 @@
+To generate a feasible weekly nurse roster, we must adhere to the hard constraints and aim to minimize penalties from soft constraint violations. Here's how we can approach this problem step-by-step:
+
+### Step 1: Analyze Requirements and Constraints
+
+1. **Nurses and Contracts:**
+   - Patrick, Andrea, and Nguyen are FullTime nurses.
+   - Stefaan and Sara are PartTime nurses.
+
+2. **Shift Types and Forbidden Successions:**
+   - Forbidden successions: Late → Early, Night → Early/Late.
+
+3. **Historical Assignments:**
+   - Patrick: Last shift was Night, 4 consecutive working days.
+   - Andrea: Last shift was Early, 3 consecutive working days.
+   - Stefaan: 3 consecutive days off.
+   - Sara: Last shift was Late, 4 consecutive working days.
+   - Nguyen: 1 day off.
+
+4. **Shift Requirements:**
+   - Each day has specific minimum and optimal requirements for each shift type and skill.
+
+5. **Shift-Off Requests:**
+   - Andrea: Any shift on Tuesday.
+   - Stefaan: Any shift on Wednesday.
+   - Nguyen: Any shift on Friday and Saturday.
+   - Sara: Late shift on Saturday.
+
+### Step 2: Assign Shifts for Each Day
+
+#### Monday
+- **Early Shift:**
+  - HeadNurse: No requirement.
+  - Nurse: Minimum 1, Optimal 1.
+  - Assign: Sara (as she had 4 consecutive working days, she can start a new sequence).
+
+- **Late Shift:**
+  - HeadNurse: Minimum 1, Optimal 1.
+  - Assign: Andrea (to start a new sequence after 3 consecutive working days).
+
+- **Night Shift:**
+  - HeadNurse: Minimum 1, Optimal 1.
+  - Assign: Patrick (continue from previous Night shift).
+
+#### Tuesday
+- **Early Shift:**
+  - HeadNurse: No requirement.
+  - Nurse: Minimum 1, Optimal 1.
+  - Assign: Sara (continue from Monday).
+
+- **Late Shift:**
+  - HeadNurse: No requirement.
+  - Nurse: Minimum 1, Optimal 1.
+  - Assign: Patrick (to avoid forbidden succession from Night).
+
+- **Night Shift:**
+  - HeadNurse: No requirement.
+  - Nurse: Minimum 1, Optimal 1.
+  - Assign: Stefaan (start a new sequence).
+
+#### Wednesday
+- **Early Shift:**
+  - HeadNurse: Minimum 1, Optimal 1.
+  - Assign: Andrea (to avoid Tuesday shift-off request).
+
+- **Late Shift:**
+  - HeadNurse: No requirement.
+  - Nurse: Minimum 1, Optimal 1.
+  - Assign: Sara (continue from Tuesday).
+
+- **Night Shift:**
+  - HeadNurse: Minimum 1, Optimal 1.
+  - Assign: Patrick (continue from Tuesday).
+
+#### Thursday
+- **Early Shift:**
+  - HeadNurse: No requirement.
+  - Nurse: Minimum 1, Optimal 1.
+  - Assign: Nguyen (start a new sequence).
+
+- **Late Shift:**
+  - HeadNurse: No requirement.
+  - Nurse: Minimum 1, Optimal 1.
+  - Assign: Stefaan (continue from Tuesday).
+
+- **Night Shift:**
+  - HeadNurse: Minimum 1, Optimal 1.
+  - Assign: Andrea (continue from Wednesday).
+
+#### Friday
+- **Early Shift:**
+  - HeadNurse: Minimum 1, Optimal 1.
+  - Assign: Patrick (continue from Thursday).
+
+- **Late Shift:**
+  - HeadNurse: No requirement.
+  - Nurse: Minimum 1, Optimal 1.
+  - Assign: Sara (continue from Thursday).
+
+- **Night Shift:**
+  - HeadNurse: No requirement.
+  - Nurse: Minimum 1, Optimal 1.
+  - Assign: Stefaan (continue from Thursday).
+
+#### Saturday
+- **Early Shift:**
+  - HeadNurse: No requirement.
+  - Nurse: Minimum 1, Optimal 1.
+  - Assign: Nguyen (to avoid Friday shift-off request).
+
+- **Late Shift:**
+  - HeadNurse: Minimum 1, Optimal 1.
+  - Assign: Patrick (continue from Friday).
+
+- **Night Shift:**
+  - HeadNurse: No requirement.
+  - Nurse: Minimum 1, Optimal 1.
+  - Assign: Andrea (continue from Friday).
+
+#### Sunday
+- **Early Shift:**
+  - HeadNurse: No requirement.
+  - Nurse: Minimum 1, Optimal 1.
+  - Assign: Sara (continue from Saturday).
+
+- **Late Shift:**
+  - HeadNurse: Minimum 1, Optimal 1.
+  - Assign: Nguyen (continue from Saturday).
+
+- **Night Shift:**
+  - HeadNurse: No requirement.
+  - Nurse: Minimum 1, Optimal 1.
+  - Assign: Stefaan (continue from Saturday).
+
+### Step 3: Evaluate Soft Constraints and Adjust
+
+- **Consecutive Working Days:** Ensure no nurse exceeds maximum consecutive working days.
+- **Consecutive Days Off:** Ensure compliance with minimum and maximum days off.
+- **Shift Preferences:** Attempt to honor shift-off requests where possible.
+- **Complete Weekend Work Rule:** Ensure nurses working on weekends work both days.
+
+### Step 4: Finalize Roster
+
+After evaluating all constraints and adjusting assignments to minimize penalties, finalize the roster ensuring all hard constraints are met and soft constraint penalties are minimized.
+
+### Conclusion
+
+This approach ensures a balanced roster that adheres to all constraints while minimizing penalties. Adjustments may be needed based on specific violations detected during evaluation.

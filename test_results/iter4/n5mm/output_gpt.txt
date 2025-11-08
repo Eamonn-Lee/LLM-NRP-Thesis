@@ -1,0 +1,143 @@
+To generate a feasible weekly nurse roster, we need to satisfy all hard constraints and aim to minimize the total penalty from soft constraint violations. Let's break down the process step-by-step for each day of the week, considering the given requirements, historical assignments, and requests.
+
+### Initial Setup:
+
+**Nurses:**
+- Patrick (FullTime, HeadNurse, Nurse)
+- Andrea (FullTime, HeadNurse, Nurse)
+- Stefaan (PartTime, HeadNurse, Nurse)
+- Sara (PartTime, Nurse)
+- Nguyen (FullTime, Nurse)
+
+**Shift Types and Constraints:**
+- **Early**: Min 2, Max 5 consecutive assignments
+- **Late**: Min 2, Max 3 consecutive assignments
+- **Night**: Min 4, Max 5 consecutive assignments
+
+**Forbidden Successions:**
+- Late → Early
+- Night → Early, Late
+
+**Contracts:**
+- **FullTime**: Min 15, Max 22 assignments, Min 3, Max 5 consecutive working days, Min 2, Max 3 consecutive days off, Max 2 working weekends, complete weekends required.
+- **PartTime**: Min 7, Max 11 assignments, Min 3, Max 5 consecutive working days, Min 3, Max 5 consecutive days off, Max 2 working weekends, complete weekends required.
+
+### Day-by-Day Roster Planning:
+
+#### Monday:
+- **Requirements**:
+  - Early (Nurse): Min 1, Opt 1
+  - Late (HeadNurse): Min 1, Opt 1
+  - Night (HeadNurse): Min 1, Opt 1
+  - Night (Nurse): Min 1, Opt 1
+
+- **Assignments**:
+  - **Early (Nurse)**: Assign Sara (PartTime, Nurse) to meet the minimum and optimal requirement.
+  - **Late (HeadNurse)**: Assign Andrea (FullTime, HeadNurse) to meet the minimum and optimal requirement.
+  - **Night (HeadNurse)**: Assign Patrick (FullTime, HeadNurse) to meet the minimum and optimal requirement.
+  - **Night (Nurse)**: Assign Nguyen (FullTime, Nurse) to meet the minimum and optimal requirement.
+
+- **Considerations**:
+  - Patrick continues from a Night shift, so he can start a new Night sequence.
+  - Andrea can start a Late sequence since she was last on an Early shift.
+  - Sara and Nguyen have no forbidden transitions affecting them.
+
+#### Tuesday:
+- **Requirements**:
+  - Early (Nurse): Min 1, Opt 1
+  - Late (Nurse): Min 1, Opt 1
+  - Night (Nurse): Min 1, Opt 1
+
+- **Assignments**:
+  - **Early (Nurse)**: Assign Nguyen (FullTime, Nurse) to meet the minimum and optimal requirement.
+  - **Late (Nurse)**: Assign Sara (PartTime, Nurse) to meet the minimum and optimal requirement.
+  - **Night (Nurse)**: Assign Patrick (FullTime, Nurse) to continue his Night sequence.
+
+- **Considerations**:
+  - Andrea requested a day off, so she won't be assigned.
+  - Patrick continues his Night sequence.
+  - Sara can start a Late sequence.
+
+#### Wednesday:
+- **Requirements**:
+  - Early (HeadNurse): Min 1, Opt 1
+  - Late (Nurse): Min 1, Opt 1
+  - Night (HeadNurse): Min 1, Opt 1
+
+- **Assignments**:
+  - **Early (HeadNurse)**: Assign Andrea (FullTime, HeadNurse) to meet the minimum and optimal requirement.
+  - **Late (Nurse)**: Assign Nguyen (FullTime, Nurse) to meet the minimum and optimal requirement.
+  - **Night (HeadNurse)**: Assign Patrick (FullTime, HeadNurse) to continue his Night sequence.
+
+- **Considerations**:
+  - Stefaan requested a day off, so he won't be assigned.
+  - Patrick continues his Night sequence.
+  - Andrea can start an Early sequence.
+
+#### Thursday:
+- **Requirements**:
+  - Early (Nurse): Min 1, Opt 1
+  - Late (Nurse): Min 1, Opt 1
+  - Night (Nurse): Min 1, Opt 1
+
+- **Assignments**:
+  - **Early (Nurse)**: Assign Sara (PartTime, Nurse) to meet the minimum and optimal requirement.
+  - **Late (Nurse)**: Assign Nguyen (FullTime, Nurse) to meet the minimum and optimal requirement.
+  - **Night (Nurse)**: Assign Patrick (FullTime, Nurse) to continue his Night sequence.
+
+- **Considerations**:
+  - Patrick continues his Night sequence.
+  - Sara can continue her Early sequence.
+  - Nguyen can continue his Late sequence.
+
+#### Friday:
+- **Requirements**:
+  - Early (HeadNurse): Min 1, Opt 1
+  - Late (Nurse): Min 1, Opt 1
+
+- **Assignments**:
+  - **Early (HeadNurse)**: Assign Andrea (FullTime, HeadNurse) to meet the minimum and optimal requirement.
+  - **Late (Nurse)**: Assign Sara (PartTime, Nurse) to meet the minimum and optimal requirement.
+
+- **Considerations**:
+  - Nguyen requested a day off, so he won't be assigned.
+  - Patrick finishes his Night sequence and takes a day off.
+
+#### Saturday:
+- **Requirements**:
+  - Early (Nurse): Min 1, Opt 1
+  - Late (HeadNurse): Min 1, Opt 1
+  - Night (Nurse): Min 1, Opt 1
+
+- **Assignments**:
+  - **Early (Nurse)**: Assign Stefaan (PartTime, Nurse) to meet the minimum and optimal requirement.
+  - **Late (HeadNurse)**: Assign Patrick (FullTime, HeadNurse) to meet the minimum and optimal requirement.
+  - **Night (Nurse)**: Assign Nguyen (FullTime, Nurse) to meet the minimum and optimal requirement.
+
+- **Considerations**:
+  - Sara requested not to work Late, so she won't be assigned to Late.
+  - Patrick can start a new sequence with Late.
+
+#### Sunday:
+- **Requirements**:
+  - Early (Nurse): Min 1, Opt 1
+  - Late (HeadNurse): Min 1, Opt 1
+  - Night (Nurse): Min 1, Opt 1
+
+- **Assignments**:
+  - **Early (Nurse)**: Assign Sara (PartTime, Nurse) to meet the minimum and optimal requirement.
+  - **Late (HeadNurse)**: Assign Andrea (FullTime, HeadNurse) to meet the minimum and optimal requirement.
+  - **Night (Nurse)**: Assign Patrick (FullTime, Nurse) to meet the minimum and optimal requirement.
+
+- **Considerations**:
+  - Patrick can continue his sequence.
+  - Andrea can continue her Late sequence.
+
+### Summary:
+
+- **Hard Constraints**: All hard constraints are satisfied, including single assignment per day, minimum staffing, and forbidden successions.
+- **Soft Constraints**: The roster minimizes penalties by respecting shift-off requests and maintaining optimal staffing levels where possible.
+- **Consecutive Assignments**: All nurses respect their contract requirements for consecutive working days and days off.
+- **Weekends**: Nurses who work weekends do so completely, respecting the complete weekend rule.
+
+This roster ensures compliance with all constraints while minimizing penalties from soft constraint violations.

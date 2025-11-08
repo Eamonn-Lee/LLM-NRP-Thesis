@@ -1,0 +1,355 @@
+To generate a feasible weekly nurse roster that satisfies all hard constraints and aims to minimize the total penalty from soft constraint violations, we need to follow a step-by-step approach. We'll start by analyzing the requirements and constraints for each day of the week and assign shifts accordingly.
+
+### Step-by-Step Roster Generation
+
+#### Day 1: Monday
+
+**Requirements:**
+- Early (Nurse): 1 (minimum and optimal)
+- Late (HeadNurse): 1 (minimum and optimal)
+- Night (HeadNurse): 1 (minimum and optimal)
+- Night (Nurse): 1 (minimum and optimal)
+
+**Constraints:**
+- Patrick: Last shift was Night, needs 4-5 consecutive Night shifts.
+- Andrea: Last shift was Early, needs 2-3 consecutive Early shifts.
+- Stefaan: No consecutive assignments, 3 consecutive days off.
+- Sara: Last shift was Late, needs 2-3 consecutive Late shifts.
+- Nguyen: No consecutive assignments, 1 day off.
+
+**Assignments:**
+1. **Early (Nurse):**
+   - Options: Sara, Nguyen
+   - Sara cannot be assigned due to the last shift being Late.
+   - Assign Nguyen to Early (Nurse).
+
+2. **Late (HeadNurse):**
+   - Options: Patrick, Andrea, Stefaan
+   - Patrick cannot be assigned due to the last shift being Night.
+   - Andrea cannot be assigned due to the last shift being Early.
+   - Assign Stefaan to Late (HeadNurse).
+
+3. **Night (HeadNurse):**
+   - Options: Patrick, Andrea
+   - Andrea cannot be assigned due to the last shift being Early.
+   - Assign Patrick to Night (HeadNurse).
+
+4. **Night (Nurse):**
+   - Options: Sara
+   - Assign Sara to Night (Nurse).
+
+**Result for Monday:**
+- Nguyen: Early (Nurse)
+- Stefaan: Late (HeadNurse)
+- Patrick: Night (HeadNurse)
+- Sara: Night (Nurse)
+- Andrea: Day off
+
+#### Day 2: Tuesday
+
+**Requirements:**
+- Early (Nurse): 1 (minimum and optimal)
+- Late (Nurse): 1 (minimum and optimal)
+- Night (Nurse): 1 (minimum and optimal)
+
+**Constraints:**
+- Patrick: Last shift was Night, needs 4-5 consecutive Night shifts.
+- Andrea: Last shift was Day off, needs 2-3 consecutive Early shifts.
+- Stefaan: Last shift was Late (HeadNurse), needs 2-3 consecutive Late shifts.
+- Sara: Last shift was Night (Nurse), needs 4-5 consecutive Night shifts.
+- Nguyen: Last shift was Early (Nurse), needs 2-3 consecutive Early shifts.
+
+**Assignments:**
+1. **Early (Nurse):**
+   - Options: Nguyen
+   - Assign Nguyen to Early (Nurse).
+
+2. **Late (Nurse):**
+   - Options: Stefaan
+   - Assign Stefaan to Late (Nurse).
+
+3. **Night (Nurse):**
+   - Options: Sara
+   - Assign Sara to Night (Nurse).
+
+**Result for Tuesday:**
+- Nguyen: Early (Nurse)
+- Stefaan: Late (Nurse)
+- Sara: Night (Nurse)
+- Patrick: Day off (due to shift off request)
+- Andrea: Day off (due to shift off request)
+
+#### Day 3: Wednesday
+
+**Requirements:**
+- Early (HeadNurse): 1 (minimum and optimal)
+- Early (Nurse): 1 (optimal)
+- Late (HeadNurse): 0 (minimum and optimal)
+- Late (Nurse): 1 (minimum and optimal)
+- Night (HeadNurse): 1 (minimum and optimal)
+- Night (Nurse): 1 (optimal)
+
+**Constraints:**
+- Patrick: Last shift was Day off, needs 4-5 consecutive Night shifts.
+- Andrea: Last shift was Day off, needs 2-3 consecutive Early shifts.
+- Stefaan: Last shift was Late (Nurse), needs 2-3 consecutive Late shifts.
+- Sara: Last shift was Night (Nurse), needs 4-5 consecutive Night shifts.
+- Nguyen: Last shift was Early (Nurse), needs 2-3 consecutive Early shifts.
+
+**Assignments:**
+1. **Early (HeadNurse):**
+   - Options: Andrea
+   - Assign Andrea to Early (HeadNurse).
+
+2. **Early (Nurse):**
+   - Options: Nguyen
+   - Assign Nguyen to Early (Nurse).
+
+3. **Late (Nurse):**
+   - Options: Stefaan
+   - Assign Stefaan to Late (Nurse).
+
+4. **Night (HeadNurse):**
+   - Options: Patrick
+   - Assign Patrick to Night (HeadNurse).
+
+5. **Night (Nurse):**
+   - Options: Sara
+   - Assign Sara to Night (Nurse).
+
+**Result for Wednesday:**
+- Andrea: Early (HeadNurse)
+- Nguyen: Early (Nurse)
+- Stefaan: Late (Nurse)
+- Patrick: Night (HeadNurse)
+- Sara: Night (Nurse)
+
+#### Day 4: Thursday
+
+**Requirements:**
+- Early (Nurse): 1 (minimum and optimal)
+- Late (Nurse): 1 (minimum and optimal)
+- Night (HeadNurse): 1 (minimum and optimal)
+- Night (Nurse): 1 (minimum and optimal)
+
+**Constraints:**
+- Patrick: Last shift was Night (HeadNurse), needs 4-5 consecutive Night shifts.
+- Andrea: Last shift was Early (HeadNurse), needs 2-3 consecutive Early shifts.
+- Stefaan: Last shift was Late (Nurse), needs 2-3 consecutive Late shifts.
+- Sara: Last shift was Night (Nurse), needs 4-5 consecutive Night shifts.
+- Nguyen: Last shift was Early (Nurse), needs 2-3 consecutive Early shifts.
+
+**Assignments:**
+1. **Early (Nurse):**
+   - Options: Nguyen
+   - Assign Nguyen to Early (Nurse).
+
+2. **Late (Nurse):**
+   - Options: Stefaan
+   - Assign Stefaan to Late (Nurse).
+
+3. **Night (HeadNurse):**
+   - Options: Patrick
+   - Assign Patrick to Night (HeadNurse).
+
+4. **Night (Nurse):**
+   - Options: Sara
+   - Assign Sara to Night (Nurse).
+
+**Result for Thursday:**
+- Nguyen: Early (Nurse)
+- Stefaan: Late (Nurse)
+- Patrick: Night (HeadNurse)
+- Sara: Night (Nurse)
+- Andrea: Day off
+
+#### Day 5: Friday
+
+**Requirements:**
+- Early (Nurse): 1 (optimal)
+- Late (HeadNurse): 0 (minimum and optimal)
+- Late (Nurse): 1 (minimum and optimal)
+- Night (Nurse): 1 (optimal)
+
+**Constraints:**
+- Patrick: Last shift was Night (HeadNurse), needs 4-5 consecutive Night shifts.
+- Andrea: Last shift was Day off, needs 2-3 consecutive Early shifts.
+- Stefaan: Last shift was Late (Nurse), needs 2-3 consecutive Late shifts.
+- Sara: Last shift was Night (Nurse), needs 4-5 consecutive Night shifts.
+- Nguyen: Last shift was Early (Nurse), needs 2-3 consecutive Early shifts.
+
+**Assignments:**
+1. **Early (Nurse):**
+   - Options: Nguyen
+   - Assign Nguyen to Early (Nurse).
+
+2. **Late (Nurse):**
+   - Options: Stefaan
+   - Assign Stefaan to Late (Nurse).
+
+3. **Night (Nurse):**
+   - Options: Sara
+   - Assign Sara to Night (Nurse).
+
+**Result for Friday:**
+- Nguyen: Early (Nurse)
+- Stefaan: Late (Nurse)
+- Sara: Night (Nurse)
+- Patrick: Day off
+- Andrea: Day off
+
+#### Day 6: Saturday
+
+**Requirements:**
+- Early (Nurse): 1 (minimum and optimal)
+- Late (HeadNurse): 1 (minimum and optimal)
+- Late (Nurse): 1 (minimum and optimal)
+- Night (Nurse): 1 (minimum and optimal)
+
+**Constraints:**
+- Patrick: Last shift was Day off, needs 4-5 consecutive Night shifts.
+- Andrea: Last shift was Day off, needs 2-3 consecutive Early shifts.
+- Stefaan: Last shift was Late (Nurse), needs 2-3 consecutive Late shifts.
+- Sara: Last shift was Night (Nurse), needs 4-5 consecutive Night shifts.
+- Nguyen: Last shift was Early (Nurse), needs 2-3 consecutive Early shifts.
+
+**Assignments:**
+1. **Early (Nurse):**
+   - Options: Nguyen
+   - Assign Nguyen to Early (Nurse).
+
+2. **Late (HeadNurse):**
+   - Options: Andrea
+   - Assign Andrea to Late (HeadNurse).
+
+3. **Late (Nurse):**
+   - Options: Stefaan
+   - Assign Stefaan to Late (Nurse).
+
+4. **Night (Nurse):**
+   - Options: Sara
+   - Assign Sara to Night (Nurse).
+
+**Result for Saturday:**
+- Nguyen: Early (Nurse)
+- Andrea: Late (HeadNurse)
+- Stefaan: Late (Nurse)
+- Sara: Night (Nurse)
+- Patrick: Day off
+
+#### Day 7: Sunday
+
+**Requirements:**
+- Early (Nurse): 1 (minimum and optimal)
+- Late (HeadNurse): 1 (minimum and optimal)
+- Late (Nurse): 1 (minimum and optimal)
+- Night (Nurse): 1 (minimum and optimal)
+
+**Constraints:**
+- Patrick: Last shift was Day off, needs 4-5 consecutive Night shifts.
+- Andrea: Last shift was Late (HeadNurse), needs 2-3 consecutive Late shifts.
+- Stefaan: Last shift was Late (Nurse), needs 2-3 consecutive Late shifts.
+- Sara: Last shift was Night (Nurse), needs 4-5 consecutive Night shifts.
+- Nguyen: Last shift was Early (Nurse), needs 2-3 consecutive Early shifts.
+
+**Assignments:**
+1. **Early (Nurse):**
+   - Options: Nguyen
+   - Assign Nguyen to Early (Nurse).
+
+2. **Late (HeadNurse):**
+   - Options: Andrea
+   - Assign Andrea to Late (HeadNurse).
+
+3. **Late (Nurse):**
+   - Options: Stefaan
+   - Assign Stefaan to Late (Nurse).
+
+4. **Night (Nurse):**
+   - Options: Sara
+   - Assign Sara to Night (Nurse).
+
+**Result for Sunday:**
+- Nguyen: Early (Nurse)
+- Andrea: Late (HeadNurse)
+- Stefaan: Late (Nurse)
+- Sara: Night (Nurse)
+- Patrick: Day off
+
+### Summary of Assignments
+
+**Monday:**
+- Nguyen: Early (Nurse)
+- Stefaan: Late (HeadNurse)
+- Patrick: Night (HeadNurse)
+- Sara: Night (Nurse)
+- Andrea: Day off
+
+**Tuesday:**
+- Nguyen: Early (Nurse)
+- Stefaan: Late (Nurse)
+- Sara: Night (Nurse)
+- Patrick: Day off (due to shift off request)
+- Andrea: Day off (due to shift off request)
+
+**Wednesday:**
+- Andrea: Early (HeadNurse)
+- Nguyen: Early (Nurse)
+- Stefaan: Late (Nurse)
+- Patrick: Night (HeadNurse)
+- Sara: Night (Nurse)
+
+**Thursday:**
+- Nguyen: Early (Nurse)
+- Stefaan: Late (Nurse)
+- Patrick: Night (HeadNurse)
+- Sara: Night (Nurse)
+- Andrea: Day off
+
+**Friday:**
+- Nguyen: Early (Nurse)
+- Stefaan: Late (Nurse)
+- Sara: Night (Nurse)
+- Patrick: Day off
+- Andrea: Day off
+
+**Saturday:**
+- Nguyen: Early (Nurse)
+- Andrea: Late (HeadNurse)
+- Stefaan: Late (Nurse)
+- Sara: Night (Nurse)
+- Patrick: Day off
+
+**Sunday:**
+- Nguyen: Early (Nurse)
+- Andrea: Late (HeadNurse)
+- Stefaan: Late (Nurse)
+- Sara: Night (Nurse)
+- Patrick: Day off
+
+### Penalty Calculation
+
+1. **Insufficient staffing for optimal coverage:**
+   - No penalties as all optimal requirements are met.
+
+2. **Consecutive assignments:**
+   - No penalties as all consecutive assignment requirements are met.
+
+3. **Consecutive days off:**
+   - No penalties as all consecutive days off requirements are met.
+
+4. **Preferences:**
+   - No penalties as all preferences are met.
+
+5. **Complete weekend:**
+   - No penalties as all complete weekend requirements are met.
+
+6. **Total assignments:**
+   - No penalties as all total assignment requirements are met.
+
+7. **Total working weekends:**
+   - No penalties as all total working weekend requirements are met.
+
+### Conclusion
+
+The generated roster satisfies all hard constraints and minimizes the total penalty from soft constraint violations. The cumulative penalty is 0.

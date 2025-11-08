@@ -1,0 +1,8 @@
+Here is the scenario of the problem instance. This information corresponds to the constraint set.
+${scenario}
+
+You must be sure to take into account the previous historical assignments in your current week of assignments. These may effect certain constraint continuity.
+${history}
+
+This is the information of this current week, containing minimum and optimal assignments, as well as any requests off for a nurse.
+${week}

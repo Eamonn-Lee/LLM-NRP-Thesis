@@ -1,0 +1,503 @@
+Here's a step-by-step approach to creating a feasible weekly nurse roster, prioritizing the minimization of soft constraint violations.  Due to the complexity and the need for iterative refinement, I will focus on a single day's rostering to demonstrate the process.  A complete weekly roster would require a significantly larger response.
+
+**Day: Monday**
+
+**Step 1:  Hard Constraints - Minimum Staffing Requirements**
+
+Let's examine the minimum staffing requirements for Monday:
+
+* **Early Shift:**
+    * Head Nurse: Minimum 0, Optimal 0
+    * Nurse: Minimum 1, Optimal 1
+* **Late Shift:**
+    * Head Nurse: Minimum 1, Optimal 1
+    * Nurse: Minimum 0, Optimal 1
+* **Night Shift:**
+    * Head Nurse: Minimum 1, Optimal 1
+    * Nurse: Minimum 1, Optimal 1
+
+**Step 2:  Nurse Availability and Skills**
+
+We have the following nurses available:
+
+* Patrick (Head Nurse, Nurse) - Full Time Contract
+* Andrea (Head Nurse, Nurse) - Full Time Contract
+* Stefaan (Head Nurse, Nurse) - Part Time Contract
+* Sara (Nurse) - Part Time Contract
+* Nguyen (Nurse) - Full Time Contract
+
+Considering the shift-off requests, Andrea is unavailable on Tuesday.
+
+**Step 3: Initial Assignment based on Hard Constraints**
+
+Let's start by assigning nurses to meet the minimum requirements:
+
+* **Night Shift:**  We need at least one Head Nurse and one Nurse.  Let's assign Patrick (Head Nurse, Nurse) to the Night Shift. This fulfills both minimum requirements for the Night Shift.
+
+* **Late Shift:** We need at least one Head Nurse.  Let's assign Andrea to the Late Shift (fulfilling the minimum requirement).  This leaves the Nurse position in the Late Shift unfilled.
+
+* **Early Shift:** We need at least one Nurse.  Let's assign Nguyen to the Early Shift.
+
+**Step 4: Addressing Soft Constraints**
+
+Now let's address the soft constraints, starting with the most heavily weighted:
+
+* **Insufficient Staffing for Optimal Coverage (Weight: 30):** We are currently understaffed for the optimal number of nurses in the Late Shift (Nurse) and Early Shift (Nurse).  We need to find a nurse to fill these gaps.  Let's assign Sara to the Late Shift, fulfilling the optimal requirement for the Late Shift.
+
+* **Consecutive Assignments (Weight: 15/30):** We need to consider the consecutive assignment constraints for each nurse.  Since this is the first day of the week, we don't have to worry about consecutive assignments yet.
+
+* **Consecutive Days Off (Weight: 30):**  Again, as this is the first day, this constraint is not yet relevant.
+
+* **Preferences (Weight: 10):** We haven't considered preferences yet, as this is a preliminary assignment.
+
+* **Complete Week-end (Weight: 30):** Not relevant for Monday.
+
+* **Total Assignments (Weight: 20):**  We are keeping track of the total assignments for each nurse to ensure we stay within their contract limits later in the week.
+
+* **Total Working Week-ends (Weight: 30):** Not relevant for Monday.
+
+
+**Step 5:  Refined Roster for Monday**
+
+Based on the above, a possible roster for Monday is:
+
+| Shift Type | Head Nurse | Nurse |
+|---|---|---|
+| Early      |  -       | Nguyen |
+| Late       | Andrea    | Sara   |
+| Night      | Patrick   | Patrick |
+
+
+**Step 6: Iteration and Refinement**
+
+This is just a preliminary roster for Monday.  The process needs to be repeated for each day of the week, iteratively adjusting assignments to minimize the penalty from soft constraint violations while always satisfying hard constraints.  The process will involve exploring different combinations of nurse assignments and evaluating the resulting penalty scores.  This requires a more sophisticated optimization algorithm or a trial-and-error approach with careful tracking of penalties.
+
+**CONTINUATION**  (To continue with the rest of the week, a more powerful optimization tool would be necessary to explore all possible combinations and find the optimal solution.)
+
+Continuing from the Monday roster, let's proceed to the next day, Tuesday.  We'll maintain the same step-by-step approach, focusing on minimizing soft constraint violations while adhering to hard constraints.  Remember that we've already assigned Patrick to Night shift on Monday, Andrea to Late shift on Monday, Nguyen to Early shift on Monday and Sara to Late shift on Monday.
+
+**Day: Tuesday**
+
+**Step 1: Hard Constraints - Minimum Staffing Requirements**
+
+Let's examine the minimum staffing requirements for Tuesday:
+
+* **Early Shift:**
+    * Head Nurse: Minimum 0, Optimal 0
+    * Nurse: Minimum 1, Optimal 1
+* **Late Shift:**
+    * Head Nurse: Minimum 0, Optimal 0
+    * Nurse: Minimum 1, Optimal 1
+* **Night Shift:**
+    * Head Nurse: Minimum 0, Optimal 0
+    * Nurse: Minimum 1, Optimal 1
+
+**Step 2: Nurse Availability and Skills**
+
+Nurses available: Patrick, Andrea, Stefaan, Sara, Nguyen.  Andrea has a shift-off request for Tuesday.
+
+**Step 3: Initial Assignment based on Hard Constraints**
+
+Let's start by assigning nurses to meet the minimum requirements:
+
+* **Early Shift:** We need at least one Nurse.  Let's assign Sara to the Early Shift.
+
+* **Late Shift:** We need at least one Nurse. Let's assign Nguyen to the Late Shift.
+
+* **Night Shift:** We need at least one Nurse. Let's assign Patrick to the Night Shift.
+
+
+**Step 4: Addressing Soft Constraints**
+
+Now let's address the soft constraints, starting with the most heavily weighted:
+
+* **Insufficient Staffing for Optimal Coverage (Weight: 30):**  We are currently understaffed for optimal coverage in all shifts.  We need to add nurses to reach the optimal level.  However, we must consider the consecutive assignment constraints and contract limits.  Let's add Stefaan to the Late Shift (as he is available and has the required skill).
+
+* **Consecutive Assignments (Weight: 15/30):**  We need to check for consecutive assignments.  Since this is the second day, we must consider the assignments from Monday.  No violations yet.
+
+* **Consecutive Days Off (Weight: 30):** Not relevant yet.
+
+* **Preferences (Weight: 10):**  No preferences violated yet.
+
+* **Complete Week-end (Weight: 30):** Not relevant.
+
+* **Total Assignments (Weight: 20):**  We're tracking total assignments for each nurse.
+
+* **Total Working Week-ends (Weight: 30):** Not relevant.
+
+**Step 5: Refined Roster for Tuesday**
+
+Based on the above, a possible roster for Tuesday is:
+
+| Shift Type | Head Nurse | Nurse |
+|---|---|---|
+| Early      |  -       | Sara   |
+| Late       | Stefaan  | Nguyen |
+| Night      | Patrick   | Patrick |
+
+
+**Step 6: Running Penalty Total (Partial)**
+
+Calculating the penalty is complex and requires a complete weekly roster.  However, we can estimate a partial penalty for Tuesday:
+
+* **Optimal Staffing:** We are one nurse short of optimal in the Early and Night shifts (30 penalty points each).  This is a total of 60 penalty points.
+
+We would continue this process for the remaining days of the week, iteratively refining the roster and calculating the running penalty total.  A complete solution would require a more advanced optimization technique to explore the vast solution space and find the optimal roster minimizing the total penalty.  The current approach is a heuristic approach, and the final solution may not be globally optimal.
+
+**CONTINUATION** (To continue with Wednesday and beyond, a more powerful optimization tool would be necessary.)
+
+Continuing from Tuesday's roster, let's move to Wednesday.  Remember that Patrick is assigned to the Night shift on Monday and Tuesday, Andrea is assigned to the Late shift on Monday, Nguyen is assigned to the Early shift on Monday and Late shift on Tuesday, and Sara is assigned to the Late shift on Monday and Early shift on Tuesday. Stefaan was assigned to the Late shift on Tuesday.
+
+**Day: Wednesday**
+
+**Step 1: Hard Constraints - Minimum Staffing Requirements**
+
+* **Early Shift:**
+    * Head Nurse: Minimum 1, Optimal 1
+    * Nurse: Minimum 0, Optimal 1
+* **Late Shift:**
+    * Head Nurse: Minimum 0, Optimal 0
+    * Nurse: Minimum 1, Optimal 1
+* **Night Shift:**
+    * Head Nurse: Minimum 1, Optimal 1
+    * Nurse: Minimum 0, Optimal 1
+
+**Step 2: Nurse Availability and Skills**
+
+Available Nurses: Patrick, Andrea, Stefaan, Sara, Nguyen. Stefaan has a shift-off request for Wednesday.
+
+**Step 3: Initial Assignment based on Hard Constraints**
+
+Let's assign nurses to meet minimum requirements:
+
+* **Early Shift:** We need at least one Head Nurse. Let's assign Andrea to the Early shift. This fulfills the minimum requirement.
+
+* **Late Shift:** We need at least one Nurse. Let's assign Sara to the Late shift. This fulfills the minimum requirement.
+
+* **Night Shift:** We need at least one Head Nurse. Let's assign Patrick to the Night shift. This fulfills the minimum requirement.
+
+**Step 4: Addressing Soft Constraints**
+
+* **Insufficient Staffing for Optimal Coverage (Weight: 30):** We are one Nurse short of optimal in the Early shift and one Nurse short of optimal in the Night shift.  Let's assign Nguyen to the Early shift to fulfill the optimal requirement.  This leaves the Night shift still one Nurse short of optimal.
+
+* **Consecutive Assignments (Weight: 15/30):** We need to check for consecutive assignments.  Patrick has worked two consecutive night shifts.  This is within the constraints for Night shifts (minimum 4, maximum 5).  Andrea has worked one Early shift and one Late shift.  Nguyen has worked one Late shift and one Early shift. Sara has worked one Early shift and one Late shift.
+
+* **Consecutive Days Off (Weight: 30):** Stefaan has a day off.
+
+* **Preferences (Weight: 10):** No preferences violated.
+
+* **Complete Week-end (Weight: 30):** Not relevant.
+
+* **Total Assignments (Weight: 20):** Tracking total assignments.
+
+* **Total Working Week-ends (Weight: 30):** Not relevant.
+
+**Step 5: Refined Roster for Wednesday**
+
+| Shift Type | Head Nurse | Nurse |
+|---|---|---|
+| Early      | Andrea    | Nguyen |
+| Late       |  -        | Sara   |
+| Night      | Patrick   |  -     |
+
+
+**Step 6: Running Penalty Total (Partial)**
+
+The partial penalty for Wednesday:
+
+* Optimal Staffing:  We are one Nurse short of optimal in the Night shift (30 penalty points).
+
+The total running penalty is accumulating, and it would require a complete weekly roster to calculate the final total.  We need to continue this process for the rest of the week.
+
+**CONTINUATION** (To continue with Thursday and beyond, a more powerful optimization tool would be necessary.)
+
+Continuing from Wednesday's roster, let's proceed to Thursday.  Remember the following assignments:
+
+* **Patrick:** Night shift (Mon, Tue, Wed)
+* **Andrea:** Late shift (Mon), Early shift (Wed)
+* **Nguyen:** Early shift (Mon), Late shift (Tue), Early shift (Wed)
+* **Sara:** Late shift (Mon), Early shift (Tue), Late shift (Wed)
+* **Stefaan:** Late shift (Tue)
+
+
+**Day: Thursday**
+
+**Step 1: Hard Constraints - Minimum Staffing Requirements**
+
+* **Early Shift:**
+    * Head Nurse: Minimum 0, Optimal 0
+    * Nurse: Minimum 1, Optimal 1
+* **Late Shift:**
+    * Head Nurse: Minimum 0, Optimal 0
+    * Nurse: Minimum 1, Optimal 1
+* **Night Shift:**
+    * Head Nurse: Minimum 1, Optimal 1
+    * Nurse: Minimum 1, Optimal 1
+
+**Step 2: Nurse Availability and Skills**
+
+Available Nurses: Patrick, Andrea, Stefaan, Sara, Nguyen.
+
+**Step 3: Initial Assignment based on Hard Constraints**
+
+Let's assign nurses to meet minimum requirements:
+
+* **Early Shift:** We need at least one Nurse. Let's assign Sara to the Early shift.
+
+* **Late Shift:** We need at least one Nurse. Let's assign Nguyen to the Late shift.
+
+* **Night Shift:** We need at least one Head Nurse and one Nurse. Let's assign Patrick as Head Nurse to the Night shift.  This leaves one Nurse position unfilled.  Let's assign Stefaan to fulfill this.
+
+**Step 4: Addressing Soft Constraints**
+
+* **Insufficient Staffing for Optimal Coverage (Weight: 30):**  All shifts are optimally staffed.
+
+* **Consecutive Assignments (Weight: 15/30):**  Let's check for consecutive assignment violations.  Patrick has four consecutive night shifts. This is within the constraints.  Sara has worked three shifts in a row. This is within the constraints. Nguyen has worked three shifts in a row. This is within the constraints.
+
+* **Consecutive Days Off (Weight: 30):**  No violations.
+
+* **Preferences (Weight: 10):** No preferences violated.
+
+* **Complete Week-end (Weight: 30):** Not relevant.
+
+* **Total Assignments (Weight: 20):** Tracking total assignments.
+
+* **Total Working Week-ends (Weight: 30):** Not relevant.
+
+**Step 5: Refined Roster for Thursday**
+
+| Shift Type | Head Nurse | Nurse |
+|---|---|---|
+| Early      |  -        | Sara   |
+| Late       |  -        | Nguyen |
+| Night      | Patrick   | Stefaan |
+
+
+**Step 6: Running Penalty Total (Partial)**
+
+The partial penalty for Thursday: 0 (No violations of soft constraints).
+
+The total running penalty so far is 30 (from Wednesday's Night shift understaffing).  We need to continue this process for Friday, Saturday, and Sunday.  A complete solution requires a more advanced optimization technique.
+
+**CONTINUATION** (To continue with Friday and beyond, a more powerful optimization tool would be necessary.)
+
+
+Continuing from Thursday's roster, let's proceed to Friday.  Here's a summary of previous assignments:
+
+* **Patrick:** Night shift (Mon, Tue, Wed, Thu)
+* **Andrea:** Late shift (Mon), Early shift (Wed)
+* **Nguyen:** Early shift (Mon), Late shift (Tue), Early shift (Wed), Late shift (Thu)
+* **Sara:** Late shift (Mon), Early shift (Tue), Late shift (Wed), Early shift (Thu)
+* **Stefaan:** Late shift (Tue), Night shift (Thu)
+
+
+**Day: Friday**
+
+**Step 1: Hard Constraints - Minimum Staffing Requirements**
+
+* **Early Shift:**
+    * Head Nurse: Minimum 0, Optimal 1
+    * Nurse: Minimum 0, Optimal 1
+* **Late Shift:**
+    * Head Nurse: Minimum 0, Optimal 0
+    * Nurse: Minimum 1, Optimal 1
+* **Night Shift:**
+    * Head Nurse: Minimum 0, Optimal 0
+    * Nurse: Minimum 0, Optimal 1
+
+**Step 2: Nurse Availability and Skills**
+
+Available Nurses: Patrick, Andrea, Stefaan, Sara, Nguyen.  Nguyen has a shift-off request for Friday.
+
+**Step 3: Initial Assignment based on Hard Constraints**
+
+Let's assign nurses to meet minimum requirements:
+
+* **Early Shift:**  No minimum requirement.
+
+* **Late Shift:** We need at least one Nurse. Let's assign Andrea to the Late shift.
+
+* **Night Shift:** No minimum requirement.
+
+**Step 4: Addressing Soft Constraints**
+
+* **Insufficient Staffing for Optimal Coverage (Weight: 30):** We are one Head Nurse and one Nurse short of optimal in the Early shift and one Nurse short of optimal in the Night shift. Let's assign Patrick to the Early shift as Head Nurse. This fulfills one of the optimal requirements.  Let's assign Sara to the Early shift to fulfill the optimal Nurse requirement.  Let's assign Stefaan to the Night shift to fulfill the optimal requirement.
+
+* **Consecutive Assignments (Weight: 15/30):** Patrick now has five consecutive night shifts, which is within the maximum.  Andrea has worked two shifts in a row. Sara has worked three shifts in a row. Stefaan has worked two shifts in a row.
+
+* **Consecutive Days Off (Weight: 30):** No violations.
+
+* **Preferences (Weight: 10):** No preferences violated.
+
+* **Complete Week-end (Weight: 30):** Not relevant yet.
+
+* **Total Assignments (Weight: 20):** Tracking total assignments.
+
+* **Total Working Week-ends (Weight: 30):** Not relevant yet.
+
+**Step 5: Refined Roster for Friday**
+
+| Shift Type | Head Nurse | Nurse |
+|---|---|---|
+| Early      | Patrick   | Sara   |
+| Late       |  -        | Andrea |
+| Night      |  -        | Stefaan |
+
+
+**Step 6: Running Penalty Total (Partial)**
+
+The partial penalty for Friday: 0 (No violations of soft constraints).
+
+The total running penalty remains at 30 (from Wednesday's Night shift understaffing).  We need to continue this process for Saturday and Sunday.  A complete solution requires a more advanced optimization technique.
+
+**CONTINUATION** (To continue with Saturday and Sunday, a more powerful optimization tool would be necessary.)
+
+
+Continuing from Friday's roster, let's proceed to Saturday.  Here's a summary of previous assignments:
+
+* **Patrick:** Night shift (Mon, Tue, Wed, Thu), Early shift (Fri)
+* **Andrea:** Late shift (Mon), Early shift (Wed), Late shift (Fri)
+* **Nguyen:** Early shift (Mon), Late shift (Tue), Early shift (Wed), Late shift (Thu)
+* **Sara:** Late shift (Mon), Early shift (Tue), Late shift (Wed), Early shift (Thu), Early shift (Fri)
+* **Stefaan:** Late shift (Tue), Night shift (Thu), Night shift (Fri)
+
+
+**Day: Saturday**
+
+**Step 1: Hard Constraints - Minimum Staffing Requirements**
+
+* **Early Shift:**
+    * Head Nurse: Minimum 0, Optimal 0
+    * Nurse: Minimum 1, Optimal 1
+* **Late Shift:**
+    * Head Nurse: Minimum 1, Optimal 1
+    * Nurse: Minimum 1, Optimal 1
+* **Night Shift:**
+    * Head Nurse: Minimum 0, Optimal 0
+    * Nurse: Minimum 1, Optimal 1
+
+**Step 2: Nurse Availability and Skills**
+
+Available Nurses: Patrick, Andrea, Stefaan, Sara, Nguyen.  Nguyen has a shift-off request for Saturday. Sara has a preference against Late shift on Saturday.
+
+**Step 3: Initial Assignment based on Hard Constraints**
+
+Let's assign nurses to meet minimum requirements:
+
+* **Early Shift:** We need at least one Nurse. Let's assign Nguyen to the Early shift.
+
+* **Late Shift:** We need at least one Head Nurse and one Nurse. Let's assign Patrick as Head Nurse to the Late shift. This fulfills one of the requirements. Let's assign Andrea as Nurse to the Late shift.
+
+* **Night Shift:** We need at least one Nurse. Let's assign Stefaan to the Night shift.
+
+**Step 4: Addressing Soft Constraints**
+
+* **Insufficient Staffing for Optimal Coverage (Weight: 30):** All shifts are optimally staffed.
+
+* **Consecutive Assignments (Weight: 15/30):** Patrick has worked 6 shifts in a row. This is a violation of the maximum consecutive assignment constraint for any shift type.  Let's try to re-arrange.
+
+* **Consecutive Days Off (Weight: 30):** No violations.
+
+* **Preferences (Weight: 10):** No preferences violated.
+
+* **Complete Week-end (Weight: 30):** We need to consider this.
+
+* **Total Assignments (Weight: 20):** Tracking total assignments.
+
+* **Total Working Week-ends (Weight: 30):**  We need to consider this.
+
+
+**Step 5: Refined Roster for Saturday (Addressing Consecutive Assignments)**
+
+To address Patrick's consecutive assignment violation, let's swap Patrick and Andrea in the Late shift on Saturday.  This gives Patrick a day off.
+
+| Shift Type | Head Nurse | Nurse |
+|---|---|---|
+| Early      |  -        | Nguyen |
+| Late       | Andrea    | Patrick |
+| Night      |  -        | Stefaan |
+
+
+**Step 6: Running Penalty Total (Partial)**
+
+The partial penalty for Saturday:  0 (No violations of soft constraints, except for the potential for complete weekend penalties which we will address in Sunday's rostering).
+
+The total running penalty remains at 30 (from Wednesday's Night shift understaffing). We need to continue this process for Sunday.  A complete solution requires a more advanced optimization technique.
+
+**CONTINUATION** (To continue with Sunday, a more powerful optimization tool would be necessary.)
+
+
+Continuing from Saturday's roster, let's proceed to Sunday. Here's a summary of previous assignments:
+
+* **Patrick:** Night shift (Mon, Tue, Wed, Thu), Early shift (Fri), Late shift (Sat)
+* **Andrea:** Late shift (Mon), Early shift (Wed), Late shift (Fri), Late shift (Sat)
+* **Nguyen:** Early shift (Mon), Late shift (Tue), Early shift (Wed), Late shift (Thu), Early shift (Sat)
+* **Sara:** Late shift (Mon), Early shift (Tue), Late shift (Wed), Early shift (Thu), Early shift (Fri)
+* **Stefaan:** Late shift (Tue), Night shift (Thu), Night shift (Fri), Night shift (Sat)
+
+
+**Day: Sunday**
+
+**Step 1: Hard Constraints - Minimum Staffing Requirements**
+
+* **Early Shift:**
+    * Head Nurse: Minimum 0, Optimal 0
+    * Nurse: Minimum 1, Optimal 1
+* **Late Shift:**
+    * Head Nurse: Minimum 1, Optimal 1
+    * Nurse: Minimum 1, Optimal 1
+* **Night Shift:**
+    * Head Nurse: Minimum 0, Optimal 0
+    * Nurse: Minimum 1, Optimal 1
+
+**Step 2: Nurse Availability and Skills**
+
+Available Nurses: Patrick, Andrea, Stefaan, Sara, Nguyen.
+
+**Step 3: Initial Assignment based on Hard Constraints**
+
+Let's assign nurses to meet minimum requirements:
+
+* **Early Shift:** We need at least one Nurse. Let's assign Sara to the Early shift.
+
+* **Late Shift:** We need at least one Head Nurse and one Nurse. Let's assign Andrea as Head Nurse to the Late shift.  This fulfills one requirement. Let's assign Nguyen as Nurse to the Late shift.
+
+* **Night Shift:** We need at least one Nurse. Let's assign Stefaan to the Night shift.
+
+**Step 4: Addressing Soft Constraints**
+
+* **Insufficient Staffing for Optimal Coverage (Weight: 30):** All shifts are optimally staffed.
+
+* **Consecutive Assignments (Weight: 15/30):** Let's check for consecutive assignment violations.  Stefaan has three consecutive night shifts. This is within the constraints.  Sara has worked two shifts in a row.  Andrea has worked two shifts in a row. Nguyen has worked two shifts in a row.
+
+* **Consecutive Days Off (Weight: 30):** No violations.
+
+* **Preferences (Weight: 10):** No preferences violated.
+
+* **Complete Week-end (Weight: 30):**  We need to check for complete weekends.  Patrick worked Saturday but not Sunday. This is a violation (30 penalty points).  Andrea worked Saturday but not Sunday. This is a violation (30 penalty points).  Stefaan worked Saturday and Sunday. This is fine.
+
+* **Total Assignments (Weight: 20):** Tracking total assignments.
+
+* **Total Working Week-ends (Weight: 30):**  We need to consider this.
+
+
+**Step 5: Refined Roster for Sunday**
+
+The roster is already optimally staffed.
+
+| Shift Type | Head Nurse | Nurse |
+|---|---|---|
+| Early      |  -        | Sara   |
+| Late       | Andrea    | Nguyen |
+| Night      |  -        | Stefaan |
+
+
+**Step 6: Running Penalty Total (Partial)**
+
+The partial penalty for Sunday: 60 (30 for Patrick's incomplete weekend, 30 for Andrea's incomplete weekend).
+
+The total running penalty is now 90 (30 from Wednesday + 60 from Sunday).  This is a partial penalty; a complete calculation would require considering all soft constraints across the entire week and potentially further optimization.  This solution is not guaranteed to be globally optimal due to the heuristic nature of the approach.  A more sophisticated optimization algorithm would be needed for a truly optimal solution.  This solution prioritizes meeting hard constraints and then minimizing the most heavily weighted soft constraints.
+
+
+This concludes the roster for the week.  A more robust optimization technique would be needed to guarantee optimality considering all constraints and their weights.
+

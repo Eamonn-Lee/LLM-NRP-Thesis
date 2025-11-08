@@ -1,180 +1,206 @@
-from ortools.sat.python import cp_model
 import json
+from collections import defaultdict
+import pprint
 
-def main():
-    # Days of the week
-    days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-    full_day_names = {
-        "Monday": "Mon",
-        "Tuesday": "Tue",
-        "Wednesday": "Wed",
-        "Thursday": "Thu",
-        "Friday": "Fri",
-        "Saturday": "Sat",
-        "Sunday": "Sun"
-    }
-    
-    # Nurse data (from the scenario)
-    nurses = {
-        "Patrick": {"contract": "FullTime", "skills": ["HeadNurse", "Nurse"]},
-        "Andrea": {"contract": "FullTime", "skills": ["HeadNurse", "Nurse"]},
-        "Stefaan": {"contract": "PartTime", "skills": ["HeadNurse", "Nurse"]},
-        "Sara": {"contract": "PartTime", "skills": ["Nurse"]},
-        "Nguyen": {"contract": "FullTime", "skills": ["Nurse"]}
-    }
-    
-    # Previous week assignment history (used for forbidden transition on day 0)
-    nurse_history = {
-        "Patrick": {"lastAssignedShiftType": "Night", "numberOfAssignments": 0,
-                    "numberOfWorkingWeekends": 0, "numberOfConsecutiveAssignments": 1,
-                    "numberOfConsecutiveWorkingDays": 4, "numberOfConsecutiveDaysOff": 0},
-        "Andrea": {"lastAssignedShiftType": "Early", "numberOfAssignments": 0,
-                   "numberOfWorkingWeekends": 0, "numberOfConsecutiveAssignments": 3,
-                   "numberOfConsecutiveWorkingDays": 3, "numberOfConsecutiveDaysOff": 0},
-        "Stefaan": {"lastAssignedShiftType": "None", "numberOfAssignments": 0,
-                    "numberOfWorkingWeekends": 0, "numberOfConsecutiveAssignments": 0,
-                    "numberOfConsecutiveWorkingDays": 0, "numberOfConsecutiveDaysOff": 3},
-        "Sara": {"lastAssignedShiftType": "Late", "numberOfAssignments": 0,
-                 "numberOfWorkingWeekends": 0, "numberOfConsecutiveAssignments": 1,
-                 "numberOfConsecutiveWorkingDays": 4, "numberOfConsecutiveDaysOff": 0},
-        "Nguyen": {"lastAssignedShiftType": "None", "numberOfAssignments": 0,
-                   "numberOfWorkingWeekends": 0, "numberOfConsecutiveAssignments": 0,
-                   "numberOfConsecutiveWorkingDays": 0, "numberOfConsecutiveDaysOff": 1}
-    }
-    
-    # Shift types and their forbidden succeeding shift types.
-    shift_types = ["Early", "Late", "Night"]
-    forbidden_transitions = {
-        "Early": [],
-        "Late": ["Early"],
-        "Night": ["Early", "Late"]
-    }
-    
-    # Current week requirements (minimum coverage per day)
-    # For each requirement, we convert the keys to the three-letter day abbreviations.
-    requirements = [
-        {"shiftType": "Early", "skill": "HeadNurse", 
-         "requirements": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 0}},
-        {"shiftType": "Early", "skill": "Nurse", 
-         "requirements": {"Mon": 1, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 1}},
-        {"shiftType": "Late", "skill": "HeadNurse", 
-         "requirements": {"Mon": 1, "Tue": 0, "Wed": 0, "Thu": 0, "Fri": 0, "Sat": 1, "Sun": 1}},
-        {"shiftType": "Late", "skill": "Nurse", 
-         "requirements": {"Mon": 0, "Tue": 1, "Wed": 1, "Thu": 1, "Fri": 1, "Sat": 1, "Sun": 1}},
-        {"shiftType": "Night", "skill": "HeadNurse", 
-         "requirements": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 1, "Fri": 0, "Sat": 0, "Sun": 0}},
-        {"shiftType": "Night", "skill": "Nurse", 
-         "requirements": {"Mon": 1, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 1}}
-    ]
-    
-    # Shift off requests
-    shift_off_requests = [
-        {"nurse": "Andrea", "shiftType": "Any", "day": "Tuesday"},
-        {"nurse": "Stefaan", "shiftType": "Any", "day": "Wednesday"},
-        {"nurse": "Nguyen", "shiftType": "Any", "day": "Friday"},
-        {"nurse": "Nguyen", "shiftType": "Any", "day": "Saturday"},
-        {"nurse": "Sara", "shiftType": "Late", "day": "Saturday"}
-    ]
-    
-    # Create the CP-SAT model
-    model = cp_model.CpModel()
-    
-    # Decision variables: assignment[(nurse, day, shift, skill)] = 1 if nurse is assigned that shift on that day with that skill.
-    assignment = {}
-    for nurse in nurses:
-        for d in range(len(days)):
-            for s in shift_types:
-                for skill in nurses[nurse]["skills"]:
-                    assignment[(nurse, d, s, skill)] = model.NewBoolVar(
-                        f'assign_{nurse}_{days[d]}_{s}_{skill}'
-                    )
-    
-    # Constraint 1: Each nurse can work at most one shift per day.
-    for nurse in nurses:
-        for d in range(len(days)):
-            model.Add(sum(assignment[(nurse, d, s, skill)]
-                          for s in shift_types for skill in nurses[nurse]["skills"]) <= 1)
-    
-    # Constraint: Respect shift off requests.
-    for request in shift_off_requests:
-        nurse = request["nurse"]
-        # Map the full day name to our three-letter abbreviation and get its index.
-        day_abbr = full_day_names[request["day"]]
-        d = days.index(day_abbr)
-        if request["shiftType"] == "Any":
-            # Nurse must not work any shift on that day.
-            model.Add(sum(assignment[(nurse, d, s, skill)]
-                          for s in shift_types for skill in nurses[nurse]["skills"]) == 0)
+# === Utility Functions ===
+
+def load_json(json_path):
+    with open(json_path, 'r') as f:
+        return json.load(f)
+
+# === H1: Duplicate shifts per day per nurse ===
+
+def find_duplicate_assignments(assignments):
+    nurse_day_assignments = defaultdict(set)
+    duplicates = []
+    for a in assignments:
+        key = (a["nurse"], a["day"])
+        if key in nurse_day_assignments:
+            duplicates.append(a)
         else:
-            # If a specific shift type is requested off, then no assignment for that shift is allowed.
-            s_off = request["shiftType"]
-            for skill in nurses[nurse]["skills"]:
-                model.Add(assignment[(nurse, d, s_off, skill)] == 0)
-    
-    # Constraint: Forbidden shift transitions.
-    # For day 0, use previous week’s lastAssignedShiftType.
-    for nurse in nurses:
-        last_shift = nurse_history[nurse]["lastAssignedShiftType"]
-        if last_shift != "None":
-            forbidden = forbidden_transitions.get(last_shift, [])
-            for s in forbidden:
-                for skill in nurses[nurse]["skills"]:
-                    model.Add(assignment[(nurse, 0, s, skill)] == 0)
-    
-    # For days 1 to 6, enforce that if a nurse worked a shift that forbids a succeeding type,
-    # then on the following day that forbidden shift cannot be assigned.
-    for nurse in nurses:
-        for d in range(1, len(days)):
-            for s_prev in shift_types:
-                for skill_prev in nurses[nurse]["skills"]:
-                    # Determine the forbidden shifts after s_prev.
-                    for s_forbid in forbidden_transitions.get(s_prev, []):
-                        for skill in nurses[nurse]["skills"]:
-                            # If nurse was assigned s_prev on day d-1 then they cannot be assigned s_forbid on day d.
-                            model.Add(assignment[(nurse, d, s_forbid, skill)] == 0).OnlyEnforceIf(
-                                assignment[(nurse, d-1, s_prev, skill_prev)]
-                            )
-    
-    # Constraint: Cover minimum requirements for each shift type and skill per day.
+            nurse_day_assignments[key].add(a["shiftType"])
+    return duplicates
+
+# === H2: Understaffing ===
+
+DAY_ABBREVIATION_TO_FULL = {
+    "Mon": "Monday",
+    "Tue": "Tuesday",
+    "Wed": "Wednesday",
+    "Thu": "Thursday",
+    "Fri": "Friday",
+    "Sat": "Saturday",
+    "Sun": "Sunday"
+}
+
+def count_assignments(assignments):
+    """
+    Count how many nurses are assigned for each (full_day, shiftType, skill).
+    Returns: counts[day][shiftType][skill] = number of assigned nurses
+    """
+    counts = defaultdict(lambda: defaultdict(lambda: defaultdict(int)))
+    for a in assignments:
+        short_day = a["day"]
+        full_day = DAY_ABBREVIATION_TO_FULL.get(short_day, short_day)  # fallback if full already
+        shift = a["shiftType"]
+        skill = a["skill"]
+        counts[full_day][shift][skill] += 1
+    return counts
+
+def check_minimum_requirements(requirements, assignment_counts):
+    days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    violations = []
     for req in requirements:
         shift = req["shiftType"]
-        req_skill = req["skill"]
-        for day_abbr in days:
-            d = days.index(day_abbr)
-            min_req = req["requirements"][day_abbr]
-            # Sum over all nurses who are qualified (i.e. have the required skill).
-            covering = []
-            for nurse in nurses:
-                if req_skill in nurses[nurse]["skills"]:
-                    # Only add the variable if it exists (nurse qualifies for that skill in the given shift).
-                    key = (nurse, d, shift, req_skill)
-                    if key in assignment:
-                        covering.append(assignment[key])
-            model.Add(sum(covering) >= min_req)
+        skill = req["skill"]
+        for day in days:
+            required_min = req[f"requirementOn{day}"]["minimum"]
+            assigned = assignment_counts[day].get(shift, {}).get(skill, 0)
+            if assigned < required_min:
+                violations.append({
+                    "day": day,
+                    "shiftType": shift,
+                    "skill": skill,
+                    "requiredMinimum": required_min,
+                    "assigned": assigned
+                })
+    return violations
+
+# === H3: Forbidden Successions ===
+
+DAY_ABBREVIATION_TO_FULL = {
+    "Mon": "Monday",
+    "Tue": "Tuesday",
+    "Wed": "Wednesday",
+    "Thu": "Thursday",
+    "Fri": "Friday",
+    "Sat": "Saturday",
+    "Sun": "Sunday"
+}
+
+def build_weekly_shift_map(assignments):
+    days_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    shift_map = defaultdict(lambda: {day: "None" for day in days_order})
     
-    # Create the solver and solve the model.
-    solver = cp_model.CpSolver()
-    status = solver.Solve(model)
-    
-    if status in (cp_model.FEASIBLE, cp_model.OPTIMAL):
-        solution_assignments = []
-        for nurse in nurses:
-            for d in range(len(days)):
-                for s in shift_types:
-                    for skill in nurses[nurse]["skills"]:
-                        if solver.Value(assignment[(nurse, d, s, skill)]) == 1:
-                            solution_assignments.append({
-                                "nurse": nurse,
-                                "day": days[d],
-                                "shiftType": s,
-                                "skill": skill
-                            })
-        output = {"assignments": solution_assignments}
-        with open("solution.json", "w") as f:
-            json.dump(output, f, indent=4)
-        print("Solution written to solution.json")
-    else:
-        print("No solution found.")
+    for a in assignments:
+        nurse = a["nurse"]
+        short_day = a["day"]
+        full_day = DAY_ABBREVIATION_TO_FULL.get(short_day, short_day)
+        shift = a["shiftType"]
+        shift_map[nurse][full_day] = shift
+
+    return {
+        nurse: [day_shifts[day] for day in days_order]
+        for nurse, day_shifts in shift_map.items()
+    }
+
+def extract_forbidden_pairs(scenario_data):
+    forbidden_pairs = set()
+    for rule in scenario_data["forbiddenShiftTypeSuccessions"]:
+        prev = rule["precedingShiftType"]
+        for succ in rule["succeedingShiftTypes"]:
+            forbidden_pairs.add((prev, succ))
+    return forbidden_pairs
+
+def check_forbidden_successions(scenario_data, assignments, nurse_history):
+    forbidden_pairs = extract_forbidden_pairs(scenario_data)
+    shift_sequences = build_weekly_shift_map(assignments)
+    days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+    # Map nurse history
+    history_map = {
+        h["nurse"]: h.get("lastAssignedShiftType", "None") or "None"
+        for h in nurse_history
+    }
+
+    violations = []
+    for nurse, shift_list in shift_sequences.items():
+        # Prepend historic shift
+        last_shift = history_map.get(nurse, "None")
+        full_shift_sequence = [last_shift] + shift_list
+
+        for i in range(len(shift_list)):  # compare 0→Mon, 1→Tue, ..., 6→Sun
+            prev_shift = full_shift_sequence[i]
+            next_shift = full_shift_sequence[i + 1]
+            if prev_shift == "None":
+                continue  # Any shift can follow None
+            if (prev_shift, next_shift) in forbidden_pairs:
+                violations.append({
+                    "nurse": nurse,
+                    "day": days[i],
+                    "precedingShift": prev_shift,
+                    "succeedingShift": next_shift
+                })
+
+    return violations
+
+
+def check_skill_violations(assignments, scenario_data):
+    """
+    Checks if each nurse assignment is valid based on their listed skills.
+    Returns a list of violations where a nurse is assigned outside their skill set.
+    """
+    # Build map of nurse -> set of skills
+    skill_map = {
+        nurse["id"]: set(nurse["skills"])
+        for nurse in scenario_data["nurses"]
+    }
+
+    violations = []
+    for a in assignments:
+        nurse = a["nurse"]
+        skill = a["skill"]
+        if skill not in skill_map.get(nurse, set()):
+            violations.append({
+                "nurse": nurse,
+                "day": a["day"],
+                "shiftType": a["shiftType"],
+                "assignedSkill": skill,
+                "nurseSkills": list(skill_map.get(nurse, []))
+            })
+    return violations
+
+def main():
+    schedule_path = "gpt_r.json"
+
+    requirements_path = "json_Dataset/n005w4/WD-n005w4-1.json"
+    scenario_path = "json_Dataset/n005w4/Sc-n005w4.json"
+    history_path = "json_Dataset/n005w4/H0-n005w4-0.json"
+
+    #requirements_path = "json_Dataset/n021w4/WD-n021w4-8.json"
+    #scenario_path = "json_Dataset/n021w4/Sc-n021w4.json"
+    #history_path = "json_Dataset/n021w4/H0-n021w4-2.json"
+
+    schedule_data = load_json(schedule_path)
+    requirements_data = load_json(requirements_path)
+    scenario_data = load_json(scenario_path)
+    history_data = load_json(history_path)
+
+    assignments = schedule_data["assignments"]
+    requirements = requirements_data["requirements"]
+    nurse_history = history_data["nurseHistory"]
+
+    violations_dict = {}
+
+    # H1: Duplicate shifts
+    violations_dict["H1"] = find_duplicate_assignments(assignments)
+
+    # H2: Understaffing
+    assignment_counts = count_assignments(assignments)
+    violations_dict["H2"] = check_minimum_requirements(requirements, assignment_counts)
+
+    # H3: Forbidden successions
+    violations_dict["H3"] = check_forbidden_successions(scenario_data, assignments, nurse_history)
+
+    # H4: Skill qualification
+    violations_dict["H4"] = check_skill_violations(assignments, scenario_data)
+
+    # No printout
+    return violations_dict
 
 if __name__ == "__main__":
-    main()
+    violations = main()
+    pprint.pp(violations)
+
+    for i in violations.keys():
+        print(len(violations[i]))

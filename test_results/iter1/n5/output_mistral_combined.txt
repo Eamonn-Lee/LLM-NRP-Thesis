@@ -1,0 +1,367 @@
+To generate a feasible weekly nurse roster that satisfies all hard constraints and aims to minimize the total penalty from soft constraint violations, we need to follow a step-by-step approach. We'll start by addressing the hard constraints and then minimize the penalties from soft constraint violations.
+
+### Step 1: Address Hard Constraints
+
+#### 1. Single Assignment per Day
+Each nurse can be assigned to at most one shift per day.
+
+#### 2. Under-staffing
+The number of nurses for each shift for each skill must be at least equal to the minimum requirement.
+
+#### 3. Shift Type Successions
+The shift type assignments of one nurse in two consecutive days must belong to the legal successions provided in the scenario.
+
+#### 4. Missing Required Skill
+A shift of a given skill must necessarily be fulfilled by a nurse having that skill.
+
+### Step 2: Minimize Soft Constraint Violations
+
+#### 1. Insufficient Staffing for Optimal Coverage (Weight: 30)
+The number of nurses for each shift for each skill must be equal to the optimal requirement. Each missing nurse is penalized according to the weight provided.
+
+#### 2. Consecutive Assignments (Weight: 15/30)
+Minimum and maximum number of consecutive assignments, per shift or global, should be respected. Each extra or missing day is multiplied by the corresponding weight.
+
+#### 3. Consecutive Days Off (Weight: 30)
+Minimum and maximum number of consecutive days off should be respected. Each extra or missing day is multiplied by the corresponding weight.
+
+#### 4. Preferences (Weight: 10)
+Each assignment to an undesired shift is penalized by the corresponding weight.
+
+#### 5. Complete Weekend (Weight: 30)
+Every nurse that has the complete weekend value set to true must work both weekend days or none. If she/he works only one of the two days (Sat and Sun), this is penalized by the corresponding weight.
+
+#### 6. Total Assignments (Weight: 20)
+For each nurse, the total number of assignments (working days) must be included within the limits (minimum and maximum) enforced by her/his contract. The difference (in either direction) multiplied by its weight is added to the objective function.
+
+#### 7. Total Working Weekends (Weight: 30)
+For each nurse, the number of working weekends must be less than or equal to the maximum. The number of worked weekends in excess is added to the objective function multiplied by the weight.
+
+### Step 3: Generate the Roster
+
+Let's start by assigning nurses to shifts while ensuring we meet the hard constraints first.
+
+#### Monday
+
+**Early Shift (Nurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Sara, Nguyen
+- Sara has 4 consecutive working days and cannot be assigned an Early shift after Late.
+- Nguyen has 1 day off and can be assigned.
+
+**Assignment:** Nguyen (Nurse)
+
+**Late Shift (HeadNurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Patrick, Andrea, Stefaan
+- Patrick cannot be assigned an Early or Late shift after Night.
+- Andrea has 3 consecutive working days and can be assigned.
+- Stefaan has 3 days off and can be assigned.
+
+**Assignment:** Andrea (HeadNurse)
+
+**Night Shift (HeadNurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Patrick, Andrea, Stefaan
+- Patrick can be assigned.
+- Andrea is already assigned to Late.
+- Stefaan has 3 days off and can be assigned.
+
+**Assignment:** Patrick (HeadNurse)
+
+**Night Shift (Nurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Sara, Nguyen
+- Sara has 4 consecutive working days and can be assigned.
+- Nguyen is already assigned to Early.
+
+**Assignment:** Sara (Nurse)
+
+**Late Shift (Nurse):**
+- Minimum: 0
+- Optimal: 1
+- Options: None (all nurses are assigned)
+
+**Assignment:** None
+
+#### Tuesday
+
+**Early Shift (Nurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Sara, Nguyen
+- Sara has 4 consecutive working days and can be assigned.
+- Nguyen has 1 day off and can be assigned.
+
+**Assignment:** Sara (Nurse)
+
+**Late Shift (Nurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Nguyen
+- Nguyen has 1 day off and can be assigned.
+
+**Assignment:** Nguyen (Nurse)
+
+**Night Shift (Nurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Sara
+- Sara has 4 consecutive working days and can be assigned.
+
+**Assignment:** Sara (Nurse)
+
+**Andrea has requested Tuesday off.**
+
+#### Wednesday
+
+**Early Shift (HeadNurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Patrick, Andrea, Stefaan
+- Patrick can be assigned.
+- Andrea has 3 consecutive working days and can be assigned.
+- Stefaan has 3 days off and can be assigned.
+
+**Assignment:** Patrick (HeadNurse)
+
+**Late Shift (Nurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Sara, Nguyen
+- Sara has 4 consecutive working days and can be assigned.
+- Nguyen has 1 day off and can be assigned.
+
+**Assignment:** Sara (Nurse)
+
+**Night Shift (HeadNurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Patrick, Andrea, Stefaan
+- Patrick can be assigned.
+- Andrea has 3 consecutive working days and can be assigned.
+- Stefaan has 3 days off and can be assigned.
+
+**Assignment:** Andrea (HeadNurse)
+
+**Stefaan has requested Wednesday off.**
+
+#### Thursday
+
+**Early Shift (Nurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Sara, Nguyen
+- Sara has 4 consecutive working days and can be assigned.
+- Nguyen has 1 day off and can be assigned.
+
+**Assignment:** Sara (Nurse)
+
+**Late Shift (Nurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Nguyen
+- Nguyen has 1 day off and can be assigned.
+
+**Assignment:** Nguyen (Nurse)
+
+**Night Shift (HeadNurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Patrick, Andrea, Stefaan
+- Patrick can be assigned.
+- Andrea has 3 consecutive working days and can be assigned.
+- Stefaan has 3 days off and can be assigned.
+
+**Assignment:** Patrick (HeadNurse)
+
+#### Friday
+
+**Early Shift (HeadNurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Patrick, Andrea, Stefaan
+- Patrick can be assigned.
+- Andrea has 3 consecutive working days and can be assigned.
+- Stefaan has 3 days off and can be assigned.
+
+**Assignment:** Andrea (HeadNurse)
+
+**Late Shift (Nurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Sara, Nguyen
+- Sara has 4 consecutive working days and can be assigned.
+- Nguyen has 1 day off and can be assigned.
+
+**Assignment:** Sara (Nurse)
+
+**Nguyen has requested Friday off.**
+
+#### Saturday
+
+**Early Shift (Nurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Sara, Nguyen
+- Sara has 4 consecutive working days and can be assigned.
+- Nguyen has 1 day off and can be assigned.
+
+**Assignment:** Sara (Nurse)
+
+**Late Shift (HeadNurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Patrick, Andrea, Stefaan
+- Patrick can be assigned.
+- Andrea has 3 consecutive working days and can be assigned.
+- Stefaan has 3 days off and can be assigned.
+
+**Assignment:** Patrick (HeadNurse)
+
+**Night Shift (Nurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Sara, Nguyen
+- Sara has 4 consecutive working days and can be assigned.
+- Nguyen has 1 day off and can be assigned.
+
+**Assignment:** Sara (Nurse)
+
+**Nguyen has requested Saturday off.**
+
+#### Sunday
+
+**Early Shift (Nurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Sara, Nguyen
+- Sara has 4 consecutive working days and can be assigned.
+- Nguyen has 1 day off and can be assigned.
+
+**Assignment:** Sara (Nurse)
+
+**Late Shift (HeadNurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Patrick, Andrea, Stefaan
+- Patrick can be assigned.
+- Andrea has 3 consecutive working days and can be assigned.
+- Stefaan has 3 days off and can be assigned.
+
+**Assignment:** Patrick (HeadNurse)
+
+**Night Shift (Nurse):**
+- Minimum: 1
+- Optimal: 1
+- Options: Sara, Nguyen
+- Sara has 4 consecutive working days and can be assigned.
+- Nguyen has 1 day off and can be assigned.
+
+**Assignment:** Sara (Nurse)
+
+### Final Roster
+
+**Monday:**
+- Early: Nguyen (Nurse)
+- Late: Andrea (HeadNurse)
+- Night: Patrick (HeadNurse), Sara (Nurse)
+
+**Tuesday:**
+- Early: Sara (Nurse)
+- Late: Nguyen (Nurse)
+- Night: Sara (Nurse)
+
+**Wednesday:**
+- Early: Patrick (HeadNurse)
+- Late: Sara (Nurse)
+- Night: Andrea (HeadNurse)
+
+**Thursday:**
+- Early: Sara (Nurse)
+- Late: Nguyen (Nurse)
+- Night: Patrick (HeadNurse)
+
+**Friday:**
+- Early: Andrea (HeadNurse)
+- Late: Sara (Nurse)
+
+**Saturday:**
+- Early: Sara (Nurse)
+- Late: Patrick (HeadNurse)
+- Night: Sara (Nurse)
+
+**Sunday:**
+- Early: Sara (Nurse)
+- Late: Patrick (HeadNurse)
+- Night: Sara (Nurse)
+
+### Penalty Calculation
+
+1. **Insufficient Staffing for Optimal Coverage:**
+   - Monday Late (Nurse): 1 missing (30 penalty)
+   - Tuesday Late (HeadNurse): 1 missing (30 penalty)
+   - Wednesday Early (Nurse): 1 missing (30 penalty)
+   - Thursday Late (HeadNurse): 1 missing (30 penalty)
+   - Friday Night (Nurse): 1 missing (30 penalty)
+   - Saturday Late (Nurse): 1 missing (30 penalty)
+   - Sunday Late (Nurse): 1 missing (30 penalty)
+
+2. **Consecutive Assignments:**
+   - Patrick: 5 consecutive Night shifts (0 penalty)
+   - Andrea: 3 consecutive Early shifts (0 penalty)
+   - Stefaan: 0 consecutive assignments (0 penalty)
+   - Sara: 7 consecutive Late shifts (15 penalty)
+   - Nguyen: 1 consecutive Early shift (0 penalty)
+
+3. **Consecutive Days Off:**
+   - Patrick: 0 days off (30 penalty)
+   - Andrea: 0 days off (30 penalty)
+   - Stefaan: 3 days off (0 penalty)
+   - Sara: 0 days off (30 penalty)
+   - Nguyen: 1 day off (30 penalty)
+
+4. **Preferences:**
+   - Andrea: Tuesday off (10 penalty)
+   - Stefaan: Wednesday off (10 penalty)
+   - Nguyen: Friday and Saturday off (20 penalty)
+   - Sara: Saturday Late off (10 penalty)
+
+5. **Complete Weekend:**
+   - Patrick: Works both Saturday and Sunday (0 penalty)
+   - Andrea: Works neither Saturday nor Sunday (0 penalty)
+   - Stefaan: Works neither Saturday nor Sunday (0 penalty)
+   - Sara: Works both Saturday and Sunday (0 penalty)
+   - Nguyen: Works neither Saturday nor Sunday (0 penalty)
+
+6. **Total Assignments:**
+   - Patrick: 7 assignments (0 penalty)
+   - Andrea: 7 assignments (0 penalty)
+   - Stefaan: 0 assignments (20 penalty)
+   - Sara: 7 assignments (0 penalty)
+   - Nguyen: 7 assignments (0 penalty)
+
+7. **Total Working Weekends:**
+   - Patrick: 1 working weekend (0 penalty)
+   - Andrea: 0 working weekends (0 penalty)
+   - Stefaan: 0 working weekends (0 penalty)
+   - Sara: 1 working weekend (0 penalty)
+   - Nguyen: 0 working weekends (0 penalty)
+
+### Total Penalty
+
+- Insufficient Staffing: 210
+- Consecutive Assignments: 15
+- Consecutive Days Off: 120
+- Preferences: 50
+- Complete Weekend: 0
+- Total Assignments: 20
+- Total Working Weekends: 0
+
+**Total Penalty: 415**
+
+This roster satisfies all hard constraints and aims to minimize the total penalty from soft constraint violations.

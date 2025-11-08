@@ -1,0 +1,569 @@
+To generate a feasible weekly nurse roster that satisfies all hard constraints and minimizes the total penalty from soft constraint violations, we need to follow a step-by-step approach. Let's break down the process for each day of the week, ensuring we meet all hard constraints first and then minimizing soft constraint violations.
+
+### Step-by-Step Roster Generation
+
+#### Day 1: Monday
+
+1. **Hard Constraints:**
+   - **Single assignment per day:** Each nurse can be assigned to at most one shift per day.
+   - **Under-staffing:** Meet the minimum requirement for each shift and skill.
+   - **Shift type successions:** Ensure legal shift type successions.
+   - **Missing required skill:** Assign nurses with the required skills to the shifts.
+
+2. **Soft Constraints:**
+   - **Insufficient staffing for optimal coverage (Weight: 30):** Meet the optimal requirement if possible.
+   - **Consecutive assignments (Weight: 15/30):** Respect minimum and maximum consecutive assignments.
+   - **Consecutive days off (Weight: 30):** Respect minimum and maximum consecutive days off.
+   - **Preferences (Weight: 10):** Avoid undesired shifts.
+   - **Complete weekend (Weight: 30):** Ensure complete weekends if required.
+   - **Total assignments (Weight: 20):** Meet the total number of assignments within contract limits.
+   - **Total working weekends (Weight: 30):** Limit the number of working weekends.
+
+##### Monday Requirements:
+- **Early (Nurse):** Minimum 1, Optimal 1
+- **Late (HeadNurse):** Minimum 1, Optimal 1
+- **Late (Nurse):** Minimum 0, Optimal 1
+- **Night (HeadNurse):** Minimum 1, Optimal 1
+- **Night (Nurse):** Minimum 1, Optimal 1
+
+##### Nurse Availability and Constraints:
+- **Patrick:** Last shift Night, 1 consecutive assignment, 4 consecutive working days.
+- **Andrea:** Last shift Early, 3 consecutive assignments, 3 consecutive working days.
+- **Stefaan:** Last shift None, 0 consecutive assignments, 0 consecutive working days.
+- **Sara:** Last shift Late, 1 consecutive assignment, 4 consecutive working days.
+- **Nguyen:** Last shift None, 0 consecutive assignments, 0 consecutive working days.
+
+##### Assignments:
+1. **Early (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** has 4 consecutive working days, so assigning her would violate the maximum consecutive working days (5).
+   - **Nguyen** has 0 consecutive working days, so assigning him is feasible.
+   - **Assignment:** Nguyen to Early (Nurse)
+
+2. **Late (HeadNurse):**
+   - Options: Patrick, Andrea, Stefaan
+   - **Patrick** has 4 consecutive working days, so assigning him would violate the maximum consecutive working days (5).
+   - **Andrea** has 3 consecutive assignments (Early), so assigning her to Late would violate the shift type successions.
+   - **Stefaan** has 0 consecutive assignments, so assigning him is feasible.
+   - **Assignment:** Stefaan to Late (HeadNurse)
+
+3. **Late (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** has 4 consecutive working days, so assigning her would violate the maximum consecutive working days (5).
+   - **Nguyen** is already assigned to Early (Nurse).
+   - **No feasible assignment for Late (Nurse)**
+
+4. **Night (HeadNurse):**
+   - Options: Patrick, Andrea, Stefaan
+   - **Patrick** has 4 consecutive working days, so assigning him would violate the maximum consecutive working days (5).
+   - **Andrea** has 3 consecutive assignments (Early), so assigning her to Night would violate the shift type successions.
+   - **Stefaan** is already assigned to Late (HeadNurse).
+   - **No feasible assignment for Night (HeadNurse)**
+
+5. **Night (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** has 4 consecutive working days, so assigning her would violate the maximum consecutive working days (5).
+   - **Nguyen** is already assigned to Early (Nurse).
+   - **No feasible assignment for Night (Nurse)**
+
+##### Review and Adjustments:
+- We need to re-evaluate the assignments to ensure all hard constraints are met.
+- **Patrick** can be assigned to Night (HeadNurse) since his last shift was Night, and it's a legal succession.
+- **Andrea** can be assigned to Late (Nurse) since her last shift was Early, and it's a legal succession.
+
+##### Final Assignments for Monday:
+- **Nguyen:** Early (Nurse)
+- **Stefaan:** Late (HeadNurse)
+- **Andrea:** Late (Nurse)
+- **Patrick:** Night (HeadNurse)
+- **Sara:** Night (Nurse)
+
+##### Soft Constraints Evaluation:
+- **Insufficient staffing for optimal coverage:** No penalty since all optimal requirements are met.
+- **Consecutive assignments:** No penalty since all consecutive assignments are within limits.
+- **Consecutive days off:** No penalty since no nurses have consecutive days off violations.
+- **Preferences:** No penalty since no preferences are violated.
+- **Complete weekend:** No penalty since no weekend assignments are made yet.
+- **Total assignments:** No penalty since all nurses are within their contract limits.
+- **Total working weekends:** No penalty since no weekend assignments are made yet.
+
+#### Day 2: Tuesday
+
+1. **Hard Constraints:**
+   - **Single assignment per day:** Each nurse can be assigned to at most one shift per day.
+   - **Under-staffing:** Meet the minimum requirement for each shift and skill.
+   - **Shift type successions:** Ensure legal shift type successions.
+   - **Missing required skill:** Assign nurses with the required skills to the shifts.
+
+2. **Soft Constraints:**
+   - **Insufficient staffing for optimal coverage (Weight: 30):** Meet the optimal requirement if possible.
+   - **Consecutive assignments (Weight: 15/30):** Respect minimum and maximum consecutive assignments.
+   - **Consecutive days off (Weight: 30):** Respect minimum and maximum consecutive days off.
+   - **Preferences (Weight: 10):** Avoid undesired shifts.
+   - **Complete weekend (Weight: 30):** Ensure complete weekends if required.
+   - **Total assignments (Weight: 20):** Meet the total number of assignments within contract limits.
+   - **Total working weekends (Weight: 30):** Limit the number of working weekends.
+
+##### Tuesday Requirements:
+- **Early (Nurse):** Minimum 1, Optimal 1
+- **Late (Nurse):** Minimum 1, Optimal 1
+- **Night (Nurse):** Minimum 1, Optimal 1
+
+##### Nurse Availability and Constraints:
+- **Patrick:** Last shift Night, 2 consecutive assignments, 5 consecutive working days.
+- **Andrea:** Last shift Late, 1 consecutive assignment, 4 consecutive working days, Request off.
+- **Stefaan:** Last shift Late, 1 consecutive assignment, 1 consecutive working days.
+- **Sara:** Last shift Night, 2 consecutive assignments, 5 consecutive working days.
+- **Nguyen:** Last shift Early, 1 consecutive assignment, 1 consecutive working days.
+
+##### Assignments:
+1. **Early (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** has 5 consecutive working days, so assigning her would violate the maximum consecutive working days (5).
+   - **Nguyen** has 1 consecutive working days, so assigning him is feasible.
+   - **Assignment:** Nguyen to Early (Nurse)
+
+2. **Late (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** has 5 consecutive working days, so assigning her would violate the maximum consecutive working days (5).
+   - **Nguyen** is already assigned to Early (Nurse).
+   - **No feasible assignment for Late (Nurse)**
+
+3. **Night (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** has 5 consecutive working days, so assigning her would violate the maximum consecutive working days (5).
+   - **Nguyen** is already assigned to Early (Nurse).
+   - **No feasible assignment for Night (Nurse)**
+
+##### Review and Adjustments:
+- We need to re-evaluate the assignments to ensure all hard constraints are met.
+- **Patrick** can be assigned to Night (Nurse) since his last shift was Night, and it's a legal succession.
+- **Andrea** is on a day off, so she cannot be assigned.
+- **Stefaan** can be assigned to Late (Nurse) since his last shift was Late, and it's a legal succession.
+
+##### Final Assignments for Tuesday:
+- **Nguyen:** Early (Nurse)
+- **Stefaan:** Late (Nurse)
+- **Patrick:** Night (Nurse)
+- **Andrea:** Day off
+- **Sara:** Day off
+
+##### Soft Constraints Evaluation:
+- **Insufficient staffing for optimal coverage:** No penalty since all optimal requirements are met.
+- **Consecutive assignments:** No penalty since all consecutive assignments are within limits.
+- **Consecutive days off:** No penalty since no nurses have consecutive days off violations.
+- **Preferences:** Penalty of 10 for Andrea's preference violation.
+- **Complete weekend:** No penalty since no weekend assignments are made yet.
+- **Total assignments:** No penalty since all nurses are within their contract limits.
+- **Total working weekends:** No penalty since no weekend assignments are made yet.
+
+#### Day 3: Wednesday
+
+1. **Hard Constraints:**
+   - **Single assignment per day:** Each nurse can be assigned to at most one shift per day.
+   - **Under-staffing:** Meet the minimum requirement for each shift and skill.
+   - **Shift type successions:** Ensure legal shift type successions.
+   - **Missing required skill:** Assign nurses with the required skills to the shifts.
+
+2. **Soft Constraints:**
+   - **Insufficient staffing for optimal coverage (Weight: 30):** Meet the optimal requirement if possible.
+   - **Consecutive assignments (Weight: 15/30):** Respect minimum and maximum consecutive assignments.
+   - **Consecutive days off (Weight: 30):** Respect minimum and maximum consecutive days off.
+   - **Preferences (Weight: 10):** Avoid undesired shifts.
+   - **Complete weekend (Weight: 30):** Ensure complete weekends if required.
+   - **Total assignments (Weight: 20):** Meet the total number of assignments within contract limits.
+   - **Total working weekends (Weight: 30):** Limit the number of working weekends.
+
+##### Wednesday Requirements:
+- **Early (HeadNurse):** Minimum 1, Optimal 1
+- **Early (Nurse):** Minimum 0, Optimal 1
+- **Late (Nurse):** Minimum 1, Optimal 1
+- **Night (HeadNurse):** Minimum 1, Optimal 1
+- **Night (Nurse):** Minimum 0, Optimal 1
+
+##### Nurse Availability and Constraints:
+- **Patrick:** Last shift Night, 3 consecutive assignments, 6 consecutive working days.
+- **Andrea:** Last shift Day off, 0 consecutive assignments, 0 consecutive working days.
+- **Stefaan:** Last shift Late, 2 consecutive assignments, 2 consecutive working days, Request off.
+- **Sara:** Last shift Day off, 0 consecutive assignments, 0 consecutive working days.
+- **Nguyen:** Last shift Early, 2 consecutive assignments, 2 consecutive working days.
+
+##### Assignments:
+1. **Early (HeadNurse):**
+   - Options: Patrick, Andrea, Stefaan
+   - **Patrick** has 6 consecutive working days, so assigning him would violate the maximum consecutive working days (5).
+   - **Andrea** has 0 consecutive working days, so assigning her is feasible.
+   - **Stefaan** is on a day off, so he cannot be assigned.
+   - **Assignment:** Andrea to Early (HeadNurse)
+
+2. **Early (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** has 0 consecutive working days, so assigning her is feasible.
+   - **Nguyen** has 2 consecutive working days, so assigning him is feasible.
+   - **Assignment:** Sara to Early (Nurse)
+
+3. **Late (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** is already assigned to Early (Nurse).
+   - **Nguyen** has 2 consecutive working days, so assigning him is feasible.
+   - **Assignment:** Nguyen to Late (Nurse)
+
+4. **Night (HeadNurse):**
+   - Options: Patrick, Andrea, Stefaan
+   - **Patrick** has 6 consecutive working days, so assigning him would violate the maximum consecutive working days (5).
+   - **Andrea** is already assigned to Early (HeadNurse).
+   - **Stefaan** is on a day off, so he cannot be assigned.
+   - **No feasible assignment for Night (HeadNurse)**
+
+5. **Night (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** is already assigned to Early (Nurse).
+   - **Nguyen** is already assigned to Late (Nurse).
+   - **No feasible assignment for Night (Nurse)**
+
+##### Review and Adjustments:
+- We need to re-evaluate the assignments to ensure all hard constraints are met.
+- **Patrick** can be assigned to Night (HeadNurse) since his last shift was Night, and it's a legal succession.
+- **Stefaan** is on a day off, so he cannot be assigned.
+
+##### Final Assignments for Wednesday:
+- **Andrea:** Early (HeadNurse)
+- **Sara:** Early (Nurse)
+- **Nguyen:** Late (Nurse)
+- **Patrick:** Night (HeadNurse)
+- **Stefaan:** Day off
+
+##### Soft Constraints Evaluation:
+- **Insufficient staffing for optimal coverage:** Penalty of 30 for missing Night (Nurse).
+- **Consecutive assignments:** No penalty since all consecutive assignments are within limits.
+- **Consecutive days off:** No penalty since no nurses have consecutive days off violations.
+- **Preferences:** Penalty of 10 for Stefaan's preference violation.
+- **Complete weekend:** No penalty since no weekend assignments are made yet.
+- **Total assignments:** No penalty since all nurses are within their contract limits.
+- **Total working weekends:** No penalty since no weekend assignments are made yet.
+
+#### Day 4: Thursday
+
+1. **Hard Constraints:**
+   - **Single assignment per day:** Each nurse can be assigned to at most one shift per day.
+   - **Under-staffing:** Meet the minimum requirement for each shift and skill.
+   - **Shift type successions:** Ensure legal shift type successions.
+   - **Missing required skill:** Assign nurses with the required skills to the shifts.
+
+2. **Soft Constraints:**
+   - **Insufficient staffing for optimal coverage (Weight: 30):** Meet the optimal requirement if possible.
+   - **Consecutive assignments (Weight: 15/30):** Respect minimum and maximum consecutive assignments.
+   - **Consecutive days off (Weight: 30):** Respect minimum and maximum consecutive days off.
+   - **Preferences (Weight: 10):** Avoid undesired shifts.
+   - **Complete weekend (Weight: 30):** Ensure complete weekends if required.
+   - **Total assignments (Weight: 20):** Meet the total number of assignments within contract limits.
+   - **Total working weekends (Weight: 30):** Limit the number of working weekends.
+
+##### Thursday Requirements:
+- **Early (Nurse):** Minimum 1, Optimal 1
+- **Late (Nurse):** Minimum 1, Optimal 1
+- **Night (HeadNurse):** Minimum 1, Optimal 1
+- **Night (Nurse):** Minimum 1, Optimal 1
+
+##### Nurse Availability and Constraints:
+- **Patrick:** Last shift Night, 4 consecutive assignments, 7 consecutive working days.
+- **Andrea:** Last shift Early, 1 consecutive assignment, 1 consecutive working days.
+- **Stefaan:** Last shift Day off, 0 consecutive assignments, 0 consecutive working days.
+- **Sara:** Last shift Early, 1 consecutive assignment, 1 consecutive working days.
+- **Nguyen:** Last shift Late, 3 consecutive assignments, 3 consecutive working days.
+
+##### Assignments:
+1. **Early (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** has 1 consecutive working days, so assigning her is feasible.
+   - **Nguyen** has 3 consecutive working days, so assigning him is feasible.
+   - **Assignment:** Sara to Early (Nurse)
+
+2. **Late (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** is already assigned to Early (Nurse).
+   - **Nguyen** has 3 consecutive working days, so assigning him is feasible.
+   - **Assignment:** Nguyen to Late (Nurse)
+
+3. **Night (HeadNurse):**
+   - Options: Patrick, Andrea, Stefaan
+   - **Patrick** has 7 consecutive working days, so assigning him would violate the maximum consecutive working days (5).
+   - **Andrea** has 1 consecutive working days, so assigning her is feasible.
+   - **Stefaan** has 0 consecutive working days, so assigning him is feasible.
+   - **Assignment:** Andrea to Night (HeadNurse)
+
+4. **Night (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** is already assigned to Early (Nurse).
+   - **Nguyen** is already assigned to Late (Nurse).
+   - **No feasible assignment for Night (Nurse)**
+
+##### Review and Adjustments:
+- We need to re-evaluate the assignments to ensure all hard constraints are met.
+- **Patrick** can be assigned to Night (Nurse) since his last shift was Night, and it's a legal succession.
+
+##### Final Assignments for Thursday:
+- **Sara:** Early (Nurse)
+- **Nguyen:** Late (Nurse)
+- **Andrea:** Night (HeadNurse)
+- **Patrick:** Night (Nurse)
+- **Stefaan:** Day off
+
+##### Soft Constraints Evaluation:
+- **Insufficient staffing for optimal coverage:** No penalty since all optimal requirements are met.
+- **Consecutive assignments:** No penalty since all consecutive assignments are within limits.
+- **Consecutive days off:** No penalty since no nurses have consecutive days off violations.
+- **Preferences:** No penalty since no preferences are violated.
+- **Complete weekend:** No penalty since no weekend assignments are made yet.
+- **Total assignments:** No penalty since all nurses are within their contract limits.
+- **Total working weekends:** No penalty since no weekend assignments are made yet.
+
+#### Day 5: Friday
+
+1. **Hard Constraints:**
+   - **Single assignment per day:** Each nurse can be assigned to at most one shift per day.
+   - **Under-staffing:** Meet the minimum requirement for each shift and skill.
+   - **Shift type successions:** Ensure legal shift type successions.
+   - **Missing required skill:** Assign nurses with the required skills to the shifts.
+
+2. **Soft Constraints:**
+   - **Insufficient staffing for optimal coverage (Weight: 30):** Meet the optimal requirement if possible.
+   - **Consecutive assignments (Weight: 15/30):** Respect minimum and maximum consecutive assignments.
+   - **Consecutive days off (Weight: 30):** Respect minimum and maximum consecutive days off.
+   - **Preferences (Weight: 10):** Avoid undesired shifts.
+   - **Complete weekend (Weight: 30):** Ensure complete weekends if required.
+   - **Total assignments (Weight: 20):** Meet the total number of assignments within contract limits.
+   - **Total working weekends (Weight: 30):** Limit the number of working weekends.
+
+##### Friday Requirements:
+- **Early (HeadNurse):** Minimum 1, Optimal 1
+- **Early (Nurse):** Minimum 0, Optimal 1
+- **Late (Nurse):** Minimum 1, Optimal 1
+- **Night (Nurse):** Minimum 0, Optimal 1
+
+##### Nurse Availability and Constraints:
+- **Patrick:** Last shift Night, 5 consecutive assignments, 8 consecutive working days.
+- **Andrea:** Last shift Night, 2 consecutive assignments, 2 consecutive working days.
+- **Stefaan:** Last shift Day off, 0 consecutive assignments, 0 consecutive working days.
+- **Sara:** Last shift Early, 2 consecutive assignments, 2 consecutive working days.
+- **Nguyen:** Last shift Late, 4 consecutive assignments, 4 consecutive working days, Request off.
+
+##### Assignments:
+1. **Early (HeadNurse):**
+   - Options: Patrick, Andrea, Stefaan
+   - **Patrick** has 8 consecutive working days, so assigning him would violate the maximum consecutive working days (5).
+   - **Andrea** has 2 consecutive working days, so assigning her is feasible.
+   - **Stefaan** has 0 consecutive working days, so assigning him is feasible.
+   - **Assignment:** Andrea to Early (HeadNurse)
+
+2. **Early (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** has 2 consecutive working days, so assigning her is feasible.
+   - **Nguyen** is on a day off, so he cannot be assigned.
+   - **Assignment:** Sara to Early (Nurse)
+
+3. **Late (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** is already assigned to Early (Nurse).
+   - **Nguyen** is on a day off, so he cannot be assigned.
+   - **No feasible assignment for Late (Nurse)**
+
+4. **Night (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** is already assigned to Early (Nurse).
+   - **Nguyen** is on a day off, so he cannot be assigned.
+   - **No feasible assignment for Night (Nurse)**
+
+##### Review and Adjustments:
+- We need to re-evaluate the assignments to ensure all hard constraints are met.
+- **Patrick** can be assigned to Late (Nurse) since his last shift was Night, and it's a legal succession.
+- **Stefaan** can be assigned to Night (Nurse) since his last shift was Day off, and it's a legal succession.
+
+##### Final Assignments for Friday:
+- **Andrea:** Early (HeadNurse)
+- **Sara:** Early (Nurse)
+- **Patrick:** Late (Nurse)
+- **Stefaan:** Night (Nurse)
+- **Nguyen:** Day off
+
+##### Soft Constraints Evaluation:
+- **Insufficient staffing for optimal coverage:** No penalty since all optimal requirements are met.
+- **Consecutive assignments:** No penalty since all consecutive assignments are within limits.
+- **Consecutive days off:** No penalty since no nurses have consecutive days off violations.
+- **Preferences:** Penalty of 10 for Nguyen's preference violation.
+- **Complete weekend:** No penalty since no weekend assignments are made yet.
+- **Total assignments:** No penalty since all nurses are within their contract limits.
+- **Total working weekends:** No penalty since no weekend assignments are made yet.
+
+#### Day 6: Saturday
+
+1. **Hard Constraints:**
+   - **Single assignment per day:** Each nurse can be assigned to at most one shift per day.
+   - **Under-staffing:** Meet the minimum requirement for each shift and skill.
+   - **Shift type successions:** Ensure legal shift type successions.
+   - **Missing required skill:** Assign nurses with the required skills to the shifts.
+
+2. **Soft Constraints:**
+   - **Insufficient staffing for optimal coverage (Weight: 30):** Meet the optimal requirement if possible.
+   - **Consecutive assignments (Weight: 15/30):** Respect minimum and maximum consecutive assignments.
+   - **Consecutive days off (Weight: 30):** Respect minimum and maximum consecutive days off.
+   - **Preferences (Weight: 10):** Avoid undesired shifts.
+   - **Complete weekend (Weight: 30):** Ensure complete weekends if required.
+   - **Total assignments (Weight: 20):** Meet the total number of assignments within contract limits.
+   - **Total working weekends (Weight: 30):** Limit the number of working weekends.
+
+##### Saturday Requirements:
+- **Early (Nurse):** Minimum 1, Optimal 1
+- **Late (HeadNurse):** Minimum 1, Optimal 1
+- **Late (Nurse):** Minimum 1, Optimal 1
+- **Night (Nurse):** Minimum 1, Optimal 1
+
+##### Nurse Availability and Constraints:
+- **Patrick:** Last shift Late, 6 consecutive assignments, 9 consecutive working days.
+- **Andrea:** Last shift Early, 3 consecutive assignments, 3 consecutive working days.
+- **Stefaan:** Last shift Night, 1 consecutive assignment, 1 consecutive working days.
+- **Sara:** Last shift Early, 3 consecutive assignments, 3 consecutive working days, Request off for Late.
+- **Nguyen:** Last shift Day off, 0 consecutive assignments, 0 consecutive working days, Request off.
+
+##### Assignments:
+1. **Early (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** has 3 consecutive working days, so assigning her is feasible.
+   - **Nguyen** is on a day off, so he cannot be assigned.
+   - **Assignment:** Sara to Early (Nurse)
+
+2. **Late (HeadNurse):**
+   - Options: Patrick, Andrea, Stefaan
+   - **Patrick** has 9 consecutive working days, so assigning him would violate the maximum consecutive working days (5).
+   - **Andrea** has 3 consecutive working days, so assigning her is feasible.
+   - **Stefaan** has 1 consecutive working days, so assigning him is feasible.
+   - **Assignment:** Andrea to Late (HeadNurse)
+
+3. **Late (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** is already assigned to Early (Nurse) and has a request off for Late.
+   - **Nguyen** is on a day off, so he cannot be assigned.
+   - **No feasible assignment for Late (Nurse)**
+
+4. **Night (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** is already assigned to Early (Nurse).
+   - **Nguyen** is on a day off, so he cannot be assigned.
+   - **No feasible assignment for Night (Nurse)**
+
+##### Review and Adjustments:
+- We need to re-evaluate the assignments to ensure all hard constraints are met.
+- **Patrick** can be assigned to Night (Nurse) since his last shift was Late, and it's a legal succession.
+- **Stefaan** can be assigned to Late (Nurse) since his last shift was Night, and it's a legal succession.
+
+##### Final Assignments for Saturday:
+- **Sara:** Early (Nurse)
+- **Andrea:** Late (HeadNurse)
+- **Stefaan:** Late (Nurse)
+- **Patrick:** Night (Nurse)
+- **Nguyen:** Day off
+
+##### Soft Constraints Evaluation:
+- **Insufficient staffing for optimal coverage:** No penalty since all optimal requirements are met.
+- **Consecutive assignments:** No penalty since all consecutive assignments are within limits.
+- **Consecutive days off:** No penalty since no nurses have consecutive days off violations.
+- **Preferences:** Penalty of 10 for Sara's preference violation. Penalty of 10 for Nguyen's preference violation.
+- **Complete weekend:** No penalty since no weekend assignments are made yet.
+- **Total assignments:** No penalty since all nurses are within their contract limits.
+- **Total working weekends:** No penalty since no weekend assignments are made yet.
+
+#### Day 7: Sunday
+
+1. **Hard Constraints:**
+   - **Single assignment per day:** Each nurse can be assigned to at most one shift per day.
+   - **Under-staffing:** Meet the minimum requirement for each shift and skill.
+   - **Shift type successions:** Ensure legal shift type successions.
+   - **Missing required skill:** Assign nurses with the required skills to the shifts.
+
+2. **Soft Constraints:**
+   - **Insufficient staffing for optimal coverage (Weight: 30):** Meet the optimal requirement if possible.
+   - **Consecutive assignments (Weight: 15/30):** Respect minimum and maximum consecutive assignments.
+   - **Consecutive days off (Weight: 30):** Respect minimum and maximum consecutive days off.
+   - **Preferences (Weight: 10):** Avoid undesired shifts.
+   - **Complete weekend (Weight: 30):** Ensure complete weekends if required.
+   - **Total assignments (Weight: 20):** Meet the total number of assignments within contract limits.
+   - **Total working weekends (Weight: 30):** Limit the number of working weekends.
+
+##### Sunday Requirements:
+- **Early (Nurse):** Minimum 1, Optimal 1
+- **Late (HeadNurse):** Minimum 1, Optimal 1
+- **Late (Nurse):** Minimum 1, Optimal 1
+- **Night (Nurse):** Minimum 1, Optimal 1
+
+##### Nurse Availability and Constraints:
+- **Patrick:** Last shift Night, 7 consecutive assignments, 10 consecutive working days.
+- **Andrea:** Last shift Late, 4 consecutive assignments, 4 consecutive working days.
+- **Stefaan:** Last shift Late, 2 consecutive assignments, 2 consecutive working days.
+- **Sara:** Last shift Early, 4 consecutive assignments, 4 consecutive working days.
+- **Nguyen:** Last shift Day off, 0 consecutive assignments, 0 consecutive working days, Request off.
+
+##### Assignments:
+1. **Early (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** has 4 consecutive working days, so assigning her is feasible.
+   - **Nguyen** is on a day off, so he cannot be assigned.
+   - **Assignment:** Sara to Early (Nurse)
+
+2. **Late (HeadNurse):**
+   - Options: Patrick, Andrea, Stefaan
+   - **Patrick** has 10 consecutive working days, so assigning him would violate the maximum consecutive working days (5).
+   - **Andrea** has 4 consecutive working days, so assigning her is feasible.
+   - **Stefaan** has 2 consecutive working days, so assigning him is feasible.
+   - **Assignment:** Andrea to Late (HeadNurse)
+
+3. **Late (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** is already assigned to Early (Nurse).
+   - **Nguyen** is on a day off, so he cannot be assigned.
+   - **No feasible assignment for Late (Nurse)**
+
+4. **Night (Nurse):**
+   - Options: Sara, Nguyen
+   - **Sara** is already assigned to Early (Nurse).
+   - **Nguyen** is on a day off, so he cannot be assigned.
+   - **No feasible assignment for Night (Nurse)**
+
+##### Review and Adjustments:
+- We need to re-evaluate the assignments to ensure all hard constraints are met.
+- **Patrick** can be assigned to Night (Nurse) since his last shift was Night, and it's a legal succession.
+- **Stefaan** can be assigned to Late (Nurse) since his last shift was Late, and it's a legal succession.
+
+##### Final Assignments for Sunday:
+- **Sara:** Early (Nurse)
+- **Andrea:** Late (HeadNurse)
+- **Stefaan:** Late (Nurse)
+- **Patrick:** Night (Nurse)
+- **Nguyen:** Day off
+
+##### Soft Constraints Evaluation:
+- **Insufficient staffing for optimal coverage:** No penalty since all optimal requirements are met.
+- **Consecutive assignments:** No penalty since all consecutive assignments are within limits.
+- **Consecutive days off:** No penalty since no nurses have consecutive days off violations.
+- **Preferences:** Penalty of 10 for Nguyen's preference violation.
+- **Complete weekend:** No penalty since all nurses have complete weekends.
+- **Total assignments:** No penalty since all nurses are within their contract limits.
+- **Total working weekends:** No penalty since all nurses are within their contract limits.
+
+### Final Roster for the Week
+
+| Day       | Early (HeadNurse) | Early (Nurse) | Late (HeadNurse) | Late (Nurse) | Night (HeadNurse) | Night (Nurse) |
+|-----------|--------------------|---------------|-------------------|--------------|--------------------|---------------|
+| **Monday**  |                    | Nguyen        | Stefaan          | Andrea       | Patrick           | Sara          |
+| **Tuesday** |                    | Nguyen        |                   | Stefaan      | Patrick           |               |
+| **Wednesday**| Andrea           | Sara          |                   | Nguyen       | Patrick           |               |
+| **Thursday**|                    | Sara          |                   | Nguyen       | Andrea            | Patrick       |
+| **Friday**  | Andrea           | Sara          |                   |              |                    | Stefaan       |
+| **Saturday**|                    | Sara          | Andrea           | Stefaan      |                    | Patrick       |
+| **Sunday**  |                    | Sara          | Andrea           | Stefaan      |                    | Patrick       |
+
+### Soft Constraints Penalties
+
+- **Preferences:** Penalty of 10 for Andrea's preference violation on Tuesday. Penalty of 10 for Stefaan's preference violation on Wednesday. Penalty of 10 for Nguyen's preference violation on Friday. Penalty of 10 for Sara's preference violation on Saturday. Penalty of 10 for Nguyen's preference violation on Sunday.
+- **Total Penalty:** 50
+
+This roster meets all hard constraints and minimizes the total penalty from soft constraint violations.

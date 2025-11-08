@@ -1,0 +1,93 @@
+Your task is to generate a feasible weekly nurse roster that satisfies all hard constraints and aims to minimise the total penalty from soft constraint violations, according to the following constraint set. When rostering, hard constraints cannot be broken. You should then prioritise meeting soft constraints, such that the cumulative penalty is minimised.
+
+Problem Definition:
+We have:
+Nurses (N) working over Days (D), Weekends (W), Shift Types (S), and Skills (SK). 
+
+Decision Variable:
+x(n,d,s,sk) → Indicates if nurse n is assigned to shift s with skill sk on day d.
+
+Auxiliary Variables:
+o(n,d,s) → Indicates if nurse n works shift s on day d.p(n,d) → Indicates if nurse n works any shift on day d. 
+q(n,w) → Indicates if nurse n works any shift on weekend w.
+
+Hard constraints:
+You must not violate these constraints:
+
+Single Assignment Per Day: A nurse can only work one shift per day.
+∑(s ∈ S) o(n,d,s) ≤ 1, for all n ∈ N, d ∈ D
+
+Under-Staffing Prevention: Minimum required nurses per shift and skill must be met.
+∑(n ∈ N) x(n,d,s,sk) ≥ Cmin(d,s,sk), for all d ∈ D, s ∈ S, sk ∈ SK
+
+Shift Type Successions: Certain shift transitions are forbidden.
+If (s1, s2) is a forbidden sequence:
+o(n,d,s1) + o(n,d+1,s2) ≤ 1, for all n ∈ N, d ∈ D
+
+Skill Requirements: Nurses can only be assigned shifts they are qualified for.
+x(n,d,s,sk) = 0, for all n ∈ N, d ∈ D, s ∈ S, sk ∉ SK(n)
+
+Soft constraints:
+
+You should minimise the total penalty caused by violations of these constraints. Each violation is penalised by their corresponding weight:
+
+Total Penalty = W(Copt) * V(Copt) + W(CWmax) * V(CWmax) + W(CWmin) * V(CWmin) +  W(CFmax) * V(CFmax) + W(CFmin) * V(CFmin) + W(CW) * V(CW) +  W(SOR) * V(SOR) + W(DOR) * V(DOR) + W(Tmax) * V(Tmax) +  W(Tmin) * V(Tmin) + W(TWmax) * V(TWmax)
+
+1. **Optimal Staffing Levels:**  
+- **Copt(d,s,sk)** is the optimal number of nurses required per shift.
+- Weight: W(Copt) = 30
+- Violation count:  
+- V(Copt) = ∑(n ∈ N, d ∈ D, s ∈ S) max(0, Copt(d,s,sk) - ∑(sk ∈ SK) x(n,d,s,sk))  
+
+2. **Consecutive Working Days:**  
+- **CWmax(n)** is the maximum allowed consecutive working days. 
+- Weight: W(CWmax) = 30 
+- **CWmin(n)** is the minimum allowed consecutive working days.  
+- Weight: W(CWmin) = 15
+- Violation count:  
+- V(CWmax) = ∑(n ∈ N) ∑(d=-hCW(n) to |D|-1-CWmax(n)) max(0, (∑(i=0 to CWmax(n)) tw(n,d,i)) - CWmax(n))  
+- V(CWmin) = ∑(n ∈ N, d ∈ D) (CWmin(n) * tw(n,d,0) - ∑(i=0 to CWmin(n)-1) tw(n,d,i))  
+
+3. **Consecutive Days Off:**  
+- **CFmax(n)** is the maximum allowed consecutive free days.  
+- Weight: W(CFmax) = 30 
+- **CFmin(n)** is the minimum allowed consecutive free days.  
+- Weight: W(CFmin) = 30 
+- Violation count:  
+- V(CFmax) = ∑(n ∈ N) ∑(d=-hCF(n) to |D|-1-CFmax(n)) max(0, (∑(i=0 to CFmax(n)) tf(n,d,i)) - CFmax(n))  
+- V(CFmin) = ∑(n ∈ N) ∑(d=0 to |D|-CFmin(n)) (CFmin(n) * tf(n,d,0) - ∑(i=0 to CFmin(n)-1) tf(n,d,i))  
+
+4. **Shift Preferences:**  
+- **Shift-Off Requests (SOR)** → If nurse **n** requested not to work shift **s** on day **d**, minimize violations.
+- Weight: W(SOR) = 10
+- Violation count: V(SOR) = ∑(sor ∈ SOR) o(n,d,s)  
+- **Day-Off Requests (DOR)** → If nurse **n** requested a full day off, minimize violations.  
+- Weight: W(DOR) = 10
+- Violation count: V(DOR) = ∑(dor ∈ DOR) p(n,d)  
+
+5. **Complete Weekend Work Rule:**  
+- If a nurse is required to work a **complete weekend** (i.e., both Saturday and Sunday or none), minimize violations.  
+- Weight: W(CW) = 30
+- Violation count: V(CW) = ∑(n ∈ N, w ∈ W) CW(n) * (2 * q(n,w) - (p(n,dw,1) + p(n,dw,2)))  
+
+6. **Total Assignments:**  
+- **Tmax(n)** is the maximum number of shifts a nurse **n** can work.  
+- Weight: W(Tmax) = 30
+- **Tmin(n)** is the minimum number of shifts a nurse **n** must work. 
+- Weight: W(Tmin) = 30 
+- Violation count:  
+- V(Tmax) = ∑(n ∈ N) max(0, (∑(d ∈ D, s ∈ S) o(n,d,s)) - Tmax(n))  
+- V(Tmin) = ∑(n ∈ N) max(0, Tmin(n) - (∑(d ∈ D, s ∈ S) o(n,d,s)))  
+
+7. **Total Working Weekends:**  
+- **TWmax(n)** is the maximum number of weekends a nurse **n** can work.
+- Weight: W(TWmax) = 30   
+- Violation count:  
+- V(TWmax) = ∑(n ∈ N) max(0, (∑(w ∈ W) q(n,w)) - TWmax(n))
+
+
+You must always think step-by-step and show all your work in the explanation for each shift in the week. 
+You must explain what options you explored for each step, including your working for all hard and soft constraints.
+Check carefully before finalising.
+
+If you reach the token limit, output 'CONTINUATION' and resume exactly where you left off.

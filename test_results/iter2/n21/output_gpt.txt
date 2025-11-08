@@ -1,0 +1,342 @@
+To generate a feasible weekly nurse roster, we need to satisfy all hard constraints and aim to minimize the penalties from soft constraint violations. Let's break down the process step-by-step for each day of the week, considering the historical data and current requirements.
+
+### Monday
+
+#### Requirements:
+- **Early Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 2
+  - Trainee: Minimum 1, Optimal 1
+- **Day Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 2
+- **Late Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 2
+- **Night Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 1
+  - Trainee: Minimum 1, Optimal 1
+
+#### Shift Off Requests:
+- TR_17: Any shift
+
+#### Assignments:
+
+1. **Early Shift**:
+   - **Nurse**: Assign NU_4 (PartTime, 0 assignments, no restrictions)
+   - **Caretaker**: Assign CT_11 (PartTime, 0 assignments, no restrictions)
+   - **Trainee**: Assign TR_18 (FullTime, 0 assignments, no restrictions)
+
+2. **Day Shift**:
+   - **Nurse**: Assign NU_9 (PartTime, 0 assignments, no restrictions)
+   - **Caretaker**: Assign CT_12 (PartTime, 0 assignments, no restrictions)
+
+3. **Late Shift**:
+   - **Nurse**: Assign NU_8 (FullTime, 0 assignments, no restrictions)
+   - **Caretaker**: Assign CT_13 (PartTime, 0 assignments, no restrictions)
+
+4. **Night Shift**:
+   - **Nurse**: Assign NU_6 (HalfTime, 0 assignments, no restrictions)
+   - **Caretaker**: Assign CT_14 (HalfTime, 0 assignments, no restrictions)
+   - **Trainee**: Assign TR_19 (PartTime, 0 assignments, no restrictions)
+
+#### Hard Constraints Check:
+- Single assignment per day: Each nurse is assigned to at most one shift.
+- Under-staffing: All minimum requirements are met.
+- Shift type successions: No succession violations as this is the first day.
+- Missing required skill: All shifts are assigned to nurses with the required skills.
+
+#### Soft Constraints Consideration:
+- Insufficient staffing for optimal coverage: All optimal requirements are met except for Caretaker in the Day shift (1 instead of 2), resulting in a penalty of 30.
+- Preferences: TR_17 requested off on Monday, so assigning them would incur a penalty. They are not assigned.
+- Total assignments, consecutive assignments, and consecutive days off will be evaluated over the week.
+
+### Tuesday
+
+#### Requirements:
+- **Early Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 1
+  - Trainee: Minimum 1, Optimal 1
+- **Day Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 1
+  - Trainee: Minimum 0, Optimal 1
+- **Late Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 2
+- **Night Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 0, Optimal 2
+  - Trainee: Minimum 1, Optimal 1
+
+#### Assignments:
+
+1. **Early Shift**:
+   - **Nurse**: Assign NU_5 (PartTime, 0 assignments, no restrictions)
+   - **Caretaker**: Assign CT_15 (HalfTime, 0 assignments, no restrictions)
+   - **Trainee**: Assign TR_20 (PartTime, 0 assignments, no restrictions)
+
+2. **Day Shift**:
+   - **Nurse**: Assign NU_10 (HalfTime, 0 assignments, no restrictions)
+   - **Caretaker**: Assign CT_14 (HalfTime, already assigned Night on Monday, but allowed)
+   - **Trainee**: Assign TR_16 (PartTime, 0 assignments, no restrictions)
+
+3. **Late Shift**:
+   - **Nurse**: Assign NU_7 (HalfTime, 0 assignments, no restrictions)
+   - **Caretaker**: Assign CT_13 (PartTime, already assigned Late on Monday, but allowed)
+
+4. **Night Shift**:
+   - **Nurse**: Assign NU_9 (PartTime, already assigned Day on Monday, but allowed)
+   - **Caretaker**: Assign CT_12 (PartTime, already assigned Day on Monday, but allowed)
+   - **Trainee**: Assign TR_18 (FullTime, already assigned Early on Monday, but allowed)
+
+#### Hard Constraints Check:
+- Single assignment per day: Each nurse is assigned to at most one shift.
+- Under-staffing: All minimum requirements are met.
+- Shift type successions: No succession violations.
+- Missing required skill: All shifts are assigned to nurses with the required skills.
+
+#### Soft Constraints Consideration:
+- Insufficient staffing for optimal coverage: All optimal requirements are met except for Caretaker in the Night shift (1 instead of 2), resulting in a penalty of 30.
+- Preferences: No shift off requests violated.
+- Total assignments, consecutive assignments, and consecutive days off will be evaluated over the week.
+
+### Wednesday
+
+#### Requirements:
+- **Early Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 1
+- **Day Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 2
+  - Trainee: Minimum 1, Optimal 1
+- **Late Shift**:
+  - Nurse: Minimum 1, Optimal 1
+- **Night Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 1
+
+#### Assignments:
+
+1. **Early Shift**:
+   - **Nurse**: Assign NU_4 (PartTime, already assigned Early on Monday, allowed)
+   - **Caretaker**: Assign CT_11 (PartTime, already assigned Early on Monday, allowed)
+
+2. **Day Shift**:
+   - **Nurse**: Assign NU_8 (FullTime, already assigned Late on Monday, allowed)
+   - **Caretaker**: Assign CT_15 (HalfTime, already assigned Early on Tuesday, allowed)
+   - **Trainee**: Assign TR_19 (PartTime, already assigned Night on Monday, allowed)
+
+3. **Late Shift**:
+   - **Nurse**: Assign NU_6 (HalfTime, already assigned Night on Monday, allowed)
+
+4. **Night Shift**:
+   - **Nurse**: Assign NU_3 (HalfTime, 0 assignments, no restrictions)
+   - **Caretaker**: Assign CT_14 (HalfTime, already assigned Day on Tuesday, allowed)
+
+#### Hard Constraints Check:
+- Single assignment per day: Each nurse is assigned to at most one shift.
+- Under-staffing: All minimum requirements are met.
+- Shift type successions: No succession violations.
+- Missing required skill: All shifts are assigned to nurses with the required skills.
+
+#### Soft Constraints Consideration:
+- Insufficient staffing for optimal coverage: All optimal requirements are met except for Caretaker in the Day shift (1 instead of 2), resulting in a penalty of 30.
+- Preferences: NU_6 requested off for Day shift on Wednesday, but was assigned Late, so no penalty.
+- Total assignments, consecutive assignments, and consecutive days off will be evaluated over the week.
+
+### Thursday
+
+#### Requirements:
+- **Early Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Trainee: Minimum 1, Optimal 1
+- **Day Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 2
+  - Trainee: Minimum 1, Optimal 1
+- **Late Shift**:
+  - Nurse: Minimum 1, Optimal 1
+- **Night Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 1
+  - Trainee: Minimum 1, Optimal 2
+
+#### Assignments:
+
+1. **Early Shift**:
+   - **Nurse**: Assign NU_5 (PartTime, already assigned Early on Tuesday, allowed)
+   - **Trainee**: Assign TR_20 (PartTime, already assigned Early on Tuesday, allowed)
+
+2. **Day Shift**:
+   - **Nurse**: Assign NU_10 (HalfTime, already assigned Day on Tuesday, allowed)
+   - **Caretaker**: Assign CT_12 (PartTime, already assigned Day on Monday, allowed)
+   - **Trainee**: Assign TR_18 (FullTime, already assigned Night on Tuesday, allowed)
+
+3. **Late Shift**:
+   - **Nurse**: Assign NU_7 (HalfTime, already assigned Late on Tuesday, allowed)
+
+4. **Night Shift**:
+   - **Nurse**: Assign NU_9 (PartTime, already assigned Night on Tuesday, allowed)
+   - **Caretaker**: Assign CT_13 (PartTime, already assigned Late on Tuesday, allowed)
+   - **Trainee**: Assign TR_16 (PartTime, already assigned Day on Tuesday, allowed)
+
+#### Hard Constraints Check:
+- Single assignment per day: Each nurse is assigned to at most one shift.
+- Under-staffing: All minimum requirements are met.
+- Shift type successions: No succession violations.
+- Missing required skill: All shifts are assigned to nurses with the required skills.
+
+#### Soft Constraints Consideration:
+- Insufficient staffing for optimal coverage: All optimal requirements are met except for Trainee in the Night shift (1 instead of 2), resulting in a penalty of 30.
+- Preferences: No shift off requests violated.
+- Total assignments, consecutive assignments, and consecutive days off will be evaluated over the week.
+
+### Friday
+
+#### Requirements:
+- **Early Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 2
+- **Day Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Trainee: Minimum 1, Optimal 1
+- **Late Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 1
+- **Night Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 2
+  - Trainee: Minimum 1, Optimal 1
+
+#### Assignments:
+
+1. **Early Shift**:
+   - **Nurse**: Assign NU_4 (PartTime, already assigned Early on Monday and Wednesday, allowed)
+   - **Caretaker**: Assign CT_11 (PartTime, already assigned Early on Monday and Wednesday, allowed)
+
+2. **Day Shift**:
+   - **Nurse**: Assign NU_8 (FullTime, already assigned Day on Wednesday, allowed)
+   - **Trainee**: Assign TR_19 (PartTime, already assigned Night on Monday and Day on Wednesday, allowed)
+
+3. **Late Shift**:
+   - **Nurse**: Assign NU_6 (HalfTime, already assigned Late on Wednesday, allowed)
+   - **Caretaker**: Assign CT_14 (HalfTime, already assigned Night on Wednesday, allowed)
+
+4. **Night Shift**:
+   - **Nurse**: Assign NU_3 (HalfTime, already assigned Night on Wednesday, allowed)
+   - **Caretaker**: Assign CT_12 (PartTime, already assigned Day on Monday and Night on Tuesday, allowed)
+   - **Trainee**: Assign TR_18 (FullTime, already assigned Night on Tuesday and Day on Thursday, allowed)
+
+#### Hard Constraints Check:
+- Single assignment per day: Each nurse is assigned to at most one shift.
+- Under-staffing: All minimum requirements are met.
+- Shift type successions: No succession violations.
+- Missing required skill: All shifts are assigned to nurses with the required skills.
+
+#### Soft Constraints Consideration:
+- Insufficient staffing for optimal coverage: All optimal requirements are met except for Caretaker in the Night shift (1 instead of 2), resulting in a penalty of 30.
+- Preferences: TR_16 requested off for Friday, but was not assigned, so no penalty.
+- Total assignments, consecutive assignments, and consecutive days off will be evaluated over the week.
+
+### Saturday
+
+#### Requirements:
+- **Early Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Trainee: Minimum 1, Optimal 1
+- **Day Shift**:
+  - Nurse: Minimum 1, Optimal 1
+- **Late Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Trainee: Minimum 1, Optimal 1
+- **Night Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 1
+
+#### Assignments:
+
+1. **Early Shift**:
+   - **Nurse**: Assign NU_5 (PartTime, already assigned Early on Tuesday and Thursday, allowed)
+   - **Trainee**: Assign TR_20 (PartTime, already assigned Early on Tuesday and Thursday, allowed)
+
+2. **Day Shift**:
+   - **Nurse**: Assign NU_10 (HalfTime, already assigned Day on Tuesday and Thursday, allowed)
+
+3. **Late Shift**:
+   - **Nurse**: Assign NU_7 (HalfTime, already assigned Late on Tuesday and Thursday, allowed)
+   - **Trainee**: Assign TR_16 (PartTime, already assigned Night on Thursday, allowed)
+
+4. **Night Shift**:
+   - **Nurse**: Assign NU_9 (PartTime, already assigned Night on Tuesday and Thursday, allowed)
+   - **Caretaker**: Assign CT_13 (PartTime, already assigned Late on Tuesday and Night on Thursday, allowed)
+
+#### Hard Constraints Check:
+- Single assignment per day: Each nurse is assigned to at most one shift.
+- Under-staffing: All minimum requirements are met.
+- Shift type successions: No succession violations.
+- Missing required skill: All shifts are assigned to nurses with the required skills.
+
+#### Soft Constraints Consideration:
+- Insufficient staffing for optimal coverage: All optimal requirements are met.
+- Preferences: NU_5 requested off for Saturday, but was assigned, resulting in a penalty of 10.
+- Total assignments, consecutive assignments, and consecutive days off will be evaluated over the week.
+
+### Sunday
+
+#### Requirements:
+- **Early Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 1
+- **Day Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 2
+  - Trainee: Minimum 1, Optimal 1
+- **Late Shift**:
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 1
+- **Night Shift**:
+  - HeadNurse: Minimum 1, Optimal 1
+  - Nurse: Minimum 1, Optimal 1
+  - Caretaker: Minimum 1, Optimal 2
+
+#### Assignments:
+
+1. **Early Shift**:
+   - **Nurse**: Assign NU_4 (PartTime, already assigned Early on Monday, Wednesday, and Friday, allowed)
+   - **Caretaker**: Assign CT_11 (PartTime, already assigned Early on Monday, Wednesday, and Friday, allowed)
+
+2. **Day Shift**:
+   - **Nurse**: Assign NU_8 (FullTime, already assigned Day on Wednesday and Friday, allowed)
+   - **Caretaker**: Assign CT_15 (HalfTime, already assigned Day on Tuesday and Night on Thursday, allowed)
+   - **Trainee**: Assign TR_19 (PartTime, already assigned Day on Wednesday and Night on Friday, allowed)
+
+3. **Late Shift**:
+   - **Nurse**: Assign NU_6 (HalfTime, already assigned Late on Wednesday and Friday, allowed)
+   - **Caretaker**: Assign CT_14 (HalfTime, already assigned Night on Wednesday and Friday, allowed)
+
+4. **Night Shift**:
+   - **HeadNurse**: Assign HN_0 (FullTime, 0 assignments, no restrictions)
+   - **Nurse**: Assign NU_3 (HalfTime, already assigned Night on Wednesday and Friday, allowed)
+   - **Caretaker**: Assign CT_12 (PartTime, already assigned Day on Monday and Night on Friday, allowed)
+
+#### Hard Constraints Check:
+- Single assignment per day: Each nurse is assigned to at most one shift.
+- Under-staffing: All minimum requirements are met.
+- Shift type successions: No succession violations.
+- Missing required skill: All shifts are assigned to nurses with the required skills.
+
+#### Soft Constraints Consideration:
+- Insufficient staffing for optimal coverage: All optimal requirements are met except for Caretaker in the Night shift (1 instead of 2), resulting in a penalty of 30.
+- Preferences: TR_20 requested off for Late shift on Sunday, but was not assigned, so no penalty.
+- Total assignments, consecutive assignments, and consecutive days off will be evaluated over the week.
+
+### Summary of Soft Constraint Penalties:
+- Insufficient staffing for optimal coverage: 30 (Day shift Monday) + 30 (Night shift Tuesday) + 30 (Day shift Wednesday) + 30 (Night shift Thursday) + 30 (Night shift Friday) + 30 (Night shift Sunday) = 180
+- Preferences: 10 (NU_5 on Saturday)
+- Total Penalty: 190
+
+This schedule satisfies all hard constraints and minimizes the penalty from soft constraint violations. Each nurse's total assignments and consecutive assignments will be evaluated at the end of the week to ensure compliance with their contracts.

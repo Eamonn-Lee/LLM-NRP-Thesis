@@ -1,0 +1,127 @@
+To generate a feasible weekly nurse roster for the given scenario, we need to consider both the hard and soft constraints, as well as the historical assignments. Let's break down the process day by day, ensuring that all constraints are met and penalties are minimized.
+
+### Monday
+
+#### Requirements:
+- **Early Shift**: 1 Nurse
+- **Late Shift**: 1 HeadNurse
+- **Night Shift**: 1 HeadNurse, 1 Nurse
+
+#### Assignments:
+1. **Early Shift (Nurse)**:
+   - Assign **Nguyen** (FullTime, Nurse) as he has no restrictions for Monday and can start a new consecutive working period.
+
+2. **Late Shift (HeadNurse)**:
+   - Assign **Andrea** (FullTime, HeadNurse) as she is available and has no restrictions for Monday.
+
+3. **Night Shift (HeadNurse)**:
+   - Assign **Patrick** (FullTime, HeadNurse) as he is qualified and can start a new consecutive working period.
+
+4. **Night Shift (Nurse)**:
+   - Assign **Sara** (PartTime, Nurse) as she has no restrictions for Monday and can start a new consecutive working period.
+
+### Tuesday
+
+#### Requirements:
+- **Early Shift**: 1 Nurse
+- **Late Shift**: 1 Nurse
+- **Night Shift**: 1 Nurse
+
+#### Assignments:
+1. **Early Shift (Nurse)**:
+   - Assign **Nguyen** again to continue his consecutive working days.
+
+2. **Late Shift (Nurse)**:
+   - Assign **Stefaan** (PartTime, Nurse) as Andrea requested the day off.
+
+3. **Night Shift (Nurse)**:
+   - Assign **Patrick** to continue his consecutive working days.
+
+### Wednesday
+
+#### Requirements:
+- **Early Shift**: 1 HeadNurse
+- **Late Shift**: 1 Nurse
+- **Night Shift**: 1 HeadNurse
+
+#### Assignments:
+1. **Early Shift (HeadNurse)**:
+   - Assign **Andrea** as she can work after her day off.
+
+2. **Late Shift (Nurse)**:
+   - Assign **Nguyen** to continue his consecutive working days.
+
+3. **Night Shift (HeadNurse)**:
+   - Assign **Patrick** to continue his consecutive working days.
+
+### Thursday
+
+#### Requirements:
+- **Early Shift**: 1 Nurse
+- **Late Shift**: 1 Nurse
+- **Night Shift**: 1 Nurse
+
+#### Assignments:
+1. **Early Shift (Nurse)**:
+   - Assign **Sara** to start a new consecutive working period.
+
+2. **Late Shift (Nurse)**:
+   - Assign **Stefaan** to continue his consecutive working days.
+
+3. **Night Shift (Nurse)**:
+   - Assign **Nguyen** to continue his consecutive working days.
+
+### Friday
+
+#### Requirements:
+- **Early Shift**: 1 HeadNurse
+- **Late Shift**: 1 Nurse
+
+#### Assignments:
+1. **Early Shift (HeadNurse)**:
+   - Assign **Andrea** to continue her consecutive working days.
+
+2. **Late Shift (Nurse)**:
+   - Assign **Sara** to continue her consecutive working days.
+
+### Saturday
+
+#### Requirements:
+- **Early Shift**: 1 Nurse
+- **Late Shift**: 1 HeadNurse
+- **Night Shift**: 1 Nurse
+
+#### Assignments:
+1. **Early Shift (Nurse)**:
+   - Assign **Patrick** to start a new consecutive working period.
+
+2. **Late Shift (HeadNurse)**:
+   - Assign **Andrea** to continue her consecutive working days.
+
+3. **Night Shift (Nurse)**:
+   - Assign **Stefaan** to start a new consecutive working period.
+
+### Sunday
+
+#### Requirements:
+- **Early Shift**: 1 Nurse
+- **Late Shift**: 1 HeadNurse
+- **Night Shift**: 1 Nurse
+
+#### Assignments:
+1. **Early Shift (Nurse)**:
+   - Assign **Nguyen** to start a new consecutive working period.
+
+2. **Late Shift (HeadNurse)**:
+   - Assign **Patrick** to continue his consecutive working days.
+
+3. **Night Shift (Nurse)**:
+   - Assign **Sara** to continue her consecutive working days.
+
+### Considerations:
+- Ensure that no forbidden shift transitions occur.
+- Maintain the minimum and maximum consecutive working days and days off.
+- Ensure that complete weekend work rules are respected.
+- Minimize penalties for shift-off requests and day-off requests.
+
+This schedule respects all hard constraints and attempts to minimize penalties from soft constraints. Adjustments may be needed based on further analysis of penalties and historical data.

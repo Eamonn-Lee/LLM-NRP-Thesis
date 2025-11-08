@@ -1,0 +1,143 @@
+To generate a feasible weekly nurse roster, we need to satisfy all hard constraints and aim to minimize the total penalty from soft constraint violations. Here's a step-by-step approach to creating the roster for the given scenario:
+
+### Step 1: Understanding the Requirements and Constraints
+
+#### Nurses and Contracts:
+- **Patrick**: FullTime, skills: HeadNurse, Nurse
+- **Andrea**: FullTime, skills: HeadNurse, Nurse
+- **Stefaan**: PartTime, skills: HeadNurse, Nurse
+- **Sara**: PartTime, skills: Nurse
+- **Nguyen**: FullTime, skills: Nurse
+
+#### Shift Types and Forbidden Successions:
+- **Early**: Min 2, Max 5 consecutive assignments
+- **Late**: Min 2, Max 3 consecutive assignments
+- **Night**: Min 4, Max 5 consecutive assignments
+- Forbidden: Late → Early, Night → Early/Late
+
+#### Historical Assignments:
+- Patrick: Last shift Night, 4 consecutive working days
+- Andrea: Last shift Early, 3 consecutive working days
+- Stefaan: 3 consecutive days off
+- Sara: Last shift Late, 4 consecutive working days
+- Nguyen: 1 consecutive day off
+
+#### Shift and Skill Requirements:
+- Various requirements for each day and shift type, with specific minimum and optimal numbers.
+
+#### Shift-Off Requests:
+- Andrea: Off on Tuesday
+- Stefaan: Off on Wednesday
+- Nguyen: Off on Friday and Saturday
+- Sara: Off Late on Saturday
+
+### Step 2: Assign Shifts Day by Day
+
+#### Monday:
+- **Early (HeadNurse)**: No requirement
+- **Early (Nurse)**: 1 required
+- **Late (HeadNurse)**: 1 required
+- **Late (Nurse)**: Optimal 1
+- **Night (HeadNurse)**: 1 required
+- **Night (Nurse)**: 1 required
+
+**Assignments:**
+- Early (Nurse): Assign Sara (meets minimum, avoids consecutive Late)
+- Late (HeadNurse): Assign Andrea (meets requirement, avoids forbidden succession)
+- Night (HeadNurse): Assign Patrick (meets requirement, continues Night shift)
+- Night (Nurse): Assign Nguyen (meets requirement)
+
+#### Tuesday:
+- **Early (HeadNurse)**: No requirement
+- **Early (Nurse)**: 1 required
+- **Late (HeadNurse)**: No requirement
+- **Late (Nurse)**: 1 required
+- **Night (HeadNurse)**: No requirement
+- **Night (Nurse)**: 1 required
+
+**Assignments:**
+- Early (Nurse): Assign Sara (continues from Monday)
+- Late (Nurse): Assign Stefaan (avoids Andrea's day-off request)
+- Night (Nurse): Assign Nguyen (continues from Monday)
+
+#### Wednesday:
+- **Early (HeadNurse)**: 1 required
+- **Early (Nurse)**: Optimal 1
+- **Late (HeadNurse)**: No requirement
+- **Late (Nurse)**: 1 required
+- **Night (HeadNurse)**: 1 required
+- **Night (Nurse)**: Optimal 1
+
+**Assignments:**
+- Early (HeadNurse): Assign Patrick (meets requirement)
+- Late (Nurse): Assign Sara (avoids forbidden succession)
+- Night (HeadNurse): Assign Andrea (meets requirement)
+- Night (Nurse): Assign Nguyen (continues from Tuesday)
+
+#### Thursday:
+- **Early (HeadNurse)**: No requirement
+- **Early (Nurse)**: 1 required
+- **Late (HeadNurse)**: No requirement
+- **Late (Nurse)**: 1 required
+- **Night (HeadNurse)**: 1 required
+- **Night (Nurse)**: 1 required
+
+**Assignments:**
+- Early (Nurse): Assign Sara (continues from Wednesday)
+- Late (Nurse): Assign Stefaan (continues from Tuesday)
+- Night (HeadNurse): Assign Patrick (continues from Wednesday)
+- Night (Nurse): Assign Nguyen (continues from Wednesday)
+
+#### Friday:
+- **Early (HeadNurse)**: 1 required
+- **Early (Nurse)**: Optimal 1
+- **Late (HeadNurse)**: No requirement
+- **Late (Nurse)**: 1 required
+- **Night (HeadNurse)**: No requirement
+- **Night (Nurse)**: Optimal 1
+
+**Assignments:**
+- Early (HeadNurse): Assign Andrea (meets requirement)
+- Late (Nurse): Assign Sara (avoids Nguyen's day-off request)
+
+#### Saturday:
+- **Early (HeadNurse)**: No requirement
+- **Early (Nurse)**: 1 required
+- **Late (HeadNurse)**: 1 required
+- **Late (Nurse)**: 1 required
+- **Night (HeadNurse)**: No requirement
+- **Night (Nurse)**: 1 required
+
+**Assignments:**
+- Early (Nurse): Assign Patrick (avoids forbidden succession)
+- Late (HeadNurse): Assign Andrea (meets requirement)
+- Night (Nurse): Assign Nguyen (avoids day-off request)
+
+#### Sunday:
+- **Early (HeadNurse)**: No requirement
+- **Early (Nurse)**: 1 required
+- **Late (HeadNurse)**: 1 required
+- **Late (Nurse)**: 1 required
+- **Night (HeadNurse)**: No requirement
+- **Night (Nurse)**: 1 required
+
+**Assignments:**
+- Early (Nurse): Assign Sara (continues from Saturday)
+- Late (HeadNurse): Assign Patrick (meets requirement)
+- Night (Nurse): Assign Nguyen (continues from Saturday)
+
+### Step 3: Validate and Adjust for Soft Constraints
+
+- **Consecutive Working Days**: Ensure all nurses meet their contract requirements for consecutive working days.
+- **Consecutive Days Off**: Ensure all nurses meet their contract requirements for consecutive days off.
+- **Shift Preferences**: Check if any shift-off requests were violated and adjust if possible.
+- **Total Assignments**: Ensure each nurse meets their minimum and maximum assignment requirements.
+- **Complete Weekends**: Ensure nurses work complete weekends if required.
+
+### Step 4: Calculate Penalties
+
+- Calculate penalties for any soft constraint violations and adjust assignments to minimize these penalties.
+
+### Conclusion
+
+This step-by-step approach ensures that all hard constraints are met while minimizing penalties from soft constraint violations. Adjustments may be necessary based on the initial assignments to further reduce penalties.

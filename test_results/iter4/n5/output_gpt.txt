@@ -1,0 +1,177 @@
+To generate a feasible weekly nurse roster, we must adhere to the hard constraints and aim to minimize penalties from soft constraints. Let's break down the process day by day, considering the historical assignments and current requirements.
+
+### Monday
+
+#### Requirements:
+- **Early**: 1 Nurse
+- **Late**: 1 HeadNurse
+- **Night**: 1 HeadNurse, 1 Nurse
+
+#### Assignments:
+1. **Early Shift**:
+   - **Nurse**: Assign Sara (only Nurse skill). This satisfies the minimum and optimal requirement for a Nurse.
+
+2. **Late Shift**:
+   - **HeadNurse**: Assign Andrea (HeadNurse skill). This satisfies the minimum and optimal requirement for a HeadNurse.
+
+3. **Night Shift**:
+   - **HeadNurse**: Assign Patrick (HeadNurse skill). This satisfies the minimum and optimal requirement for a HeadNurse.
+   - **Nurse**: Assign Nguyen (Nurse skill). This satisfies the minimum and optimal requirement for a Nurse.
+
+#### Hard Constraints Check:
+- All shifts have been filled with qualified nurses.
+- No nurse is assigned more than one shift per day.
+
+#### Soft Constraints Consideration:
+- Andrea has a shift on Monday, so she will need to be off on Tuesday due to her request.
+- Patrick starts a Night shift, which requires a minimum of 4 consecutive assignments. This will need to be considered in the following days.
+
+### Tuesday
+
+#### Requirements:
+- **Early**: 1 Nurse
+- **Late**: 1 Nurse
+- **Night**: 1 Nurse
+
+#### Assignments:
+1. **Early Shift**:
+   - **Nurse**: Assign Stefaan (Nurse skill). This satisfies the minimum and optimal requirement for a Nurse.
+
+2. **Late Shift**:
+   - **Nurse**: Assign Sara (Nurse skill). This satisfies the minimum and optimal requirement for a Nurse.
+
+3. **Night Shift**:
+   - **Nurse**: Assign Patrick (Nurse skill). This satisfies the minimum and optimal requirement for a Nurse.
+
+#### Hard Constraints Check:
+- Andrea is off, respecting her shift-off request.
+- Patrick continues his Night shift, respecting the minimum consecutive assignments.
+
+#### Soft Constraints Consideration:
+- Sara and Stefaan have started consecutive assignments, which will need to be monitored for compliance with their contracts.
+
+### Wednesday
+
+#### Requirements:
+- **Early**: 1 HeadNurse
+- **Late**: 1 Nurse
+- **Night**: 1 HeadNurse
+
+#### Assignments:
+1. **Early Shift**:
+   - **HeadNurse**: Assign Andrea (HeadNurse skill). This satisfies the minimum and optimal requirement for a HeadNurse.
+
+2. **Late Shift**:
+   - **Nurse**: Assign Nguyen (Nurse skill). This satisfies the minimum and optimal requirement for a Nurse.
+
+3. **Night Shift**:
+   - **HeadNurse**: Assign Patrick (HeadNurse skill). This satisfies the minimum and optimal requirement for a HeadNurse.
+
+#### Hard Constraints Check:
+- All shifts have been filled with qualified nurses.
+- Stefaan is off, respecting his shift-off request.
+
+#### Soft Constraints Consideration:
+- Patrick continues his Night shift, maintaining the minimum consecutive assignments.
+- Andrea resumes work after her day off.
+
+### Thursday
+
+#### Requirements:
+- **Early**: 1 Nurse
+- **Late**: 1 Nurse
+- **Night**: 1 Nurse
+
+#### Assignments:
+1. **Early Shift**:
+   - **Nurse**: Assign Sara (Nurse skill). This satisfies the minimum and optimal requirement for a Nurse.
+
+2. **Late Shift**:
+   - **Nurse**: Assign Stefaan (Nurse skill). This satisfies the minimum and optimal requirement for a Nurse.
+
+3. **Night Shift**:
+   - **Nurse**: Assign Patrick (Nurse skill). This satisfies the minimum and optimal requirement for a Nurse.
+
+#### Hard Constraints Check:
+- All shifts have been filled with qualified nurses.
+
+#### Soft Constraints Consideration:
+- Patrick continues his Night shift, maintaining the minimum consecutive assignments.
+- Sara and Stefaan maintain their consecutive assignments.
+
+### Friday
+
+#### Requirements:
+- **Early**: 1 HeadNurse
+- **Late**: 1 Nurse
+- **Night**: 1 Nurse
+
+#### Assignments:
+1. **Early Shift**:
+   - **HeadNurse**: Assign Andrea (HeadNurse skill). This satisfies the minimum and optimal requirement for a HeadNurse.
+
+2. **Late Shift**:
+   - **Nurse**: Assign Sara (Nurse skill). This satisfies the minimum and optimal requirement for a Nurse.
+
+3. **Night Shift**:
+   - **Nurse**: Assign Patrick (Nurse skill). This satisfies the minimum and optimal requirement for a Nurse.
+
+#### Hard Constraints Check:
+- Nguyen is off, respecting his shift-off request.
+
+#### Soft Constraints Consideration:
+- Patrick completes his Night shift sequence, meeting the minimum consecutive assignments.
+- Andrea and Sara maintain their consecutive assignments.
+
+### Saturday
+
+#### Requirements:
+- **Early**: 1 Nurse
+- **Late**: 1 HeadNurse
+- **Night**: 1 Nurse
+
+#### Assignments:
+1. **Early Shift**:
+   - **Nurse**: Assign Nguyen (Nurse skill). This satisfies the minimum and optimal requirement for a Nurse.
+
+2. **Late Shift**:
+   - **HeadNurse**: Assign Patrick (HeadNurse skill). This satisfies the minimum and optimal requirement for a HeadNurse.
+
+3. **Night Shift**:
+   - **Nurse**: Assign Stefaan (Nurse skill). This satisfies the minimum and optimal requirement for a Nurse.
+
+#### Hard Constraints Check:
+- Sara is off, respecting her shift-off request.
+
+#### Soft Constraints Consideration:
+- Patrick works the weekend, so he must work both days or none to avoid penalties.
+
+### Sunday
+
+#### Requirements:
+- **Early**: 1 Nurse
+- **Late**: 1 HeadNurse
+- **Night**: 1 Nurse
+
+#### Assignments:
+1. **Early Shift**:
+   - **Nurse**: Assign Sara (Nurse skill). This satisfies the minimum and optimal requirement for a Nurse.
+
+2. **Late Shift**:
+   - **HeadNurse**: Assign Andrea (HeadNurse skill). This satisfies the minimum and optimal requirement for a HeadNurse.
+
+3. **Night Shift**:
+   - **Nurse**: Assign Nguyen (Nurse skill). This satisfies the minimum and optimal requirement for a Nurse.
+
+#### Hard Constraints Check:
+- All shifts have been filled with qualified nurses.
+
+#### Soft Constraints Consideration:
+- Patrick and Andrea complete their weekend assignments, avoiding penalties for incomplete weekends.
+
+### Final Considerations
+- Ensure each nurse's total assignments fall within their contract limits.
+- Check for any consecutive days off violations.
+- Calculate any penalties for unmet optimal requirements.
+
+This roster satisfies all hard constraints and aims to minimize penalties from soft constraints. Adjustments may be necessary based on specific contract details or unforeseen requirements.

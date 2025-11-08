@@ -1,0 +1,958 @@
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5mm_1.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 27
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Nguyen, 4, 4.00
+Patrick, 5, 4.25
+Sara, 6, 4.40
+Stefaan, 6, 4.40
+Andrea, 6, 4.80
+
+Imbalance (Coefficient of Variation)
+  counts:  0.148
+  avg_gap: 0.059
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5mm_2.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 26
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Patrick, 5, 4.25
+Sara, 6, 4.40
+Andrea, 6, 4.80
+Nguyen, 5, 5.50
+Stefaan, 4, 6.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.144
+  avg_gap: 0.133
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5mm_3.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 24
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Patrick, 6, 4.00
+Nguyen, 4, 4.33
+Sara, 4, 4.33
+Stefaan, 6, 4.60
+Andrea, 4, 5.33
+
+Imbalance (Coefficient of Variation)
+  counts:  0.204
+  avg_gap: 0.099
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5mm_4.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 27
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Nguyen, 4, 4.00
+Patrick, 5, 4.25
+Sara, 6, 4.40
+Stefaan, 6, 4.40
+Andrea, 6, 4.80
+
+Imbalance (Coefficient of Variation)
+  counts:  0.148
+  avg_gap: 0.059
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5nl_1.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 23
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Patrick, 4, 3.67
+Sara, 4, 4.33
+Andrea, 5, 4.75
+Nguyen, 5, 5.00
+Stefaan, 5, 5.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.106
+  avg_gap: 0.111
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5nl_2.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 25
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Sara, 6, 3.40
+Nguyen, 3, 3.50
+Andrea, 6, 4.60
+Patrick, 5, 4.75
+Stefaan, 5, 5.75
+
+Imbalance (Coefficient of Variation)
+  counts:  0.219
+  avg_gap: 0.198
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5nl_3.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 20
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Patrick, 4, 2.67
+Andrea, 5, 3.75
+Stefaan, 4, 5.33
+Nguyen, 3, 5.50
+Sara, 4, 6.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.158
+  avg_gap: 0.268
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5nl_4.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 25
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Nguyen, 4, 4.00
+Sara, 5, 4.25
+Andrea, 6, 4.60
+Stefaan, 6, 4.60
+Patrick, 4, 4.67
+
+Imbalance (Coefficient of Variation)
+  counts:  0.179
+  avg_gap: 0.058
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n21nl_1.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 81
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+TR_19, 4, 10.33
+HN_2, 4, 10.67
+NU_7, 5, 10.75
+NU_4, 4, 11.00
+NU_10, 3, 11.50
+NU_9, 3, 11.50
+NU_5, 2, 12.00
+CT_14, 5, 12.25
+NU_3, 5, 12.25
+HN_1, 6, 13.80
+CT_12, 5, 16.50
+NU_8, 5, 16.50
+CT_11, 5, 17.50
+TR_18, 4, 19.00
+TR_17, 4, 19.33
+NU_6, 4, 19.67
+CT_13, 2, 20.00
+TR_20, 2, 20.00
+CT_15, 4, 20.67
+TR_16, 4, 24.67
+HN_0, 1, NA
+
+Imbalance (Coefficient of Variation)
+  counts:  0.323
+  avg_gap: 0.275
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n21nl_2.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 85
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+HN_0, 4, 11.00
+NU_10, 4, 11.00
+TR_20, 4, 12.00
+TR_17, 5, 13.50
+NU_3, 6, 14.60
+NU_7, 3, 15.00
+NU_9, 5, 15.00
+HN_2, 5, 16.25
+NU_4, 5, 16.25
+CT_12, 4, 16.33
+CT_15, 5, 16.50
+TR_19, 3, 16.50
+HN_1, 5, 17.75
+CT_13, 2, 18.00
+CT_14, 5, 20.75
+CT_11, 4, 24.00
+NU_8, 4, 24.33
+TR_16, 4, 24.33
+TR_18, 3, 28.50
+NU_6, 3, 33.50
+NU_5, 2, 78.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.258
+  avg_gap: 0.660
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n21nl_3.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 71
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+NU_4, 3, 7.00
+HN_0, 2, 9.00
+TR_19, 2, 9.00
+HN_2, 4, 9.33
+NU_5, 4, 10.00
+CT_14, 3, 10.50
+NU_3, 5, 10.50
+NU_7, 3, 10.50
+NU_9, 3, 10.50
+NU_8, 4, 10.67
+TR_16, 4, 11.33
+CT_15, 3, 12.00
+CT_12, 5, 13.75
+TR_20, 5, 13.75
+CT_11, 5, 15.50
+TR_17, 4, 16.00
+CT_13, 5, 16.25
+HN_1, 4, 20.33
+NU_10, 1, NA
+NU_6, 1, NA
+TR_18, 1, NA
+
+Imbalance (Coefficient of Variation)
+  counts:  0.392
+  avg_gap: 0.269
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n21nl_4.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 71
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+NU_7, 3, 8.00
+NU_10, 4, 9.33
+NU_5, 4, 10.00
+CT_15, 4, 10.33
+NU_3, 5, 10.50
+NU_6, 3, 10.50
+TR_16, 3, 10.50
+CT_11, 4, 10.67
+NU_9, 4, 10.67
+NU_4, 6, 10.80
+TR_17, 4, 11.67
+HN_2, 3, 14.00
+NU_8, 5, 15.50
+CT_12, 2, 16.00
+CT_13, 2, 18.00
+TR_20, 2, 20.00
+TR_18, 4, 20.33
+CT_14, 4, 21.67
+HN_1, 3, 26.50
+HN_0, 1, NA
+TR_19, 1, NA
+
+Imbalance (Coefficient of Variation)
+  counts:  0.371
+  avg_gap: 0.359
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5mm_1.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 29
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Patrick, 7, 4.33
+Andrea, 6, 4.80
+Stefaan, 6, 5.00
+Nguyen, 5, 5.50
+Sara, 5, 5.75
+
+Imbalance (Coefficient of Variation)
+  counts:  0.129
+  avg_gap: 0.099
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5mm_2.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 23
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Patrick, 8, 2.86
+Sara, 5, 4.00
+Andrea, 5, 5.00
+Nguyen, 4, 5.67
+Stefaan, 1, NA
+
+Imbalance (Coefficient of Variation)
+  counts:  0.488
+  avg_gap: 0.242
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5mm_3.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 29
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Patrick, 7, 3.67
+Nguyen, 6, 4.60
+Sara, 6, 4.80
+Andrea, 6, 5.60
+Stefaan, 4, 6.67
+
+Imbalance (Coefficient of Variation)
+  counts:  0.169
+  avg_gap: 0.199
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5mm_4.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 29
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Patrick, 7, 4.33
+Andrea, 6, 4.80
+Stefaan, 6, 5.00
+Nguyen, 5, 5.50
+Sara, 5, 5.75
+
+Imbalance (Coefficient of Variation)
+  counts:  0.129
+  avg_gap: 0.099
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5nl_1.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 30
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Patrick, 8, 3.00
+Sara, 6, 4.80
+Nguyen, 6, 5.60
+Stefaan, 5, 5.75
+Andrea, 5, 6.50
+
+Imbalance (Coefficient of Variation)
+  counts:  0.183
+  avg_gap: 0.233
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5nl_2.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 21
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Sara, 6, 2.80
+Nguyen, 6, 3.80
+Patrick, 5, 4.25
+Andrea, 4, 5.67
+
+Imbalance (Coefficient of Variation)
+  counts:  0.158
+  avg_gap: 0.250
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5nl_3.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 17
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Sara, 5, 2.75
+Patrick, 3, 3.50
+Nguyen, 5, 3.75
+Andrea, 4, 5.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.195
+  avg_gap: 0.216
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5nl_4.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 27
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Sara, 8, 2.71
+Patrick, 6, 4.00
+Nguyen, 7, 4.17
+Andrea, 6, 4.40
+
+Imbalance (Coefficient of Variation)
+  counts:  0.123
+  avg_gap: 0.171
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n21nl_1.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 13
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+NU_3, 2, 1.00
+NU_5, 2, 1.00
+NU_8, 2, 1.00
+CT_11, 2, 2.00
+CT_12, 1, NA
+CT_13, 1, NA
+NU_9, 1, NA
+TR_18, 1, NA
+TR_19, 1, NA
+
+Imbalance (Coefficient of Variation)
+  counts:  0.344
+  avg_gap: 0.346
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n21nl_2.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 17
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+CT_13, 2, 9.00
+CT_11, 1, NA
+CT_12, 1, NA
+CT_14, 1, NA
+CT_15, 1, NA
+NU_10, 1, NA
+NU_3, 1, NA
+NU_5, 1, NA
+NU_7, 1, NA
+NU_8, 1, NA
+NU_9, 1, NA
+TR_16, 1, NA
+TR_17, 1, NA
+TR_18, 1, NA
+TR_19, 1, NA
+TR_20, 1, NA
+
+Imbalance (Coefficient of Variation)
+  counts:  0.228
+  avg_gap: 0.000
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n21nl_3.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 73
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+NU_10, 5, 13.00
+TR_16, 4, 15.00
+NU_4, 4, 15.67
+TR_17, 4, 16.67
+NU_7, 4, 17.33
+NU_9, 4, 17.33
+NU_3, 5, 17.50
+CT_14, 4, 19.00
+NU_6, 4, 19.33
+CT_11, 4, 21.00
+CT_15, 3, 21.00
+TR_18, 3, 21.00
+CT_13, 4, 21.67
+NU_5, 3, 26.00
+NU_8, 3, 26.00
+TR_19, 3, 26.00
+CT_12, 3, 27.00
+TR_20, 3, 27.50
+HN_0, 2, 28.00
+HN_2, 2, 28.00
+HN_1, 2, 32.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.245
+  avg_gap: 0.237
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n21nl_4.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 79
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+CT_15, 8, 10.86
+CT_11, 7, 12.00
+CT_13, 6, 12.40
+CT_14, 5, 13.25
+TR_17, 5, 13.25
+CT_12, 6, 14.00
+TR_16, 5, 14.25
+NU_10, 4, 17.67
+NU_4, 3, 19.50
+NU_6, 3, 22.50
+NU_5, 4, 22.67
+NU_3, 4, 23.00
+NU_9, 4, 23.00
+NU_7, 3, 25.00
+TR_20, 3, 26.50
+TR_19, 3, 29.50
+NU_8, 3, 30.00
+TR_18, 3, 30.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.341
+  avg_gap: 0.326
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5mm_1.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 21
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Patrick, 6, 1.60
+Sara, 5, 2.75
+Andrea, 4, 3.67
+Nguyen, 5, 4.50
+Stefaan, 1, NA
+
+Imbalance (Coefficient of Variation)
+  counts:  0.410
+  avg_gap: 0.345
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5mm_2.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 23
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Nguyen, 6, 3.80
+Sara, 6, 4.00
+Patrick, 5, 4.75
+Andrea, 4, 5.67
+Stefaan, 2, 7.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.325
+  avg_gap: 0.234
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5mm_3.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 21
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Patrick, 5, 4.25
+Nguyen, 5, 4.50
+Andrea, 4, 5.00
+Sara, 4, 5.67
+Stefaan, 3, 6.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.178
+  avg_gap: 0.131
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5mm_4.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 21
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Patrick, 6, 1.60
+Sara, 5, 2.75
+Andrea, 4, 3.67
+Nguyen, 5, 4.50
+Stefaan, 1, NA
+
+Imbalance (Coefficient of Variation)
+  counts:  0.410
+  avg_gap: 0.345
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5nl_1.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 29
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Andrea, 7, 4.17
+Patrick, 7, 4.17
+Nguyen, 6, 4.80
+Stefaan, 5, 5.25
+Sara, 4, 5.33
+
+Imbalance (Coefficient of Variation)
+  counts:  0.201
+  avg_gap: 0.106
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5nl_2.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 21
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Patrick, 6, 2.80
+Sara, 4, 5.00
+Andrea, 4, 6.00
+Stefaan, 3, 6.50
+Nguyen, 4, 6.67
+
+Imbalance (Coefficient of Variation)
+  counts:  0.233
+  avg_gap: 0.263
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5nl_3.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 20
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Patrick, 5, 3.75
+Andrea, 5, 4.25
+Sara, 5, 4.75
+Nguyen, 2, 5.00
+Stefaan, 3, 5.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.316
+  avg_gap: 0.107
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5nl_4.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 22
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Patrick, 6, 3.00
+Sara, 5, 4.75
+Nguyen, 4, 6.00
+Andrea, 4, 6.33
+Stefaan, 3, 7.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.232
+  avg_gap: 0.261
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n21nl_1.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 61
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+NU_4, 7, 8.50
+CT_11, 7, 8.67
+NU_3, 7, 8.67
+NU_8, 7, 8.67
+NU_9, 7, 8.67
+TR_18, 7, 9.00
+TR_19, 5, 10.00
+CT_12, 5, 12.75
+CT_15, 5, 13.00
+CT_14, 4, 17.33
+
+Imbalance (Coefficient of Variation)
+  counts:  0.186
+  avg_gap: 0.265
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n21nl_2.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 64
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+NU_6, 4, 2.67
+NU_7, 3, 3.00
+NU_8, 4, 4.00
+TR_20, 3, 4.00
+NU_5, 3, 4.50
+CT_11, 4, 4.67
+NU_4, 4, 4.67
+NU_3, 3, 5.00
+NU_10, 3, 5.50
+TR_19, 4, 8.00
+CT_14, 5, 8.25
+CT_13, 4, 9.67
+CT_12, 5, 11.25
+CT_15, 3, 13.50
+NU_9, 4, 14.00
+TR_16, 3, 17.00
+TR_18, 4, 18.33
+HN_0, 1, NA
+
+Imbalance (Coefficient of Variation)
+  counts:  0.252
+  avg_gap: 0.599
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n21nl_3.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 70
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+CT_11, 6, 12.40
+CT_12, 6, 12.40
+CT_13, 6, 12.40
+CT_15, 5, 12.50
+CT_14, 5, 12.75
+TR_16, 3, 19.00
+NU_4, 4, 19.67
+NU_3, 4, 20.00
+NU_5, 4, 20.00
+NU_6, 4, 20.00
+NU_7, 3, 20.00
+NU_8, 3, 20.00
+NU_9, 3, 20.00
+TR_17, 3, 20.00
+NU_10, 3, 20.50
+TR_19, 3, 21.50
+TR_18, 4, 22.33
+TR_20, 1, NA
+
+Imbalance (Coefficient of Variation)
+  counts:  0.331
+  avg_gap: 0.201
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n21nl_4.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 76
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+TR_18, 10, 7.22
+CT_14, 8, 9.86
+NU_5, 7, 10.17
+CT_12, 8, 10.29
+NU_4, 7, 10.50
+NU_8, 7, 10.50
+NU_9, 7, 10.50
+TR_19, 3, 10.50
+CT_11, 6, 12.60
+CT_13, 5, 15.25
+CT_15, 5, 15.75
+HN_0, 3, 16.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.311
+  avg_gap: 0.225
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5mm_1.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 27
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Nguyen, 6, 4.00
+Sara, 6, 4.40
+Andrea, 5, 5.25
+Patrick, 5, 5.75
+Stefaan, 5, 6.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.091
+  avg_gap: 0.151
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5mm_2.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 20
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Stefaan, 5, 3.75
+Sara, 4, 4.00
+Nguyen, 5, 4.50
+Andrea, 3, 5.50
+Patrick, 3, 6.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.224
+  avg_gap: 0.182
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5mm_3.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 26
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Andrea, 5, 3.75
+Sara, 6, 4.20
+Stefaan, 6, 4.60
+Patrick, 5, 5.00
+Nguyen, 4, 7.67
+
+Imbalance (Coefficient of Variation)
+  counts:  0.144
+  avg_gap: 0.273
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5mm_4.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 27
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Nguyen, 6, 4.00
+Sara, 6, 4.40
+Andrea, 5, 5.25
+Patrick, 5, 5.75
+Stefaan, 5, 6.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.091
+  avg_gap: 0.151
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5nl_1.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 21
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Sara, 10, 1.89
+Patrick, 5, 4.25
+Nguyen, 3, 5.50
+Andrea, 3, 6.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.545
+  avg_gap: 0.360
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5nl_2.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 31
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Nguyen, 7, 4.50
+Sara, 7, 4.50
+Andrea, 6, 4.60
+Stefaan, 7, 4.67
+Patrick, 4, 8.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.188
+  avg_gap: 0.262
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5nl_3.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 28
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Patrick, 7, 4.00
+Sara, 6, 4.00
+Nguyen, 4, 4.33
+Andrea, 6, 4.60
+Stefaan, 5, 6.25
+
+Imbalance (Coefficient of Variation)
+  counts:  0.182
+  avg_gap: 0.181
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5nl_4.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 24
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+Andrea, 6, 4.00
+Stefaan, 5, 4.25
+Sara, 4, 4.67
+Nguyen, 5, 5.25
+Patrick, 4, 6.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.156
+  avg_gap: 0.149
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n21nl_1.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 66
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+TR_19, 4, 13.00
+CT_12, 5, 13.50
+CT_13, 5, 13.50
+CT_11, 5, 13.75
+CT_14, 5, 13.75
+NU_10, 4, 15.33
+NU_8, 4, 15.33
+NU_9, 4, 15.33
+NU_7, 4, 15.67
+TR_17, 4, 16.33
+NU_4, 4, 17.33
+NU_3, 4, 17.67
+CT_15, 4, 18.00
+NU_5, 3, 19.50
+TR_18, 3, 20.00
+TR_16, 3, 24.50
+NU_6, 1, NA
+
+Imbalance (Coefficient of Variation)
+  counts:  0.248
+  avg_gap: 0.180
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n21nl_2.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 85
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+TR_20, 4, 10.33
+CT_14, 8, 10.86
+CT_11, 7, 12.17
+CT_13, 7, 12.50
+TR_19, 6, 12.60
+CT_15, 6, 14.80
+TR_17, 5, 15.50
+TR_18, 5, 15.50
+CT_12, 6, 15.60
+NU_10, 4, 16.00
+NU_6, 3, 19.00
+NU_7, 2, 20.00
+NU_8, 4, 22.33
+NU_5, 4, 23.67
+NU_9, 3, 24.00
+NU_4, 3, 27.00
+NU_3, 3, 32.50
+HN_0, 2, 36.00
+HN_1, 1, NA
+HN_2, 1, NA
+TR_16, 1, NA
+
+Imbalance (Coefficient of Variation)
+  counts:  0.503
+  avg_gap: 0.380
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n21nl_3.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 67
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+CT_12, 7, 9.67
+CT_15, 6, 11.40
+CT_11, 6, 11.60
+TR_17, 5, 11.75
+TR_16, 4, 17.67
+NU_10, 3, 19.00
+NU_4, 4, 19.00
+NU_9, 3, 19.00
+CT_14, 4, 19.33
+NU_3, 4, 19.33
+NU_5, 4, 19.33
+NU_6, 4, 19.33
+NU_8, 3, 20.00
+TR_19, 3, 20.00
+NU_7, 3, 20.50
+CT_13, 2, 21.00
+TR_18, 1, NA
+TR_20, 1, NA
+
+Imbalance (Coefficient of Variation)
+  counts:  0.418
+  avg_gap: 0.214
+
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n21nl_4.json ===
+=== Recency Bias (day+shift order) ===
+Total assignments in sequence: 76
+
+nurse, count, avg_gap (smaller => more frequent reuse)
+TR_18, 10, 7.22
+CT_14, 8, 9.86
+NU_5, 7, 10.17
+CT_12, 8, 10.29
+NU_4, 7, 10.50
+NU_8, 7, 10.50
+NU_9, 7, 10.50
+TR_19, 3, 10.50
+CT_11, 6, 12.60
+CT_13, 5, 15.25
+CT_15, 5, 15.75
+HN_0, 3, 16.00
+
+Imbalance (Coefficient of Variation)
+  counts:  0.311
+  avg_gap: 0.225
+
+

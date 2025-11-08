@@ -1,0 +1,24 @@
+{
+  "scenario" : "n021w4_2",
+  "week" : 1,
+  "assignments" : 
+
+[
+  { "nurse": "NU_3", "day": "Mon", "shiftType": "Early", "skill": "Nurse" },
+  { "nurse": "NU_3", "day": "Mon", "shiftType": "Early", "skill": "Caretaker" },
+  { "nurse": "CT_13", "day": "Mon", "shiftType": "Early", "skill": "Caretaker" },
+  { "nurse": "TR_18", "day": "Mon", "shiftType": "Early", "skill": "Trainee" },
+
+  { "nurse": "NU_8", "day": "Mon", "shiftType": "Day", "skill": "Nurse" },
+  { "nurse": "NU_8", "day": "Mon", "shiftType": "Day", "skill": "Caretaker" },
+  { "nurse": "CT_12", "day": "Mon", "shiftType": "Day", "skill": "Caretaker" },
+
+  { "nurse": "NU_5", "day": "Mon", "shiftType": "Late", "skill": "Nurse" },
+  { "nurse": "NU_5", "day": "Mon", "shiftType": "Late", "skill": "Caretaker" },
+  { "nurse": "CT_11", "day": "Mon", "shiftType": "Late", "skill": "Caretaker" },
+
+  { "nurse": "NU_9", "day": "Mon", "shiftType": "Night", "skill": "Nurse" },
+  { "nurse": "CT_11", "day": "Mon", "shiftType": "Night", "skill": "Caretaker" },
+  { "nurse": "TR_19", "day": "Mon", "shiftType": "Night", "skill": "Trainee" }
+]
+}

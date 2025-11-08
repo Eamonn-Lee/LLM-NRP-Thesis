@@ -1,0 +1,1024 @@
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5mm_1.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5mm_1.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 5
+  Andrea: 6
+  Stefaan: 6
+  Sara: 6
+  Nguyen: 4
+
+Total assignments: 27
+Average rank used: 2.926  |  Expected: 3.000
+First-fit bias score: 0.037  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.185
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5mm_2.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5mm_2.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 5
+  Andrea: 6
+  Stefaan: 4
+  Sara: 6
+  Nguyen: 5
+
+Total assignments: 26
+Average rank used: 3.000  |  Expected: 3.000
+First-fit bias score: 0.000  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.192
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5mm_3.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5mm_3.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 6
+  Andrea: 4
+  Stefaan: 6
+  Sara: 4
+  Nguyen: 4
+
+Total assignments: 24
+Average rank used: 2.833  |  Expected: 3.000
+First-fit bias score: 0.083  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.250
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5mm_4.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5mm_4.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 5
+  Andrea: 6
+  Stefaan: 6
+  Sara: 6
+  Nguyen: 4
+
+Total assignments: 27
+Average rank used: 2.926  |  Expected: 3.000
+First-fit bias score: 0.037  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.185
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5nl_1.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5nl_1.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 4
+  Andrea: 5
+  Stefaan: 5
+  Sara: 4
+  Nguyen: 5
+
+Total assignments: 23
+Average rank used: 3.043  |  Expected: 3.000
+First-fit bias score: -0.022  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.174
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5nl_2.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5nl_2.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 5
+  Andrea: 6
+  Stefaan: 5
+  Sara: 6
+  Nguyen: 3
+
+Total assignments: 25
+Average rank used: 2.840  |  Expected: 3.000
+First-fit bias score: 0.080  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.200
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5nl_3.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5nl_3.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 4
+  Andrea: 5
+  Stefaan: 4
+  Sara: 4
+  Nguyen: 3
+
+Total assignments: 20
+Average rank used: 2.850  |  Expected: 3.000
+First-fit bias score: 0.075  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.200
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5nl_4.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5nl_4.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 4
+  Andrea: 6
+  Stefaan: 6
+  Sara: 5
+  Nguyen: 4
+
+Total assignments: 25
+Average rank used: 2.960  |  Expected: 3.000
+First-fit bias score: 0.020  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.160
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n21nl_1.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n21nl_1.json
+Order: HN_0, HN_1, HN_2, NU_3, NU_4, NU_5, NU_6, NU_7, NU_8, NU_9, NU_10, CT_11, CT_12, CT_13, CT_14, CT_15, TR_16, TR_17, TR_18, TR_19, TR_20
+
+Counts per nurse:
+  HN_0: 1
+  HN_1: 6
+  HN_2: 4
+  NU_3: 5
+  NU_4: 4
+  NU_5: 2
+  NU_6: 4
+  NU_7: 5
+  NU_8: 5
+  NU_9: 3
+  NU_10: 3
+  CT_11: 5
+  CT_12: 5
+  CT_13: 2
+  CT_14: 5
+  CT_15: 4
+  TR_16: 4
+  TR_17: 4
+  TR_18: 4
+  TR_19: 4
+  TR_20: 2
+
+Total assignments: 81
+Average rank used: 10.901  |  Expected: 11.000
+First-fit bias score: 0.010  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (HN_0): 0.012
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n21nl_2.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n21nl_2.json
+Order: HN_0, HN_1, HN_2, NU_3, NU_4, NU_5, NU_6, NU_7, NU_8, NU_9, NU_10, CT_11, CT_12, CT_13, CT_14, CT_15, TR_16, TR_17, TR_18, TR_19, TR_20
+
+Counts per nurse:
+  HN_0: 4
+  HN_1: 5
+  HN_2: 5
+  NU_3: 6
+  NU_4: 5
+  NU_5: 2
+  NU_6: 3
+  NU_7: 3
+  NU_8: 4
+  NU_9: 5
+  NU_10: 4
+  CT_11: 4
+  CT_12: 4
+  CT_13: 2
+  CT_14: 5
+  CT_15: 5
+  TR_16: 4
+  TR_17: 5
+  TR_18: 3
+  TR_19: 3
+  TR_20: 4
+
+Total assignments: 85
+Average rank used: 10.671  |  Expected: 11.000
+First-fit bias score: 0.033  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (HN_0): 0.047
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n21nl_3.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n21nl_3.json
+Order: HN_0, HN_1, HN_2, NU_3, NU_4, NU_5, NU_6, NU_7, NU_8, NU_9, NU_10, CT_11, CT_12, CT_13, CT_14, CT_15, TR_16, TR_17, TR_18, TR_19, TR_20
+
+Counts per nurse:
+  HN_0: 2
+  HN_1: 4
+  HN_2: 4
+  NU_3: 5
+  NU_4: 3
+  NU_5: 4
+  NU_6: 1
+  NU_7: 3
+  NU_8: 4
+  NU_9: 3
+  NU_10: 1
+  CT_11: 5
+  CT_12: 5
+  CT_13: 5
+  CT_14: 3
+  CT_15: 3
+  TR_16: 4
+  TR_17: 4
+  TR_18: 1
+  TR_19: 2
+  TR_20: 5
+
+Total assignments: 71
+Average rank used: 11.000  |  Expected: 11.000
+First-fit bias score: 0.000  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (HN_0): 0.028
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n21nl_4.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n21nl_4.json
+Order: HN_0, HN_1, HN_2, NU_3, NU_4, NU_5, NU_6, NU_7, NU_8, NU_9, NU_10, CT_11, CT_12, CT_13, CT_14, CT_15, TR_16, TR_17, TR_18, TR_19, TR_20
+
+Counts per nurse:
+  HN_0: 1
+  HN_1: 3
+  HN_2: 3
+  NU_3: 5
+  NU_4: 6
+  NU_5: 4
+  NU_6: 3
+  NU_7: 3
+  NU_8: 5
+  NU_9: 4
+  NU_10: 4
+  CT_11: 4
+  CT_12: 2
+  CT_13: 2
+  CT_14: 4
+  CT_15: 4
+  TR_16: 3
+  TR_17: 4
+  TR_18: 4
+  TR_19: 1
+  TR_20: 2
+
+Total assignments: 71
+Average rank used: 10.577  |  Expected: 11.000
+First-fit bias score: 0.042  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (HN_0): 0.014
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5mm_1.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5mm_1.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 7
+  Andrea: 6
+  Stefaan: 6
+  Sara: 5
+  Nguyen: 5
+
+Total assignments: 29
+Average rank used: 2.828  |  Expected: 3.000
+First-fit bias score: 0.086  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.241
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5mm_2.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5mm_2.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 8
+  Andrea: 5
+  Stefaan: 1
+  Sara: 5
+  Nguyen: 4
+
+Total assignments: 23
+Average rank used: 2.652  |  Expected: 3.000
+First-fit bias score: 0.174  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.348
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5mm_3.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5mm_3.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 7
+  Andrea: 6
+  Stefaan: 4
+  Sara: 6
+  Nguyen: 6
+
+Total assignments: 29
+Average rank used: 2.931  |  Expected: 3.000
+First-fit bias score: 0.034  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.241
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5mm_4.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5mm_4.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 7
+  Andrea: 6
+  Stefaan: 6
+  Sara: 5
+  Nguyen: 5
+
+Total assignments: 29
+Average rank used: 2.828  |  Expected: 3.000
+First-fit bias score: 0.086  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.241
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5nl_1.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5nl_1.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 8
+  Andrea: 5
+  Stefaan: 5
+  Sara: 6
+  Nguyen: 6
+
+Total assignments: 30
+Average rank used: 2.900  |  Expected: 3.000
+First-fit bias score: 0.050  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.267
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5nl_2.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5nl_2.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 5
+  Andrea: 4
+  Stefaan: 0
+  Sara: 6
+  Nguyen: 6
+
+Total assignments: 21
+Average rank used: 3.190  |  Expected: 3.000
+First-fit bias score: -0.095  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.238
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5nl_3.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5nl_3.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 3
+  Andrea: 4
+  Stefaan: 0
+  Sara: 5
+  Nguyen: 5
+
+Total assignments: 17
+Average rank used: 3.294  |  Expected: 3.000
+First-fit bias score: -0.147  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.176
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5nl_4.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5nl_4.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 6
+  Andrea: 6
+  Stefaan: 0
+  Sara: 8
+  Nguyen: 7
+
+Total assignments: 27
+Average rank used: 3.148  |  Expected: 3.000
+First-fit bias score: -0.074  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.222
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n21nl_1.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n21nl_1.json
+Order: HN_0, HN_1, HN_2, NU_3, NU_4, NU_5, NU_6, NU_7, NU_8, NU_9, NU_10, CT_11, CT_12, CT_13, CT_14, CT_15, TR_16, TR_17, TR_18, TR_19, TR_20
+
+Counts per nurse:
+  HN_0: 0
+  HN_1: 0
+  HN_2: 0
+  NU_3: 2
+  NU_4: 0
+  NU_5: 2
+  NU_6: 0
+  NU_7: 0
+  NU_8: 2
+  NU_9: 1
+  NU_10: 0
+  CT_11: 2
+  CT_12: 1
+  CT_13: 1
+  CT_14: 0
+  CT_15: 0
+  TR_16: 0
+  TR_17: 0
+  TR_18: 1
+  TR_19: 1
+  TR_20: 0
+
+Total assignments: 13
+Average rank used: 10.615  |  Expected: 11.000
+First-fit bias score: 0.038  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (HN_0): 0.000
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n21nl_2.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n21nl_2.json
+Order: HN_0, HN_1, HN_2, NU_3, NU_4, NU_5, NU_6, NU_7, NU_8, NU_9, NU_10, CT_11, CT_12, CT_13, CT_14, CT_15, TR_16, TR_17, TR_18, TR_19, TR_20
+
+Counts per nurse:
+  HN_0: 0
+  HN_1: 0
+  HN_2: 0
+  NU_3: 1
+  NU_4: 0
+  NU_5: 1
+  NU_6: 0
+  NU_7: 1
+  NU_8: 1
+  NU_9: 1
+  NU_10: 1
+  CT_11: 1
+  CT_12: 1
+  CT_13: 2
+  CT_14: 1
+  CT_15: 1
+  TR_16: 1
+  TR_17: 1
+  TR_18: 1
+  TR_19: 1
+  TR_20: 1
+
+Total assignments: 17
+Average rank used: 13.353  |  Expected: 11.000
+First-fit bias score: -0.235  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (HN_0): 0.000
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n21nl_3.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n21nl_3.json
+Order: HN_0, HN_1, HN_2, NU_3, NU_4, NU_5, NU_6, NU_7, NU_8, NU_9, NU_10, CT_11, CT_12, CT_13, CT_14, CT_15, TR_16, TR_17, TR_18, TR_19, TR_20
+
+Counts per nurse:
+  HN_0: 2
+  HN_1: 2
+  HN_2: 2
+  NU_3: 5
+  NU_4: 4
+  NU_5: 3
+  NU_6: 4
+  NU_7: 4
+  NU_8: 3
+  NU_9: 4
+  NU_10: 5
+  CT_11: 4
+  CT_12: 3
+  CT_13: 4
+  CT_14: 4
+  CT_15: 3
+  TR_16: 4
+  TR_17: 4
+  TR_18: 3
+  TR_19: 3
+  TR_20: 3
+
+Total assignments: 73
+Average rank used: 11.274  |  Expected: 11.000
+First-fit bias score: -0.027  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (HN_0): 0.027
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n21nl_4.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n21nl_4.json
+Order: HN_0, HN_1, HN_2, NU_3, NU_4, NU_5, NU_6, NU_7, NU_8, NU_9, NU_10, CT_11, CT_12, CT_13, CT_14, CT_15, TR_16, TR_17, TR_18, TR_19, TR_20
+
+Counts per nurse:
+  HN_0: 0
+  HN_1: 0
+  HN_2: 0
+  NU_3: 4
+  NU_4: 3
+  NU_5: 4
+  NU_6: 3
+  NU_7: 3
+  NU_8: 3
+  NU_9: 4
+  NU_10: 4
+  CT_11: 7
+  CT_12: 6
+  CT_13: 6
+  CT_14: 5
+  CT_15: 8
+  TR_16: 5
+  TR_17: 5
+  TR_18: 3
+  TR_19: 3
+  TR_20: 3
+
+Total assignments: 79
+Average rank used: 12.848  |  Expected: 11.000
+First-fit bias score: -0.185  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (HN_0): 0.000
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5mm_1.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5mm_1.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 6
+  Andrea: 4
+  Stefaan: 1
+  Sara: 5
+  Nguyen: 5
+
+Total assignments: 21
+Average rank used: 2.952  |  Expected: 3.000
+First-fit bias score: 0.024  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.286
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5mm_2.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5mm_2.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 5
+  Andrea: 4
+  Stefaan: 2
+  Sara: 6
+  Nguyen: 6
+
+Total assignments: 23
+Average rank used: 3.174  |  Expected: 3.000
+First-fit bias score: -0.087  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.217
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5mm_3.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5mm_3.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 5
+  Andrea: 4
+  Stefaan: 3
+  Sara: 4
+  Nguyen: 5
+
+Total assignments: 21
+Average rank used: 3.000  |  Expected: 3.000
+First-fit bias score: 0.000  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.238
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5mm_4.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5mm_4.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 6
+  Andrea: 4
+  Stefaan: 1
+  Sara: 5
+  Nguyen: 5
+
+Total assignments: 21
+Average rank used: 2.952  |  Expected: 3.000
+First-fit bias score: 0.024  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.286
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5nl_1.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5nl_1.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 7
+  Andrea: 7
+  Stefaan: 5
+  Sara: 4
+  Nguyen: 6
+
+Total assignments: 29
+Average rank used: 2.828  |  Expected: 3.000
+First-fit bias score: 0.086  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.241
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5nl_2.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5nl_2.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 6
+  Andrea: 4
+  Stefaan: 3
+  Sara: 4
+  Nguyen: 4
+
+Total assignments: 21
+Average rank used: 2.810  |  Expected: 3.000
+First-fit bias score: 0.095  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.286
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5nl_3.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5nl_3.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 5
+  Andrea: 5
+  Stefaan: 3
+  Sara: 5
+  Nguyen: 2
+
+Total assignments: 20
+Average rank used: 2.700  |  Expected: 3.000
+First-fit bias score: 0.150  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.250
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5nl_4.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5nl_4.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 6
+  Andrea: 4
+  Stefaan: 3
+  Sara: 5
+  Nguyen: 4
+
+Total assignments: 22
+Average rank used: 2.864  |  Expected: 3.000
+First-fit bias score: 0.068  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.273
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n21nl_1.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n21nl_1.json
+Order: HN_0, HN_1, HN_2, NU_3, NU_4, NU_5, NU_6, NU_7, NU_8, NU_9, NU_10, CT_11, CT_12, CT_13, CT_14, CT_15, TR_16, TR_17, TR_18, TR_19, TR_20
+
+Counts per nurse:
+  HN_0: 0
+  HN_1: 0
+  HN_2: 0
+  NU_3: 7
+  NU_4: 7
+  NU_5: 0
+  NU_6: 0
+  NU_7: 0
+  NU_8: 7
+  NU_9: 7
+  NU_10: 0
+  CT_11: 7
+  CT_12: 5
+  CT_13: 0
+  CT_14: 4
+  CT_15: 5
+  TR_16: 0
+  TR_17: 0
+  TR_18: 7
+  TR_19: 5
+  TR_20: 0
+
+Total assignments: 61
+Average rank used: 11.770  |  Expected: 11.000
+First-fit bias score: -0.077  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (HN_0): 0.000
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n21nl_2.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n21nl_2.json
+Order: HN_0, HN_1, HN_2, NU_3, NU_4, NU_5, NU_6, NU_7, NU_8, NU_9, NU_10, CT_11, CT_12, CT_13, CT_14, CT_15, TR_16, TR_17, TR_18, TR_19, TR_20
+
+Counts per nurse:
+  HN_0: 1
+  HN_1: 0
+  HN_2: 0
+  NU_3: 3
+  NU_4: 4
+  NU_5: 3
+  NU_6: 4
+  NU_7: 3
+  NU_8: 4
+  NU_9: 4
+  NU_10: 3
+  CT_11: 4
+  CT_12: 5
+  CT_13: 4
+  CT_14: 5
+  CT_15: 3
+  TR_16: 3
+  TR_17: 0
+  TR_18: 4
+  TR_19: 4
+  TR_20: 3
+
+Total assignments: 64
+Average rank used: 12.094  |  Expected: 11.000
+First-fit bias score: -0.109  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (HN_0): 0.016
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n21nl_3.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n21nl_3.json
+Order: HN_0, HN_1, HN_2, NU_3, NU_4, NU_5, NU_6, NU_7, NU_8, NU_9, NU_10, CT_11, CT_12, CT_13, CT_14, CT_15, TR_16, TR_17, TR_18, TR_19, TR_20
+
+Counts per nurse:
+  HN_0: 0
+  HN_1: 0
+  HN_2: 0
+  NU_3: 4
+  NU_4: 4
+  NU_5: 4
+  NU_6: 4
+  NU_7: 3
+  NU_8: 3
+  NU_9: 3
+  NU_10: 3
+  CT_11: 6
+  CT_12: 6
+  CT_13: 6
+  CT_14: 5
+  CT_15: 5
+  TR_16: 3
+  TR_17: 3
+  TR_18: 4
+  TR_19: 3
+  TR_20: 1
+
+Total assignments: 70
+Average rank used: 12.186  |  Expected: 11.000
+First-fit bias score: -0.119  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (HN_0): 0.000
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n21nl_4.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n21nl_4.json
+Order: HN_0, HN_1, HN_2, NU_3, NU_4, NU_5, NU_6, NU_7, NU_8, NU_9, NU_10, CT_11, CT_12, CT_13, CT_14, CT_15, TR_16, TR_17, TR_18, TR_19, TR_20
+
+Counts per nurse:
+  HN_0: 3
+  HN_1: 0
+  HN_2: 0
+  NU_3: 0
+  NU_4: 7
+  NU_5: 7
+  NU_6: 0
+  NU_7: 0
+  NU_8: 7
+  NU_9: 7
+  NU_10: 0
+  CT_11: 6
+  CT_12: 8
+  CT_13: 5
+  CT_14: 8
+  CT_15: 5
+  TR_16: 0
+  TR_17: 0
+  TR_18: 10
+  TR_19: 3
+  TR_20: 0
+
+Total assignments: 76
+Average rank used: 11.961  |  Expected: 11.000
+First-fit bias score: -0.096  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (HN_0): 0.039
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5mm_1.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5mm_1.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 5
+  Andrea: 5
+  Stefaan: 5
+  Sara: 6
+  Nguyen: 6
+
+Total assignments: 27
+Average rank used: 3.111  |  Expected: 3.000
+First-fit bias score: -0.056  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.185
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5mm_2.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5mm_2.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 3
+  Andrea: 3
+  Stefaan: 5
+  Sara: 4
+  Nguyen: 5
+
+Total assignments: 20
+Average rank used: 3.250  |  Expected: 3.000
+First-fit bias score: -0.125  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.150
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5mm_3.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5mm_3.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 5
+  Andrea: 5
+  Stefaan: 6
+  Sara: 6
+  Nguyen: 4
+
+Total assignments: 26
+Average rank used: 2.962  |  Expected: 3.000
+First-fit bias score: 0.019  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.192
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5mm_4.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5mm_4.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 5
+  Andrea: 5
+  Stefaan: 5
+  Sara: 6
+  Nguyen: 6
+
+Total assignments: 27
+Average rank used: 3.111  |  Expected: 3.000
+First-fit bias score: -0.056  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.185
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5nl_1.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5nl_1.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 5
+  Andrea: 3
+  Stefaan: 0
+  Sara: 10
+  Nguyen: 3
+
+Total assignments: 21
+Average rank used: 3.143  |  Expected: 3.000
+First-fit bias score: -0.071  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.238
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5nl_2.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5nl_2.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 4
+  Andrea: 6
+  Stefaan: 7
+  Sara: 7
+  Nguyen: 7
+
+Total assignments: 31
+Average rank used: 3.226  |  Expected: 3.000
+First-fit bias score: -0.113  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.129
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5nl_3.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5nl_3.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 7
+  Andrea: 6
+  Stefaan: 5
+  Sara: 6
+  Nguyen: 4
+
+Total assignments: 28
+Average rank used: 2.786  |  Expected: 3.000
+First-fit bias score: 0.107  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.250
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5nl_4.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5nl_4.json
+Order: Patrick, Andrea, Stefaan, Sara, Nguyen
+
+Counts per nurse:
+  Patrick: 4
+  Andrea: 6
+  Stefaan: 5
+  Sara: 4
+  Nguyen: 5
+
+Total assignments: 24
+Average rank used: 3.000  |  Expected: 3.000
+First-fit bias score: 0.000  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (Patrick): 0.167
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n21nl_1.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n21nl_1.json
+Order: HN_0, HN_1, HN_2, NU_3, NU_4, NU_5, NU_6, NU_7, NU_8, NU_9, NU_10, CT_11, CT_12, CT_13, CT_14, CT_15, TR_16, TR_17, TR_18, TR_19, TR_20
+
+Counts per nurse:
+  HN_0: 0
+  HN_1: 0
+  HN_2: 0
+  NU_3: 4
+  NU_4: 4
+  NU_5: 3
+  NU_6: 1
+  NU_7: 4
+  NU_8: 4
+  NU_9: 4
+  NU_10: 4
+  CT_11: 5
+  CT_12: 5
+  CT_13: 5
+  CT_14: 5
+  CT_15: 4
+  TR_16: 3
+  TR_17: 4
+  TR_18: 3
+  TR_19: 4
+  TR_20: 0
+
+Total assignments: 66
+Average rank used: 12.227  |  Expected: 11.000
+First-fit bias score: -0.123  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (HN_0): 0.000
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n21nl_2.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n21nl_2.json
+Order: HN_0, HN_1, HN_2, NU_3, NU_4, NU_5, NU_6, NU_7, NU_8, NU_9, NU_10, CT_11, CT_12, CT_13, CT_14, CT_15, TR_16, TR_17, TR_18, TR_19, TR_20
+
+Counts per nurse:
+  HN_0: 2
+  HN_1: 1
+  HN_2: 1
+  NU_3: 3
+  NU_4: 3
+  NU_5: 4
+  NU_6: 3
+  NU_7: 2
+  NU_8: 4
+  NU_9: 3
+  NU_10: 4
+  CT_11: 7
+  CT_12: 6
+  CT_13: 7
+  CT_14: 8
+  CT_15: 6
+  TR_16: 1
+  TR_17: 5
+  TR_18: 5
+  TR_19: 6
+  TR_20: 4
+
+Total assignments: 85
+Average rank used: 12.788  |  Expected: 11.000
+First-fit bias score: -0.179  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (HN_0): 0.024
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n21nl_3.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n21nl_3.json
+Order: HN_0, HN_1, HN_2, NU_3, NU_4, NU_5, NU_6, NU_7, NU_8, NU_9, NU_10, CT_11, CT_12, CT_13, CT_14, CT_15, TR_16, TR_17, TR_18, TR_19, TR_20
+
+Counts per nurse:
+  HN_0: 0
+  HN_1: 0
+  HN_2: 0
+  NU_3: 4
+  NU_4: 4
+  NU_5: 4
+  NU_6: 4
+  NU_7: 3
+  NU_8: 3
+  NU_9: 3
+  NU_10: 3
+  CT_11: 6
+  CT_12: 7
+  CT_13: 2
+  CT_14: 4
+  CT_15: 6
+  TR_16: 4
+  TR_17: 5
+  TR_18: 1
+  TR_19: 3
+  TR_20: 1
+
+Total assignments: 67
+Average rank used: 12.045  |  Expected: 11.000
+First-fit bias score: -0.104  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (HN_0): 0.000
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n21nl_4.json ===
+/home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n21nl_4.json
+Order: HN_0, HN_1, HN_2, NU_3, NU_4, NU_5, NU_6, NU_7, NU_8, NU_9, NU_10, CT_11, CT_12, CT_13, CT_14, CT_15, TR_16, TR_17, TR_18, TR_19, TR_20
+
+Counts per nurse:
+  HN_0: 3
+  HN_1: 0
+  HN_2: 0
+  NU_3: 0
+  NU_4: 7
+  NU_5: 7
+  NU_6: 0
+  NU_7: 0
+  NU_8: 7
+  NU_9: 7
+  NU_10: 0
+  CT_11: 6
+  CT_12: 8
+  CT_13: 5
+  CT_14: 8
+  CT_15: 5
+  TR_16: 0
+  TR_17: 0
+  TR_18: 10
+  TR_19: 3
+  TR_20: 0
+
+Total assignments: 76
+Average rank used: 11.961  |  Expected: 11.000
+First-fit bias score: -0.096  (1=max bias, 0=no bias, <0=tail bias)
+Share to first nurse (HN_0): 0.039
+

@@ -1,0 +1,187 @@
+I'll solve this nurse rostering problem step by step, considering all hard and soft constraints.
+
+## Initial Analysis
+
+**Nurses and their status at week start:**
+- **Patrick** (FullTime, HeadNurse+Nurse): Worked Night shift, 4 consecutive working days, needs day off
+- **Andrea** (FullTime, HeadNurse+Nurse): Worked Early shifts for 3 days, can continue
+- **Stefaan** (PartTime, HeadNurse+Nurse): 3 consecutive days off, can work
+- **Sara** (PartTime, Nurse only): Worked Late shift, 4 consecutive working days, needs day off
+- **Nguyen** (FullTime, Nurse only): 1 day off, can work
+
+**Key constraints to consider:**
+- Patrick needs minimum 2 consecutive days off (has 0)
+- Sara needs minimum 3 consecutive days off (has 0) 
+- Night shift requires 4-5 consecutive assignments
+- Complete weekends required for all nurses
+
+## Monday
+
+### Requirements:
+- Early: 1 Nurse (optimal: 1)
+- Late: 1 HeadNurse (optimal: 1), 0 Nurse (optimal: 1)
+- Night: 1 HeadNurse (optimal: 1), 1 Nurse (optimal: 1)
+
+### Analysis:
+- **Patrick**: Must have day off (exceeded max consecutive working days)
+- **Sara**: Must have day off (exceeded max consecutive working days for PartTime)
+- **Andrea**: Can work Early (continuing current shift type)
+- **Stefaan**: Can work any shift
+- **Nguyen**: Can work any shift
+
+### Assignments:
+- **Early**: Andrea (Nurse requirement met with HeadNurse)
+- **Late**: Stefaan (HeadNurse requirement)
+- **Night**: Must start a 4-day sequence. Nguyen (Nurse requirement)
+- **Off**: Patrick, Sara
+
+**Penalties**: Late shift missing 1 optimal Nurse (+30)
+
+## Tuesday
+
+### Requirements:
+- Early: 1 Nurse (optimal: 1)
+- Late: 1 Nurse (optimal: 1)
+- Night: 1 Nurse (optimal: 1)
+
+### Analysis:
+- **Andrea**: Requested off - must honor (+10 if violated)
+- **Patrick**: Day 2 off (needs minimum 2)
+- **Sara**: Day 2 off (needs minimum 3)
+- **Stefaan**: Can work Late (day 2 of Late)
+- **Nguyen**: Must work Night (day 2 of Night sequence)
+
+### Assignments:
+- **Early**: Patrick (ends his days off, starts new sequence)
+- **Late**: Stefaan (continuing Late)
+- **Night**: Nguyen (continuing Night)
+- **Off**: Andrea, Sara
+
+**Penalties**: None
+
+## Wednesday
+
+### Requirements:
+- Early: 1 HeadNurse (optimal: 1), 0 Nurse (optimal: 1)
+- Late: 1 Nurse (optimal: 1)
+- Night: 1 HeadNurse (optimal: 1), 0 Nurse (optimal: 1)
+
+### Analysis:
+- **Stefaan**: Requested off - must honor
+- **Patrick**: Day 2 of Early (must continue)
+- **Andrea**: Can work (day off completed)
+- **Sara**: Day 3 off (minimum met for PartTime)
+- **Nguyen**: Day 3 of Night (must continue)
+
+### Assignments:
+- **Early**: Patrick (HeadNurse requirement)
+- **Late**: Sara (ending her days off)
+- **Night**: Andrea (HeadNurse requirement), Nguyen (continuing)
+- **Off**: Stefaan
+
+**Penalties**: Early missing 1 optimal Nurse (+30)
+
+## Thursday
+
+### Requirements:
+- Early: 1 Nurse (optimal: 1)
+- Late: 1 Nurse (optimal: 1)
+- Night: 1 HeadNurse (optimal: 1), 1 Nurse (optimal: 1)
+
+### Analysis:
+- **Patrick**: Day 3 of Early (can continue)
+- **Andrea**: Day 2 of Night (must continue to 4)
+- **Sara**: Day 2 of Late (must continue)
+- **Stefaan**: Can work after day off
+- **Nguyen**: Day 4 of Night (minimum met, can stop or continue)
+
+### Assignments:
+- **Early**: Patrick (continuing)
+- **Late**: Sara (continuing)
+- **Night**: Andrea (continuing), Nguyen (completing minimum)
+- **Off**: Stefaan
+
+**Penalties**: None
+
+## Friday
+
+### Requirements:
+- Early: 1 HeadNurse (optimal: 1), 0 Nurse (optimal: 1)
+- Late: 1 Nurse (optimal: 1)
+- Night: 0 Nurse (optimal: 1)
+
+### Analysis:
+- **Nguyen**: Requested off - must honor
+- **Patrick**: Day 4 of Early (can continue)
+- **Andrea**: Day 3 of Night (must continue to 4)
+- **Sara**: Day 3 of Late (maximum reached, must stop)
+- **Stefaan**: Available for work
+
+### Assignments:
+- **Early**: Patrick (HeadNurse requirement)
+- **Late**: Stefaan (after Sara's max Late reached)
+- **Night**: Andrea (continuing Night sequence)
+- **Off**: Sara, Nguyen
+
+**Penalties**: Early missing 1 optimal Nurse (+30), Night missing 1 optimal Nurse (+30)
+
+## Saturday
+
+### Requirements:
+- Early: 1 Nurse (optimal: 1)
+- Late: 1 HeadNurse (optimal: 1), 1 Nurse (optimal: 1)
+- Night: 1 Nurse (optimal: 1)
+
+### Analysis:
+- **Nguyen**: Requested off
+- **Sara**: Requested no Late shift
+- **Patrick**: Day 5 of Early (maximum reached)
+- **Andrea**: Day 4 of Night (minimum met)
+- **Stefaan**: Must work (complete weekend rule)
+
+### Assignments:
+- **Early**: Sara (avoiding Late as requested)
+- **Late**: Stefaan (HeadNurse requirement)
+- **Night**: Andrea (can continue or stop)
+- **Off**: Patrick, Nguyen
+
+**Penalties**: Late missing 1 optimal Nurse (+30)
+
+## Sunday
+
+### Requirements:
+- Early: 1 Nurse (optimal: 1)
+- Late: 1 HeadNurse (optimal: 1), 1 Nurse (optimal: 1)
+- Night: 1 Nurse (optimal: 1)
+
+### Analysis:
+- Complete weekend rule: Sara and Stefaan must work (already working Saturday)
+- **Patrick**: Off (needs rest after 5 consecutive days)
+- **Andrea**: Can switch from Night (5 days reached)
+- **Nguyen**: Can work after 2 days off
+
+### Assignments:
+- **Early**: Sara (complete weekend)
+- **Late**: Stefaan (HeadNurse requirement)
+- **Night**: Nguyen (starting new sequence)
+- **Off**: Patrick, Andrea
+
+**Penalties**: Late missing 1 optimal Nurse (+30)
+
+## Final Roster Summary
+
+| Nurse | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
+|-------|-----|-----|-----|-----|-----|-----|-----|
+| Patrick | Off | Early | Early | Early | Early | Off | Off |
+| Andrea | Early | Off | Night | Night | Night | Night | Off |
+| Stefaan | Late | Late | Off | Off | Late | Late | Late |
+| Sara | Off | Off | Late | Late | Off | Early | Early |
+| Nguyen | Night | Night | Night | Night | Off | Off | Night |
+
+## Total Penalties
+
+1. **Insufficient staffing**: 5 violations × 30 = 150
+2. **Preferences honored**: All requests honored = 0
+3. **All other constraints**: Met = 0
+
+**Total Penalty: 150**

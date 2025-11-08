@@ -1,0 +1,28 @@
+Your task is to generate a feasible weekly nurse roster that satisfies all hard constraints and aims to minimise the total penalty from soft constraint violations, according to the following constraint set. When rostering, hard constraints cannot be broken. You should then prioritise meeting soft constraints, such that the cumulative penalty is minimised.
+
+Hard constraints:
+
+You must not violate these constraints:
+
+1. Single assignment per day: A nurse can be assigned to at most one shift per day.
+2. Under-staffing: The number of nurses for each shift for each skill must be at least equal to the minimum requirement
+3. Shift type successions: The shift type assignments of one nurse in two consecutive days must belong to the legal successions provided in the scenario
+4. Missing required skill: A shift of a given skill must necessarily be fulfilled by a nurse having that skill.
+
+Soft constraints:
+
+You should minimise the total penalty caused by violations of these constraints. Each violation is penalised by their corresponding weight:
+
+1. Insufficient staffing for optimal coverage (Weight: 30):The number of nurses for each shift for each skill must be equal to the optimal requirement. Each missing nurse is penalised according to the weight provided. Extra nurses above the optimal value are not considered in the cost.
+2. Consecutive assignments (Weight: 15/30): Minimum and maximum number of consecutive assignments, per shift or global, should be respected. Their evaluation involves also the border data. Each extra or missing day is multiplied by the corresponding weight. The weights for consecutive shift constraint and for consecutive working days are respectively 15 and 30.
+3. Consecutive days off (Weight: 30): Minimum and maximum number of consecutive days off should be respected. Their evaluation involves also the border data. Each extra or missing day is multiplied by the corresponding weight.
+4. Preferences (Weight: 10): Each assignment to an undesired shift is penalised by the corresponding weight.
+5. Complete week-end (Weight: 30): Every nurse that has the complete weekend value set to true, must work both week-end days or none. If she/he works only one of the two days Sat and Sun this is penalised by the corresponding weight.
+6. Total assignments (Weight: 20): For each nurse the total number of assignments (working days) must be included within the limits (minimum and maximum) enforced by her/his contract. The difference (in either direction), multiplied by its weight, is added to the objective function.
+7. Total working week-ends (Weight: 30): For each nurse the number of working week-ends must be less than or equal to the maximum. The number of worked week-ends in excess is added to the objective function multiplied by the weight. A week-end is considered “working” if at least one of the two days (Sat and Sun) is busy for the nurse.
+
+You must always think step-by-step and show all your work in the explanation for each shift in the week. 
+You must explain what options you explored for each step, including your working for all hard and soft constraints.
+Check carefully before finalising.
+
+If you reach the token limit, output 'CONTINUATION' and resume exactly where you left off.

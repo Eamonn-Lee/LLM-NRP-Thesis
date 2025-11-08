@@ -1,0 +1,1852 @@
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5mm_1.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,2
+Andrea,Late,4
+Nguyen,Night,4
+Patrick,Night,5
+Sara,Early,4
+Sara,Late,2
+Stefaan,Early,3
+Stefaan,Late,3
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,3
+Andrea,Nurse,3
+Nguyen,Nurse,4
+Patrick,HeadNurse,2
+Patrick,Nurse,3
+Sara,Nurse,6
+Stefaan,HeadNurse,2
+Stefaan,Nurse,4
+
+Aggregated CV (all nurses, all assignments): 0.148
+CV (shift types, weighted): 0.218
+CV (skill types, weighted): 0.255
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5mm_2.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,4
+Andrea,Late,2
+Nguyen,Night,5
+Patrick,Night,5
+Sara,Early,3
+Sara,Late,3
+Stefaan,Early,1
+Stefaan,Late,3
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,4
+Andrea,Nurse,2
+Nguyen,Nurse,5
+Patrick,HeadNurse,3
+Patrick,Nurse,2
+Sara,Nurse,6
+Stefaan,Nurse,4
+
+Aggregated CV (all nurses, all assignments): 0.144
+CV (shift types, weighted): 0.198
+CV (skill types, weighted): 0.346
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5mm_3.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,3
+Andrea,Late,1
+Nguyen,Night,4
+Patrick,Early,2
+Patrick,Night,4
+Sara,Late,4
+Stefaan,Early,2
+Stefaan,Late,2
+Stefaan,Night,2
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,4
+Nguyen,Nurse,4
+Patrick,HeadNurse,4
+Patrick,Nurse,2
+Sara,Nurse,4
+Stefaan,HeadNurse,4
+Stefaan,Nurse,2
+
+Aggregated CV (all nurses, all assignments): 0.204
+CV (shift types, weighted): 0.333
+CV (skill types, weighted): 0.167
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5mm_4.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,2
+Andrea,Late,4
+Nguyen,Night,4
+Patrick,Night,5
+Sara,Early,4
+Sara,Late,2
+Stefaan,Early,3
+Stefaan,Late,3
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,3
+Andrea,Nurse,3
+Nguyen,Nurse,4
+Patrick,HeadNurse,2
+Patrick,Nurse,3
+Sara,Nurse,6
+Stefaan,HeadNurse,2
+Stefaan,Nurse,4
+
+Aggregated CV (all nurses, all assignments): 0.148
+CV (shift types, weighted): 0.218
+CV (skill types, weighted): 0.255
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5nl_1.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,1
+Andrea,Night,4
+Nguyen,Night,5
+Patrick,Early,4
+Sara,Early,2
+Sara,Late,2
+Stefaan,Late,5
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,4
+Andrea,Nurse,1
+Nguyen,Nurse,5
+Patrick,HeadNurse,2
+Patrick,Nurse,2
+Sara,Nurse,4
+Stefaan,HeadNurse,3
+Stefaan,Nurse,2
+
+Aggregated CV (all nurses, all assignments): 0.106
+CV (shift types, weighted): 0.337
+CV (skill types, weighted): 0.426
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5nl_2.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,2
+Andrea,Late,4
+Nguyen,Night,3
+Patrick,Early,2
+Patrick,Late,2
+Patrick,Night,1
+Sara,Early,5
+Sara,Late,1
+Stefaan,Late,2
+Stefaan,Night,3
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,Nurse,6
+Nguyen,Nurse,3
+Patrick,HeadNurse,5
+Sara,Nurse,6
+Stefaan,HeadNurse,1
+Stefaan,Nurse,4
+
+Aggregated CV (all nurses, all assignments): 0.219
+CV (shift types, weighted): 0.457
+CV (skill types, weighted): 0.368
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5nl_3.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Late,5
+Nguyen,Early,2
+Nguyen,Late,1
+Patrick,Night,4
+Sara,Late,2
+Sara,Night,2
+Stefaan,Early,4
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,3
+Andrea,Nurse,2
+Nguyen,Nurse,3
+Patrick,HeadNurse,3
+Patrick,Nurse,1
+Sara,Nurse,4
+Stefaan,Nurse,4
+
+Aggregated CV (all nurses, all assignments): 0.158
+CV (shift types, weighted): 0.455
+CV (skill types, weighted): 0.292
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n5nl_4.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,1
+Andrea,Late,3
+Andrea,Night,2
+Nguyen,Night,4
+Patrick,Early,3
+Patrick,Night,1
+Sara,Early,2
+Sara,Late,3
+Stefaan,Early,1
+Stefaan,Late,1
+Stefaan,Night,4
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,4
+Andrea,Nurse,2
+Nguyen,Nurse,4
+Patrick,HeadNurse,3
+Patrick,Nurse,1
+Sara,Nurse,5
+Stefaan,HeadNurse,2
+Stefaan,Nurse,4
+
+Aggregated CV (all nurses, all assignments): 0.179
+CV (shift types, weighted): 0.454
+CV (skill types, weighted): 0.392
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n21nl_1.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+CT_11,Night,5
+CT_12,Day,5
+CT_13,Day,1
+CT_13,Early,1
+CT_14,Early,5
+CT_15,Day,3
+CT_15,Early,1
+HN_0,Night,1
+HN_1,Late,6
+HN_2,Late,4
+NU_10,Night,3
+NU_3,Early,5
+NU_4,Night,4
+NU_5,Day,2
+NU_6,Early,2
+NU_6,Late,2
+NU_7,Day,5
+NU_8,Late,5
+NU_9,Night,3
+TR_16,Early,1
+TR_16,Late,2
+TR_16,Night,1
+TR_17,Day,2
+TR_17,Early,1
+TR_17,Late,1
+TR_18,Early,2
+TR_18,Night,2
+TR_19,Night,4
+TR_20,Day,1
+TR_20,Early,1
+
+=== Counts by skill ===
+nurse,skill,count
+CT_11,Caretaker,5
+CT_12,Caretaker,5
+CT_13,Caretaker,2
+CT_14,Caretaker,5
+CT_15,Caretaker,4
+HN_0,HeadNurse,1
+HN_1,Caretaker,1
+HN_1,Nurse,5
+HN_2,Caretaker,1
+HN_2,HeadNurse,2
+HN_2,Nurse,1
+NU_10,Caretaker,3
+NU_3,Nurse,5
+NU_4,Nurse,4
+NU_5,Nurse,2
+NU_6,Caretaker,2
+NU_6,Nurse,2
+NU_7,Nurse,5
+NU_8,Caretaker,4
+NU_8,Nurse,1
+NU_9,Nurse,3
+TR_16,Trainee,4
+TR_17,Trainee,4
+TR_18,Trainee,4
+TR_19,Trainee,4
+TR_20,Trainee,2
+
+Aggregated CV (all nurses, all assignments): 0.323
+CV (shift types, weighted): 0.581
+CV (skill types, weighted): 0.429
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n21nl_2.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+CT_11,Night,4
+CT_12,Day,3
+CT_12,Early,1
+CT_13,Early,2
+CT_14,Early,4
+CT_14,Night,1
+CT_15,Early,1
+CT_15,Night,4
+HN_0,Late,4
+HN_1,Late,5
+HN_2,Day,4
+HN_2,Night,1
+NU_10,Night,4
+NU_3,Day,2
+NU_3,Early,4
+NU_4,Day,1
+NU_4,Late,4
+NU_5,Day,1
+NU_5,Night,1
+NU_6,Day,1
+NU_6,Late,2
+NU_7,Day,2
+NU_7,Night,1
+NU_8,Day,2
+NU_8,Late,2
+NU_9,Early,3
+NU_9,Night,2
+TR_16,Day,1
+TR_16,Early,3
+TR_17,Day,3
+TR_17,Early,2
+TR_18,Night,3
+TR_19,Late,3
+TR_20,Night,4
+
+=== Counts by skill ===
+nurse,skill,count
+CT_11,Caretaker,4
+CT_12,Caretaker,4
+CT_13,Caretaker,2
+CT_14,Caretaker,5
+CT_15,Caretaker,5
+HN_0,HeadNurse,2
+HN_0,Nurse,2
+HN_1,Nurse,5
+HN_2,HeadNurse,1
+HN_2,Nurse,4
+NU_10,Nurse,4
+NU_3,Nurse,6
+NU_4,Caretaker,5
+NU_5,Nurse,2
+NU_6,Caretaker,3
+NU_7,Caretaker,3
+NU_8,Caretaker,4
+NU_9,Nurse,5
+TR_16,Trainee,4
+TR_17,Trainee,5
+TR_18,Trainee,3
+TR_19,Trainee,3
+TR_20,Trainee,4
+
+Aggregated CV (all nurses, all assignments): 0.258
+CV (shift types, weighted): 0.461
+CV (skill types, weighted): 0.277
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n21nl_3.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+CT_11,Night,5
+CT_12,Day,4
+CT_12,Early,1
+CT_13,Early,4
+CT_13,Late,1
+CT_14,Night,3
+CT_15,Day,1
+CT_15,Late,2
+HN_0,Day,2
+HN_1,Late,3
+HN_1,Night,1
+HN_2,Late,4
+NU_10,Late,1
+NU_3,Early,5
+NU_4,Day,1
+NU_4,Early,2
+NU_5,Day,4
+NU_6,Night,1
+NU_7,Night,3
+NU_8,Late,4
+NU_9,Night,3
+TR_16,Late,1
+TR_16,Night,3
+TR_17,Day,4
+TR_18,Night,1
+TR_19,Early,2
+TR_20,Early,3
+TR_20,Night,2
+
+=== Counts by skill ===
+nurse,skill,count
+CT_11,Caretaker,5
+CT_12,Caretaker,5
+CT_13,Caretaker,5
+CT_14,Caretaker,3
+CT_15,Caretaker,3
+HN_0,HeadNurse,2
+HN_1,HeadNurse,4
+HN_2,HeadNurse,4
+NU_10,Nurse,1
+NU_3,Nurse,5
+NU_4,Nurse,3
+NU_5,Nurse,4
+NU_6,Nurse,1
+NU_7,Nurse,3
+NU_8,Nurse,4
+NU_9,Nurse,3
+TR_16,Trainee,4
+TR_17,Trainee,4
+TR_18,Trainee,1
+TR_19,Trainee,2
+TR_20,Trainee,5
+
+Aggregated CV (all nurses, all assignments): 0.392
+CV (shift types, weighted): 0.515
+CV (skill types, weighted): 0.361
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/claude_n21nl_4.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+CT_11,Night,4
+CT_12,Early,2
+CT_13,Day,1
+CT_13,Early,1
+CT_14,Early,3
+CT_14,Late,1
+CT_15,Late,1
+CT_15,Night,3
+HN_0,Night,1
+HN_1,Late,2
+HN_1,Night,1
+HN_2,Late,3
+NU_10,Late,4
+NU_3,Early,5
+NU_4,Day,4
+NU_4,Early,2
+NU_5,Day,4
+NU_6,Late,3
+NU_7,Day,3
+NU_8,Late,2
+NU_8,Night,3
+NU_9,Night,4
+TR_16,Night,3
+TR_17,Day,2
+TR_17,Early,2
+TR_18,Day,1
+TR_18,Early,1
+TR_18,Late,1
+TR_18,Night,1
+TR_19,Night,1
+TR_20,Early,2
+
+=== Counts by skill ===
+nurse,skill,count
+CT_11,Caretaker,4
+CT_12,Caretaker,2
+CT_13,Caretaker,2
+CT_14,Caretaker,4
+CT_15,Caretaker,4
+HN_0,HeadNurse,1
+HN_1,Caretaker,3
+HN_2,Caretaker,1
+HN_2,HeadNurse,2
+NU_10,Nurse,4
+NU_3,Nurse,5
+NU_4,Caretaker,4
+NU_4,Nurse,2
+NU_5,Nurse,4
+NU_6,Nurse,3
+NU_7,Nurse,3
+NU_8,Caretaker,2
+NU_8,Nurse,3
+NU_9,Nurse,4
+TR_16,Trainee,3
+TR_17,Trainee,4
+TR_18,Trainee,4
+TR_19,Trainee,1
+TR_20,Trainee,2
+
+Aggregated CV (all nurses, all assignments): 0.371
+CV (shift types, weighted): 0.518
+CV (skill types, weighted): 0.333
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5mm_1.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,3
+Andrea,Late,2
+Andrea,Night,1
+Nguyen,Early,1
+Nguyen,Late,2
+Nguyen,Night,2
+Patrick,Early,3
+Patrick,Late,3
+Patrick,Night,1
+Sara,Early,2
+Sara,Late,1
+Sara,Night,2
+Stefaan,Late,2
+Stefaan,Night,4
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,3
+Andrea,Nurse,3
+Nguyen,Nurse,5
+Patrick,HeadNurse,3
+Patrick,Nurse,4
+Sara,Nurse,5
+Stefaan,HeadNurse,2
+Stefaan,Nurse,4
+
+Aggregated CV (all nurses, all assignments): 0.129
+CV (shift types, weighted): 0.412
+CV (skill types, weighted): 0.178
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5mm_2.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,1
+Andrea,Late,3
+Andrea,Night,1
+Nguyen,Early,2
+Nguyen,Night,2
+Patrick,Late,3
+Patrick,Night,5
+Sara,Early,4
+Sara,Late,1
+Stefaan,Night,1
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,5
+Nguyen,Nurse,4
+Patrick,HeadNurse,2
+Patrick,Nurse,6
+Sara,Nurse,5
+Stefaan,Nurse,1
+
+Aggregated CV (all nurses, all assignments): 0.488
+CV (shift types, weighted): 0.571
+CV (skill types, weighted): 0.456
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5mm_3.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,2
+Andrea,Late,2
+Andrea,Night,2
+Nguyen,Early,1
+Nguyen,Late,2
+Nguyen,Night,3
+Patrick,Early,2
+Patrick,Late,2
+Patrick,Night,3
+Sara,Early,3
+Sara,Late,3
+Stefaan,Early,3
+Stefaan,Late,1
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,6
+Nguyen,Nurse,6
+Patrick,HeadNurse,7
+Sara,Nurse,6
+Stefaan,HeadNurse,4
+
+Aggregated CV (all nurses, all assignments): 0.169
+CV (shift types, weighted): 0.287
+CV (skill types, weighted): 0.129
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5mm_4.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,3
+Andrea,Late,2
+Andrea,Night,1
+Nguyen,Early,1
+Nguyen,Late,2
+Nguyen,Night,2
+Patrick,Early,3
+Patrick,Late,3
+Patrick,Night,1
+Sara,Early,2
+Sara,Late,1
+Sara,Night,2
+Stefaan,Late,2
+Stefaan,Night,4
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,3
+Andrea,Nurse,3
+Nguyen,Nurse,5
+Patrick,HeadNurse,3
+Patrick,Nurse,4
+Sara,Nurse,5
+Stefaan,HeadNurse,2
+Stefaan,Nurse,4
+
+Aggregated CV (all nurses, all assignments): 0.129
+CV (shift types, weighted): 0.412
+CV (skill types, weighted): 0.178
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5nl_1.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,1
+Andrea,Late,4
+Nguyen,Early,3
+Nguyen,Late,3
+Patrick,Early,1
+Patrick,Late,1
+Patrick,Night,6
+Sara,Early,4
+Sara,Late,2
+Stefaan,Late,1
+Stefaan,Night,4
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,4
+Andrea,Nurse,1
+Nguyen,Nurse,6
+Patrick,HeadNurse,5
+Patrick,Nurse,3
+Sara,Nurse,6
+Stefaan,HeadNurse,1
+Stefaan,Nurse,4
+
+Aggregated CV (all nurses, all assignments): 0.183
+CV (shift types, weighted): 0.434
+CV (skill types, weighted): 0.486
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5nl_2.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,2
+Andrea,Late,2
+Nguyen,Early,2
+Nguyen,Late,3
+Nguyen,Night,1
+Patrick,Early,1
+Patrick,Late,1
+Patrick,Night,3
+Sara,Early,1
+Sara,Late,3
+Sara,Night,2
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,4
+Nguyen,Nurse,6
+Patrick,HeadNurse,5
+Sara,Nurse,6
+
+Aggregated CV (all nurses, all assignments): 0.158
+CV (shift types, weighted): 0.370
+CV (skill types, weighted): 0.048
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5nl_3.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,2
+Andrea,Late,2
+Nguyen,Early,2
+Nguyen,Late,3
+Patrick,Late,1
+Patrick,Night,2
+Sara,Early,1
+Sara,Late,1
+Sara,Night,3
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,4
+Nguyen,Nurse,5
+Patrick,HeadNurse,2
+Patrick,Nurse,1
+Sara,Nurse,5
+
+Aggregated CV (all nurses, all assignments): 0.195
+CV (shift types, weighted): 0.337
+CV (skill types, weighted): 0.450
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n5nl_4.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,2
+Andrea,Late,2
+Andrea,Night,2
+Nguyen,Early,4
+Nguyen,Late,1
+Nguyen,Night,2
+Patrick,Early,1
+Patrick,Late,1
+Patrick,Night,4
+Sara,Early,1
+Sara,Late,5
+Sara,Night,2
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,5
+Andrea,Nurse,1
+Nguyen,Nurse,7
+Patrick,HeadNurse,5
+Patrick,Nurse,1
+Sara,Nurse,8
+
+Aggregated CV (all nurses, all assignments): 0.123
+CV (shift types, weighted): 0.553
+CV (skill types, weighted): 0.484
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n21nl_1.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+CT_11,Late,1
+CT_11,Night,1
+CT_12,Day,1
+CT_13,Early,1
+NU_3,Early,2
+NU_5,Late,2
+NU_8,Day,2
+NU_9,Night,1
+TR_18,Early,1
+TR_19,Night,1
+
+=== Counts by skill ===
+nurse,skill,count
+CT_11,Caretaker,2
+CT_12,Caretaker,1
+CT_13,Caretaker,1
+NU_3,Caretaker,1
+NU_3,Nurse,1
+NU_5,Caretaker,1
+NU_5,Nurse,1
+NU_8,Caretaker,1
+NU_8,Nurse,1
+NU_9,Nurse,1
+TR_18,Trainee,1
+TR_19,Trainee,1
+
+Aggregated CV (all nurses, all assignments): 0.344
+CV (shift types, weighted): 0.263
+CV (skill types, weighted): 0.172
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n21nl_2.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+CT_11,Late,1
+CT_12,Day,1
+CT_13,Day,1
+CT_13,Early,1
+CT_14,Early,1
+CT_15,Night,1
+NU_10,Day,1
+NU_3,Early,1
+NU_5,Late,1
+NU_7,Early,1
+NU_8,Day,1
+NU_9,Night,1
+TR_16,Day,1
+TR_17,Day,1
+TR_18,Early,1
+TR_19,Night,1
+TR_20,Early,1
+
+=== Counts by skill ===
+nurse,skill,count
+CT_11,Caretaker,1
+CT_12,Caretaker,1
+CT_13,Caretaker,2
+CT_14,Caretaker,1
+CT_15,Caretaker,1
+NU_10,Nurse,1
+NU_3,Nurse,1
+NU_5,Nurse,1
+NU_7,Nurse,1
+NU_8,Nurse,1
+NU_9,Nurse,1
+TR_16,Trainee,1
+TR_17,Trainee,1
+TR_18,Trainee,1
+TR_19,Trainee,1
+TR_20,Trainee,1
+
+Aggregated CV (all nurses, all assignments): 0.228
+CV (shift types, weighted): 0.000
+CV (skill types, weighted): 0.118
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n21nl_3.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+CT_11,Early,1
+CT_11,Late,2
+CT_11,Night,1
+CT_12,Day,1
+CT_12,Early,1
+CT_12,Late,1
+CT_13,Day,1
+CT_13,Early,2
+CT_13,Late,1
+CT_14,Day,1
+CT_14,Late,2
+CT_14,Night,1
+CT_15,Early,2
+CT_15,Late,1
+HN_0,Day,1
+HN_0,Early,1
+HN_1,Day,2
+HN_2,Day,1
+HN_2,Night,1
+NU_10,Day,1
+NU_10,Early,1
+NU_10,Night,3
+NU_3,Day,1
+NU_3,Early,2
+NU_3,Night,2
+NU_4,Day,1
+NU_4,Early,1
+NU_4,Late,1
+NU_4,Night,1
+NU_5,Late,3
+NU_6,Early,1
+NU_6,Late,2
+NU_6,Night,1
+NU_7,Day,2
+NU_7,Early,1
+NU_7,Late,1
+NU_8,Day,2
+NU_8,Early,1
+NU_9,Night,4
+TR_16,Day,1
+TR_16,Early,1
+TR_16,Night,2
+TR_17,Early,2
+TR_17,Night,2
+TR_18,Early,2
+TR_18,Night,1
+TR_19,Day,1
+TR_19,Night,2
+TR_20,Day,1
+TR_20,Early,2
+
+=== Counts by skill ===
+nurse,skill,count
+CT_11,Caretaker,4
+CT_12,Caretaker,3
+CT_13,Caretaker,4
+CT_14,Caretaker,4
+CT_15,Caretaker,3
+HN_0,Caretaker,2
+HN_1,Caretaker,2
+HN_2,Caretaker,2
+NU_10,Caretaker,3
+NU_10,Nurse,2
+NU_3,Nurse,5
+NU_4,Nurse,4
+NU_5,Nurse,3
+NU_6,Nurse,4
+NU_7,Nurse,4
+NU_8,Nurse,3
+NU_9,Caretaker,1
+NU_9,Nurse,3
+TR_16,Trainee,4
+TR_17,Trainee,4
+TR_18,Trainee,3
+TR_19,Trainee,3
+TR_20,Trainee,3
+
+Aggregated CV (all nurses, all assignments): 0.245
+CV (shift types, weighted): 0.416
+CV (skill types, weighted): 0.263
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gemini_n21nl_4.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+CT_11,Day,3
+CT_11,Early,1
+CT_11,Late,1
+CT_11,Night,2
+CT_12,Day,1
+CT_12,Early,1
+CT_12,Late,2
+CT_12,Night,2
+CT_13,Day,1
+CT_13,Late,2
+CT_13,Night,3
+CT_14,Day,2
+CT_14,Early,2
+CT_14,Late,1
+CT_15,Day,1
+CT_15,Early,3
+CT_15,Late,1
+CT_15,Night,3
+NU_10,Day,1
+NU_10,Early,1
+NU_10,Late,2
+NU_3,Day,2
+NU_3,Early,1
+NU_3,Night,1
+NU_4,Early,1
+NU_4,Night,2
+NU_5,Day,1
+NU_5,Late,2
+NU_5,Night,1
+NU_6,Day,1
+NU_6,Late,2
+NU_7,Day,1
+NU_7,Early,2
+NU_8,Day,1
+NU_8,Early,1
+NU_8,Night,1
+NU_9,Early,1
+NU_9,Late,1
+NU_9,Night,2
+TR_16,Day,3
+TR_16,Late,1
+TR_16,Night,1
+TR_17,Early,1
+TR_17,Late,1
+TR_17,Night,3
+TR_18,Early,2
+TR_18,Late,1
+TR_19,Day,1
+TR_19,Early,1
+TR_19,Night,1
+TR_20,Early,1
+TR_20,Night,2
+
+=== Counts by skill ===
+nurse,skill,count
+CT_11,Caretaker,7
+CT_12,Caretaker,6
+CT_13,Caretaker,6
+CT_14,Caretaker,5
+CT_15,Caretaker,8
+NU_10,Nurse,4
+NU_3,Nurse,4
+NU_4,Nurse,3
+NU_5,Nurse,4
+NU_6,Nurse,3
+NU_7,Nurse,3
+NU_8,Nurse,3
+NU_9,Nurse,4
+TR_16,Trainee,5
+TR_17,Trainee,5
+TR_18,Trainee,3
+TR_19,Trainee,3
+TR_20,Trainee,3
+
+Aggregated CV (all nurses, all assignments): 0.341
+CV (shift types, weighted): 0.432
+CV (skill types, weighted): 0.177
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5mm_1.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,2
+Andrea,Late,2
+Nguyen,Early,1
+Nguyen,Late,2
+Nguyen,Night,2
+Patrick,Late,1
+Patrick,Night,5
+Sara,Early,3
+Sara,Late,2
+Stefaan,Early,1
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,4
+Nguyen,Nurse,5
+Patrick,HeadNurse,3
+Patrick,Nurse,3
+Sara,Nurse,5
+Stefaan,Nurse,1
+
+Aggregated CV (all nurses, all assignments): 0.410
+CV (shift types, weighted): 0.383
+CV (skill types, weighted): 0.363
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5mm_2.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,1
+Andrea,Late,2
+Andrea,Night,1
+Nguyen,Night,6
+Patrick,Early,2
+Patrick,Late,1
+Patrick,Night,2
+Sara,Early,4
+Sara,Late,2
+Stefaan,Late,2
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,4
+Nguyen,Nurse,6
+Patrick,HeadNurse,4
+Patrick,Nurse,1
+Sara,Nurse,6
+Stefaan,Nurse,2
+
+Aggregated CV (all nurses, all assignments): 0.325
+CV (shift types, weighted): 0.520
+CV (skill types, weighted): 0.396
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5mm_3.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,2
+Andrea,Late,2
+Nguyen,Early,3
+Nguyen,Late,1
+Nguyen,Night,1
+Patrick,Early,1
+Patrick,Late,1
+Patrick,Night,3
+Sara,Early,1
+Sara,Late,1
+Sara,Night,2
+Stefaan,Late,2
+Stefaan,Night,1
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,4
+Nguyen,Nurse,5
+Patrick,HeadNurse,4
+Patrick,Nurse,1
+Sara,Nurse,4
+Stefaan,HeadNurse,2
+Stefaan,Nurse,1
+
+Aggregated CV (all nurses, all assignments): 0.178
+CV (shift types, weighted): 0.433
+CV (skill types, weighted): 0.475
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5mm_4.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,2
+Andrea,Late,2
+Nguyen,Early,1
+Nguyen,Late,2
+Nguyen,Night,2
+Patrick,Late,1
+Patrick,Night,5
+Sara,Early,3
+Sara,Late,2
+Stefaan,Early,1
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,4
+Nguyen,Nurse,5
+Patrick,HeadNurse,3
+Patrick,Nurse,3
+Sara,Nurse,5
+Stefaan,Nurse,1
+
+Aggregated CV (all nurses, all assignments): 0.410
+CV (shift types, weighted): 0.383
+CV (skill types, weighted): 0.363
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5nl_1.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,3
+Andrea,Late,1
+Andrea,Night,3
+Nguyen,Early,1
+Nguyen,Night,5
+Patrick,Early,4
+Patrick,Late,3
+Sara,Early,1
+Sara,Late,2
+Sara,Night,1
+Stefaan,Late,4
+Stefaan,Night,1
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,4
+Andrea,Nurse,3
+Nguyen,Nurse,6
+Patrick,HeadNurse,4
+Patrick,Nurse,3
+Sara,Nurse,4
+Stefaan,Nurse,5
+
+Aggregated CV (all nurses, all assignments): 0.201
+CV (shift types, weighted): 0.562
+CV (skill types, weighted): 0.201
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5nl_2.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,2
+Andrea,Late,2
+Nguyen,Early,2
+Nguyen,Late,1
+Nguyen,Night,1
+Patrick,Late,1
+Patrick,Night,5
+Sara,Early,3
+Sara,Late,1
+Stefaan,Late,2
+Stefaan,Night,1
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,4
+Nguyen,Nurse,4
+Patrick,HeadNurse,4
+Patrick,Nurse,2
+Sara,Nurse,4
+Stefaan,Nurse,3
+
+Aggregated CV (all nurses, all assignments): 0.233
+CV (shift types, weighted): 0.453
+CV (skill types, weighted): 0.158
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5nl_3.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,1
+Andrea,Late,4
+Nguyen,Late,1
+Nguyen,Night,1
+Patrick,Early,2
+Patrick,Night,3
+Sara,Early,2
+Sara,Late,1
+Sara,Night,2
+Stefaan,Early,2
+Stefaan,Late,1
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,4
+Andrea,Nurse,1
+Nguyen,Nurse,2
+Patrick,HeadNurse,2
+Patrick,Nurse,3
+Sara,Nurse,5
+Stefaan,Nurse,3
+
+Aggregated CV (all nurses, all assignments): 0.316
+CV (shift types, weighted): 0.469
+CV (skill types, weighted): 0.432
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n5nl_4.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,2
+Andrea,Late,2
+Nguyen,Early,1
+Nguyen,Late,1
+Nguyen,Night,2
+Patrick,Late,1
+Patrick,Night,5
+Sara,Early,3
+Sara,Late,2
+Stefaan,Early,1
+Stefaan,Late,1
+Stefaan,Night,1
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,4
+Nguyen,Nurse,4
+Patrick,HeadNurse,3
+Patrick,Nurse,3
+Sara,Nurse,5
+Stefaan,Nurse,3
+
+Aggregated CV (all nurses, all assignments): 0.232
+CV (shift types, weighted): 0.494
+CV (skill types, weighted): 0.196
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n21nl_1.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+CT_11,Night,7
+CT_12,Day,5
+CT_14,Late,4
+CT_15,Early,5
+NU_3,Night,7
+NU_4,Day,7
+NU_8,Early,7
+NU_9,Late,7
+TR_18,Day,3
+TR_18,Early,4
+TR_19,Late,1
+TR_19,Night,4
+
+=== Counts by skill ===
+nurse,skill,count
+CT_11,Caretaker,7
+CT_12,Caretaker,5
+CT_14,Caretaker,4
+CT_15,Caretaker,5
+NU_3,Nurse,7
+NU_4,Nurse,7
+NU_8,Nurse,7
+NU_9,Nurse,7
+TR_18,Trainee,7
+TR_19,Trainee,5
+
+Aggregated CV (all nurses, all assignments): 0.186
+CV (shift types, weighted): 0.332
+CV (skill types, weighted): 0.104
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n21nl_2.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+CT_11,Early,4
+CT_12,Day,2
+CT_12,Night,3
+CT_13,Caretaker,1
+CT_13,Late,2
+CT_13,Night,1
+CT_14,Day,1
+CT_14,Late,2
+CT_14,Night,2
+CT_15,Day,2
+CT_15,Early,1
+HN_0,Night,1
+NU_10,Day,3
+NU_3,Night,3
+NU_4,Early,4
+NU_5,Early,3
+NU_6,Late,3
+NU_6,Night,1
+NU_7,Late,3
+NU_8,Day,3
+NU_8,Late,1
+NU_9,Day,1
+NU_9,Night,3
+TR_16,Day,1
+TR_16,Late,1
+TR_16,Night,1
+TR_18,Day,1
+TR_18,Early,1
+TR_18,Night,2
+TR_19,Day,3
+TR_19,Night,1
+TR_20,Early,3
+
+=== Counts by skill ===
+nurse,skill,count
+CT_11,Caretaker,4
+CT_12,Caretaker,5
+CT_13,Caretaker,4
+CT_14,Caretaker,5
+CT_15,Caretaker,3
+HN_0,HeadNurse,1
+NU_10,Nurse,3
+NU_3,Nurse,3
+NU_4,Nurse,4
+NU_5,Nurse,3
+NU_6,Nurse,4
+NU_7,Nurse,3
+NU_8,Nurse,4
+NU_9,Nurse,4
+TR_16,Trainee,3
+TR_18,Trainee,4
+TR_19,Trainee,4
+TR_20,Trainee,3
+
+Aggregated CV (all nurses, all assignments): 0.252
+CV (shift types, weighted): 0.453
+CV (skill types, weighted): 0.152
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n21nl_3.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+CT_11,Day,2
+CT_11,Early,2
+CT_11,Late,1
+CT_11,Night,1
+CT_12,Day,2
+CT_12,Early,1
+CT_12,Late,2
+CT_12,Night,1
+CT_13,Day,1
+CT_13,Early,1
+CT_13,Late,2
+CT_13,Night,2
+CT_14,Day,1
+CT_14,Early,1
+CT_14,Late,1
+CT_14,Night,2
+CT_15,Day,1
+CT_15,Early,2
+CT_15,Late,1
+CT_15,Night,1
+NU_10,Night,3
+NU_3,Early,4
+NU_4,Day,4
+NU_5,Late,4
+NU_6,Night,4
+NU_7,Early,3
+NU_8,Day,3
+NU_9,Late,3
+TR_16,Late,2
+TR_16,Night,1
+TR_17,Day,3
+TR_18,Early,1
+TR_18,Night,3
+TR_19,Early,2
+TR_19,Night,1
+TR_20,Early,1
+
+=== Counts by skill ===
+nurse,skill,count
+CT_11,Caretaker,6
+CT_12,Caretaker,6
+CT_13,Caretaker,6
+CT_14,Caretaker,5
+CT_15,Caretaker,5
+NU_10,Nurse,3
+NU_3,Nurse,4
+NU_4,Nurse,4
+NU_5,Nurse,4
+NU_6,Nurse,4
+NU_7,Nurse,3
+NU_8,Nurse,3
+NU_9,Nurse,3
+TR_16,Trainee,3
+TR_17,Trainee,3
+TR_18,Trainee,4
+TR_19,Trainee,3
+TR_20,Trainee,1
+
+Aggregated CV (all nurses, all assignments): 0.331
+CV (shift types, weighted): 0.524
+CV (skill types, weighted): 0.162
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/gpt_n21nl_4.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+CT_11,Early,5
+CT_11,Night,1
+CT_12,Early,2
+CT_12,Night,6
+CT_13,Day,5
+CT_14,Day,4
+CT_14,Late,2
+CT_14,Night,2
+CT_15,Late,5
+HN_0,Late,2
+HN_0,Night,1
+NU_4,Early,7
+NU_5,Day,7
+NU_8,Late,7
+NU_9,Night,7
+TR_18,Day,1
+TR_18,Early,4
+TR_18,Late,1
+TR_18,Night,4
+TR_19,Day,3
+
+=== Counts by skill ===
+nurse,skill,count
+CT_11,Caretaker,6
+CT_12,Caretaker,8
+CT_13,Caretaker,5
+CT_14,Caretaker,8
+CT_15,Caretaker,5
+HN_0,HeadNurse,3
+NU_4,Nurse,7
+NU_5,Nurse,7
+NU_8,Nurse,7
+NU_9,Nurse,7
+TR_18,Trainee,10
+TR_19,Trainee,3
+
+Aggregated CV (all nurses, all assignments): 0.311
+CV (shift types, weighted): 0.561
+CV (skill types, weighted): 0.181
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5mm_1.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,3
+Andrea,Late,1
+Andrea,Night,1
+Nguyen,Early,2
+Nguyen,Late,4
+Patrick,Early,3
+Patrick,Late,2
+Sara,Early,2
+Sara,Late,3
+Sara,Night,1
+Stefaan,Late,3
+Stefaan,Night,2
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,1
+Andrea,Nurse,4
+Nguyen,Nurse,6
+Patrick,Nurse,5
+Sara,Nurse,6
+Stefaan,HeadNurse,3
+Stefaan,Nurse,2
+
+Aggregated CV (all nurses, all assignments): 0.091
+CV (shift types, weighted): 0.315
+CV (skill types, weighted): 0.351
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5mm_2.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,1
+Andrea,Late,2
+Nguyen,Early,3
+Nguyen,Late,2
+Patrick,Night,3
+Sara,Night,4
+Stefaan,Early,3
+Stefaan,Late,1
+Stefaan,Night,1
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,3
+Nguyen,Nurse,5
+Patrick,HeadNurse,3
+Sara,Nurse,4
+Stefaan,HeadNurse,2
+Stefaan,Nurse,3
+
+Aggregated CV (all nurses, all assignments): 0.224
+CV (shift types, weighted): 0.399
+CV (skill types, weighted): 0.193
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5mm_3.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,3
+Andrea,Late,2
+Nguyen,Early,2
+Nguyen,Late,1
+Nguyen,Night,1
+Patrick,Early,3
+Patrick,Late,1
+Patrick,Night,1
+Sara,Early,1
+Sara,Late,2
+Sara,Night,3
+Stefaan,Late,4
+Stefaan,Night,2
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,2
+Andrea,Nurse,3
+Nguyen,Nurse,4
+Patrick,HeadNurse,3
+Patrick,Nurse,2
+Sara,Nurse,6
+Stefaan,HeadNurse,2
+Stefaan,Nurse,4
+
+Aggregated CV (all nurses, all assignments): 0.144
+CV (shift types, weighted): 0.466
+CV (skill types, weighted): 0.310
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5mm_4.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,3
+Andrea,Late,1
+Andrea,Night,1
+Nguyen,Early,2
+Nguyen,Late,4
+Patrick,Early,3
+Patrick,Late,2
+Sara,Early,2
+Sara,Late,3
+Sara,Night,1
+Stefaan,Late,3
+Stefaan,Night,2
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,1
+Andrea,Nurse,4
+Nguyen,Nurse,6
+Patrick,Nurse,5
+Sara,Nurse,6
+Stefaan,HeadNurse,3
+Stefaan,Nurse,2
+
+Aggregated CV (all nurses, all assignments): 0.091
+CV (shift types, weighted): 0.315
+CV (skill types, weighted): 0.351
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5nl_1.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,1
+Andrea,Late,1
+Andrea,Night,1
+Nguyen,Early,1
+Nguyen,Late,2
+Patrick,Early,1
+Patrick,Late,2
+Patrick,Night,2
+Sara,Early,4
+Sara,Late,2
+Sara,Night,4
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,3
+Nguyen,Nurse,3
+Patrick,HeadNurse,5
+Sara,Nurse,10
+
+Aggregated CV (all nurses, all assignments): 0.545
+CV (shift types, weighted): 0.508
+CV (skill types, weighted): 0.429
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5nl_2.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,5
+Andrea,Late,1
+Nguyen,Early,7
+Patrick,Late,1
+Patrick,Night,3
+Sara,Night,7
+Stefaan,Late,7
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,6
+Nguyen,Nurse,7
+Patrick,HeadNurse,4
+Sara,Nurse,7
+Stefaan,Nurse,7
+
+Aggregated CV (all nurses, all assignments): 0.188
+CV (shift types, weighted): 0.467
+CV (skill types, weighted): 0.065
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5nl_3.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,2
+Andrea,Late,3
+Andrea,Night,1
+Nguyen,Early,2
+Nguyen,Late,2
+Patrick,Late,1
+Patrick,Night,6
+Sara,Early,5
+Sara,Night,1
+Stefaan,Late,4
+Stefaan,Night,1
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,5
+Andrea,Nurse,1
+Nguyen,Nurse,4
+Patrick,HeadNurse,2
+Patrick,Nurse,5
+Sara,Nurse,6
+Stefaan,HeadNurse,1
+Stefaan,Nurse,4
+
+Aggregated CV (all nurses, all assignments): 0.182
+CV (shift types, weighted): 0.621
+CV (skill types, weighted): 0.481
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n5nl_4.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+Andrea,Early,1
+Andrea,Late,2
+Andrea,Night,3
+Nguyen,Early,4
+Nguyen,Late,1
+Patrick,Early,1
+Patrick,Late,2
+Patrick,Night,1
+Sara,Late,3
+Sara,Night,1
+Stefaan,Early,3
+Stefaan,Late,1
+Stefaan,Night,1
+
+=== Counts by skill ===
+nurse,skill,count
+Andrea,HeadNurse,4
+Andrea,Nurse,2
+Nguyen,Nurse,5
+Patrick,HeadNurse,4
+Sara,Nurse,4
+Stefaan,Nurse,5
+
+Aggregated CV (all nurses, all assignments): 0.156
+CV (shift types, weighted): 0.517
+CV (skill types, weighted): 0.204
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n21nl_1.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+CT_11,Day,1
+CT_11,Early,1
+CT_11,Late,1
+CT_11,Night,2
+CT_12,Day,1
+CT_12,Early,2
+CT_12,Late,1
+CT_12,Night,1
+CT_13,Day,1
+CT_13,Early,1
+CT_13,Late,2
+CT_13,Night,1
+CT_14,Day,1
+CT_14,Early,1
+CT_14,Late,1
+CT_14,Night,2
+CT_15,Day,1
+CT_15,Early,1
+CT_15,Late,1
+CT_15,Night,1
+NU_10,Day,1
+NU_10,Late,1
+NU_10,Night,2
+NU_3,Early,2
+NU_3,Late,1
+NU_3,Night,1
+NU_4,Day,2
+NU_4,Early,1
+NU_4,Night,1
+NU_5,Day,1
+NU_5,Late,2
+NU_6,Night,1
+NU_7,Early,2
+NU_7,Late,1
+NU_7,Night,1
+NU_8,Day,2
+NU_8,Early,1
+NU_8,Night,1
+NU_9,Day,1
+NU_9,Early,1
+NU_9,Late,2
+TR_16,Early,3
+TR_17,Day,3
+TR_17,Early,1
+TR_18,Night,3
+TR_19,Day,1
+TR_19,Late,1
+TR_19,Night,2
+
+=== Counts by skill ===
+nurse,skill,count
+CT_11,Caretaker,5
+CT_12,Caretaker,5
+CT_13,Caretaker,5
+CT_14,Caretaker,5
+CT_15,Caretaker,4
+NU_10,Nurse,4
+NU_3,Nurse,4
+NU_4,Nurse,4
+NU_5,Nurse,3
+NU_6,Nurse,1
+NU_7,Nurse,4
+NU_8,Nurse,4
+NU_9,Nurse,4
+TR_16,Trainee,3
+TR_17,Trainee,4
+TR_18,Trainee,3
+TR_19,Trainee,4
+
+Aggregated CV (all nurses, all assignments): 0.248
+CV (shift types, weighted): 0.429
+CV (skill types, weighted): 0.182
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n21nl_2.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+CT_11,Late,5
+CT_11,Night,2
+CT_12,Day,2
+CT_12,Early,2
+CT_12,Night,2
+CT_13,Early,2
+CT_13,Late,1
+CT_13,Night,4
+CT_14,Day,3
+CT_14,Early,2
+CT_14,Late,1
+CT_14,Night,2
+CT_15,Day,3
+CT_15,Early,2
+CT_15,Late,1
+HN_0,Late,2
+HN_1,Night,1
+HN_2,Night,1
+NU_10,Night,4
+NU_3,Early,3
+NU_4,Day,2
+NU_4,Early,1
+NU_5,Day,1
+NU_5,Early,2
+NU_5,Late,1
+NU_6,Late,3
+NU_7,Day,1
+NU_7,Night,1
+NU_8,Day,1
+NU_8,Early,1
+NU_8,Night,2
+NU_9,Day,1
+NU_9,Late,2
+TR_16,Early,1
+TR_17,Early,3
+TR_17,Night,2
+TR_18,Early,2
+TR_18,Late,1
+TR_18,Night,2
+TR_19,Day,3
+TR_19,Early,1
+TR_19,Late,2
+TR_20,Day,1
+TR_20,Night,3
+
+=== Counts by skill ===
+nurse,skill,count
+CT_11,Caretaker,7
+CT_12,Caretaker,6
+CT_13,Caretaker,7
+CT_14,Caretaker,8
+CT_15,Caretaker,6
+HN_0,HeadNurse,2
+HN_1,HeadNurse,1
+HN_2,HeadNurse,1
+NU_10,Nurse,4
+NU_3,Nurse,3
+NU_4,Nurse,3
+NU_5,Nurse,4
+NU_6,Nurse,3
+NU_7,Nurse,2
+NU_8,Nurse,4
+NU_9,Nurse,3
+TR_16,Trainee,1
+TR_17,Trainee,5
+TR_18,Trainee,5
+TR_19,Trainee,6
+TR_20,Trainee,4
+
+Aggregated CV (all nurses, all assignments): 0.503
+CV (shift types, weighted): 0.482
+CV (skill types, weighted): 0.224
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n21nl_3.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+CT_11,Late,6
+CT_12,Night,7
+CT_13,Early,2
+CT_14,Early,4
+CT_15,Day,6
+NU_10,Night,3
+NU_3,Early,4
+NU_4,Day,4
+NU_5,Late,4
+NU_6,Night,4
+NU_7,Early,3
+NU_8,Day,3
+NU_9,Late,3
+TR_16,Day,2
+TR_16,Early,1
+TR_16,Late,1
+TR_17,Day,2
+TR_17,Night,3
+TR_18,Night,1
+TR_19,Early,3
+TR_20,Night,1
+
+=== Counts by skill ===
+nurse,skill,count
+CT_11,Caretaker,6
+CT_12,Caretaker,7
+CT_13,Caretaker,2
+CT_14,Caretaker,4
+CT_15,Caretaker,6
+NU_10,Nurse,3
+NU_3,Nurse,4
+NU_4,Nurse,4
+NU_5,Nurse,4
+NU_6,Nurse,4
+NU_7,Nurse,3
+NU_8,Nurse,3
+NU_9,Nurse,3
+TR_16,Trainee,4
+TR_17,Trainee,5
+TR_18,Trainee,1
+TR_19,Trainee,3
+TR_20,Trainee,1
+
+Aggregated CV (all nurses, all assignments): 0.418
+CV (shift types, weighted): 0.497
+CV (skill types, weighted): 0.313
+
+=== /home/street-jar/Desktop/LLM-NRP-Thesis/anal_utils/files/mistral_n21nl_4.json ===
+=== Counts by shiftType ===
+nurse,shiftType,count
+CT_11,Early,5
+CT_11,Night,1
+CT_12,Early,2
+CT_12,Night,6
+CT_13,Day,5
+CT_14,Day,4
+CT_14,Late,2
+CT_14,Night,2
+CT_15,Late,5
+HN_0,Late,2
+HN_0,Night,1
+NU_4,Early,7
+NU_5,Day,7
+NU_8,Late,7
+NU_9,Night,7
+TR_18,Day,1
+TR_18,Early,4
+TR_18,Late,1
+TR_18,Night,4
+TR_19,Day,3
+
+=== Counts by skill ===
+nurse,skill,count
+CT_11,Caretaker,6
+CT_12,Caretaker,8
+CT_13,Caretaker,5
+CT_14,Caretaker,8
+CT_15,Caretaker,5
+HN_0,HeadNurse,3
+NU_4,Nurse,7
+NU_5,Nurse,7
+NU_8,Nurse,7
+NU_9,Nurse,7
+TR_18,Trainee,10
+TR_19,Trainee,3
+
+Aggregated CV (all nurses, all assignments): 0.311
+CV (shift types, weighted): 0.561
+CV (skill types, weighted): 0.181
+

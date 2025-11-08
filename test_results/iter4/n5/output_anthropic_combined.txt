@@ -1,0 +1,387 @@
+I'll solve this nurse rostering problem step by step, considering all hard and soft constraints.
+
+**Initial Analysis:**
+
+**Nurses and their current states:**
+- Patrick (FullTime, HeadNurse+Nurse): Coming from 4 consecutive working days, last worked Night shift
+- Andrea (FullTime, HeadNurse+Nurse): Coming from 3 consecutive working days, last worked Early shift, requested Tuesday off
+- Stefaan (PartTime, HeadNurse+Nurse): Coming from 3 consecutive days off, requested Wednesday off
+- Sara (PartTime, Nurse only): Coming from 4 consecutive working days, last worked Late shift, requested Late Saturday off
+- Nguyen (FullTime, Nurse only): Coming from 1 day off, requested Friday and Saturday off
+
+**Key constraints to consider:**
+- Shift successions: Night→Early/Late forbidden, Late→Early forbidden
+- Consecutive shifts: Early(2-5), Late(2-3), Night(4-5)
+- Consecutive working days: FullTime(3-5), PartTime(3-5)
+- Consecutive days off: FullTime(2-3), PartTime(3-5)
+- Complete weekends required for all contracts
+
+Let me work through each day:
+
+**MONDAY:**
+Requirements:
+- Early: 1 Nurse (optimal 1)
+- Late: 1 HeadNurse (optimal 1), 0 Nurse (optimal 1)
+- Night: 1 HeadNurse (optimal 1), 1 Nurse (optimal 1)
+
+Constraints check:
+- Patrick: Can only do Night (coming from Night shift)
+- Andrea: Can do any shift (coming from Early)
+- Stefaan: Can do any shift (coming from days off)
+- Sara: Can only do Late or Night (coming from Late)
+- Nguyen: Can do any shift (coming from day off)
+
+Assignments:
+- Patrick: Night (continues Night, HeadNurse requirement)
+- Andrea: Early (Nurse requirement)
+- Stefaan: Late (HeadNurse requirement)
+- Sara: OFF (needs rest after 4 consecutive days)
+- Nguyen: Night (Nurse requirement)
+
+Missing optimal: Late-Nurse (Weight: 30)
+**Running penalty: 30**
+
+**TUESDAY:**
+Requirements:
+- Early: 1 Nurse (optimal 1)
+- Late: 1 Nurse (optimal 1)
+- Night: 1 Nurse (optimal 1)
+
+Constraints check:
+- Patrick: Worked Night Monday (at 5 consecutive working days - must rest)
+- Andrea: Requested OFF
+- Stefaan: Worked Late Monday
+- Sara: Day off #1
+- Nguyen: Worked Night Monday
+
+Assignments:
+- Patrick: OFF (exceeds max consecutive working days)
+- Andrea: OFF (requested)
+- Stefaan: Late (continues, min 2 consecutive)
+- Sara: OFF (continues days off, PartTime needs min 3)
+- Nguyen: Night (continues, min 4 consecutive)
+
+Problem: No one for Early! This violates hard constraint. Must revise:
+
+- Patrick: OFF
+- Andrea: OFF (requested)
+- Stefaan: Early (breaks Late sequence, penalty for breaking min consecutive)
+- Sara: Late (breaks days off early)
+- Nguyen: Night
+
+Penalties: 
+- Stefaan breaks Late min consecutive (1 day short): Weight 15
+- Sara breaks min consecutive days off (2 days short): Weight 60
+
+**Running penalty: 30 + 15 + 60 = 105**
+
+**WEDNESDAY:**
+Requirements:
+- Early: 1 HeadNurse (optimal 1), 0 Nurse (optimal 1)
+- Late: 1 Nurse (optimal 1)
+- Night: 1 HeadNurse (optimal 1), 0 Nurse (optimal 1)
+
+Constraints check:
+- Patrick: Day off #1
+- Andrea: Day off #1
+- Stefaan: Requested OFF, worked Early Tuesday
+- Sara: Worked Late Tuesday
+- Nguyen: 2 consecutive Night shifts
+
+Assignments:
+- Patrick: Early (HeadNurse requirement)
+- Andrea: Night (HeadNurse requirement)
+- Stefaan: OFF (requested)
+- Sara: Late (continues, min 2)
+- Nguyen: Night (continues)
+
+Missing optimal: Early-Nurse, Night-Nurse (Weight: 60)
+**Running penalty: 105 + 60 = 165**
+
+**THURSDAY:**
+Requirements:
+- Early: 1 Nurse (optimal 1)
+- Late: 1 Nurse (optimal 1)
+- Night: 1 HeadNurse (optimal 1), 1 Nurse (optimal 1)
+
+Constraints check:
+- Patrick: Worked Early Wednesday
+- Andrea: Worked Night Wednesday
+- Stefaan: Day off #1
+- Sara: 2 consecutive Late shifts
+- Nguyen: 3 consecutive Night shifts
+
+Assignments:
+- Patrick: Early (continues, min 2)
+- Andrea: Night (continues, min 4)
+- Stefaan: Night (HeadNurse requirement for 2nd Night slot)
+- Sara: Late (can do 3rd consecutive)
+- Nguyen: Night (continues)
+
+All requirements met optimally!
+**Running penalty: 165**
+
+**FRIDAY:**
+Requirements:
+- Early: 1 HeadNurse (optimal 1), 0 Nurse (optimal 1)
+- Late: 1 Nurse (optimal 1)
+- Night: 0 (optimal 1 Nurse)
+
+Constraints check:
+- Patrick: 2 consecutive Early shifts
+- Andrea: 2 consecutive Night shifts
+- Stefaan: 1 Night shift
+- Sara: 3 consecutive Late shifts (at max)
+- Nguyen: Requested OFF, 4 consecutive Night shifts
+
+Assignments:
+- Patrick: Early (continues, HeadNurse requirement)
+- Andrea: Night (continues)
+- Stefaan: Night (continues, min 4)
+- Sara: OFF (reached Late max)
+- Nguyen: OFF (requested)
+
+Problem: No one for Late minimum! Must revise:
+- Patrick: Early (HeadNurse requirement)
+- Andrea: Late (breaks Night sequence early)
+
+**MONDAY:**
+Requirements:
+- Early: 1 Nurse (optimal 1)
+- Late: 1 HeadNurse (optimal 1), 0 Nurse (optimal 1)
+- Night: 1 HeadNurse (optimal 1), 1 Nurse (optimal 1)
+
+Constraints check:
+- Patrick: Can only do Night (coming from Night shift)
+- Andrea: Can do any shift (coming from Early)
+- Stefaan: Can do any shift (coming from days off)
+- Sara: Can only do Late or Night (coming from Late)
+- Nguyen: Can do any shift (coming from day off)
+
+Assignments:
+- Patrick: Night (continues Night, HeadNurse requirement)
+- Andrea: Early (Nurse requirement)
+- Stefaan: Late (HeadNurse requirement)
+- Sara: OFF (needs rest after 4 consecutive days)
+- Nguyen: Night (Nurse requirement)
+
+Missing optimal: Late-Nurse (Weight: 30)
+**Running penalty: 30**
+
+**TUESDAY:**
+Requirements:
+- Early: 1 Nurse (optimal 1)
+- Late: 1 Nurse (optimal 1)
+- Night: 1 Nurse (optimal 1)
+
+Constraints check:
+- Patrick: Worked Night Monday (at 5 consecutive working days - must rest)
+- Andrea: Requested OFF
+- Stefaan: Worked Late Monday
+- Sara: Day off #1
+- Nguyen: Worked Night Monday
+
+Assignments:
+- Patrick: OFF (exceeds max consecutive working days)
+- Andrea: OFF (requested)
+- Stefaan: Late (continues, min 2 consecutive)
+- Sara: OFF (continues days off, PartTime needs min 3)
+- Nguyen: Night (continues, min 4 consecutive)
+
+Problem: No one for Early! This violates hard constraint. Must revise:
+
+- Patrick: OFF
+- Andrea: OFF (requested)
+- Stefaan: Early (breaks Late sequence, penalty for breaking min consecutive)
+- Sara: Late (breaks days off early)
+- Nguyen: Night
+
+Penalties: 
+- Stefaan breaks Late min consecutive (1 day short): Weight 15
+- Sara breaks min consecutive days off (2 days short): Weight 60
+
+**Running penalty: 30 + 15 + 60 = 105**
+
+**WEDNESDAY:**
+Requirements:
+- Early: 1 HeadNurse (optimal 1), 0 Nurse (optimal 1)
+- Late: 1 Nurse (optimal 1)
+- Night: 1 HeadNurse (optimal 1), 0 Nurse (optimal 1)
+
+Constraints check:
+- Patrick: Day off #1
+- Andrea: Day off #1
+- Stefaan: Requested OFF, worked Early Tuesday
+- Sara: Worked Late Tuesday
+- Nguyen: 2 consecutive Night shifts
+
+Assignments:
+- Patrick: Early (HeadNurse requirement)
+- Andrea: Night (HeadNurse requirement)
+- Stefaan: OFF (requested)
+- Sara: Late (continues, min 2)
+- Nguyen: Night (continues)
+
+Missing optimal: Early-Nurse, Night-Nurse (Weight: 60)
+**Running penalty: 105 + 60 = 165**
+
+**THURSDAY:**
+Requirements:
+- Early: 1 Nurse (optimal 1)
+- Late: 1 Nurse (optimal 1)
+- Night: 1 HeadNurse (optimal 1), 1 Nurse (optimal 1)
+
+Constraints check:
+- Patrick: Worked Early Wednesday
+- Andrea: Worked Night Wednesday
+- Stefaan: Day off #1
+- Sara: 2 consecutive Late shifts
+- Nguyen: 3 consecutive Night shifts
+
+Assignments:
+- Patrick: Early (continues, min 2)
+- Andrea: Night (continues, min 4)
+- Stefaan: Night (HeadNurse requirement for 2nd Night slot)
+- Sara: Late (can do 3rd consecutive)
+- Nguyen: Night (continues)
+
+All requirements met optimally!
+**Running penalty: 165**
+
+**FRIDAY:**
+Requirements:
+- Early: 1 HeadNurse (optimal 1), 0 Nurse (optimal 1)
+- Late: 1 Nurse (optimal 1)
+- Night: 0 (optimal 1 Nurse)
+
+Constraints check:
+- Patrick: 2 consecutive Early shifts
+- Andrea: 2 consecutive Night shifts
+- Stefaan: 1 Night shift
+- Sara: 3 consecutive Late shifts (at max)
+- Nguyen: Requested OFF, 4 consecutive Night shifts
+
+Assignments:
+- Patrick: Early (continues, HeadNurse requirement)
+- Andrea: Night (continues)
+- Stefaan: Night (continues, min 4)
+- Sara: OFF (reached Late max)
+- Nguyen: OFF (requested)
+
+Problem: No one for Late minimum! Must revise:
+- Patrick: Early (HeadNurse requirement)
+- Andrea: Late (breaks Night sequence early)
+- Stefaan: Night (continues)
+- Sara: OFF
+- Nguyen: OFF (requested)
+
+Penalties:
+- Andrea breaks Night min consecutive (2 days short): Weight 30
+- Missing optimal: Early-Nurse, Night-Nurse (Weight: 60)
+
+**Running penalty: 165 + 30 + 60 = 255**
+
+**SATURDAY-SUNDAY (Weekend planning together due to complete weekend constraint):**
+
+Saturday Requirements:
+- Early: 1 Nurse (optimal 1)
+- Late: 1 HeadNurse (optimal 1), 1 Nurse (optimal 1)
+- Night: 1 Nurse (optimal 1)
+
+Sunday Requirements:
+- Early: 1 Nurse (optimal 1)
+- Late: 1 HeadNurse (optimal 1), 1 Nurse (optimal 1)
+- Night: 1 Nurse (optimal 1)
+
+Current state entering weekend:
+- Patrick: 3 consecutive Early shifts, 4 working days this week
+- Andrea: 1 Late shift, 4 working days this week
+- Stefaan: 2 consecutive Night shifts, 3 working days this week
+- Sara: 1 day off, 3 working days this week, requested Late Saturday off
+- Nguyen: 1 day off, 3 working days this week, requested Saturday off
+
+Complete weekend constraint means nurses work both days or neither.
+
+Options:
+1. Patrick: Both days OFF (already worked 4 days)
+2. Andrea: Both days working (can do Late both days for HeadNurse requirement)
+3. Stefaan: Both days working (continue Night)
+4. Sara: Both days OFF (requested Saturday Late off, only 3 days worked)
+5. Nguyen: Both days OFF (requested Saturday off)
+
+This leaves us short on coverage. Let's revise:
+
+**SATURDAY:**
+- Patrick: OFF
+- Andrea: Late (HeadNurse requirement)
+- Stefaan: Night (continues, satisfies N
+- Stefaan: Night (continues)
+- Sara: OFF
+- Nguyen: OFF (requested)
+
+Penalties:
+- Andrea breaks Night min consecutive (2 days short): Weight 30
+- Missing optimal: Early-Nurse, Night-Nurse (Weight: 60)
+
+**Running penalty: 165 + 30 + 60 = 255**
+
+**SATURDAY-SUNDAY (Weekend planning together due to complete weekend constraint):**
+
+Saturday Requirements:
+- Early: 1 Nurse (optimal 1)
+- Late: 1 HeadNurse (optimal 1), 1 Nurse (optimal 1)
+- Night: 1 Nurse (optimal 1)
+
+Sunday Requirements:
+- Early: 1 Nurse (optimal 1)
+- Late: 1 HeadNurse (optimal 1), 1 Nurse (optimal 1)
+- Night: 1 Nurse (optimal 1)
+
+Current state entering weekend:
+- Patrick: 3 consecutive Early shifts, 4 working days this week
+- Andrea: 1 Late shift, 4 working days this week
+- Stefaan: 2 consecutive Night shifts, 3 working days this week
+- Sara: 1 day off, 3 working days this week, requested Late Saturday off
+- Nguyen: 1 day off, 3 working days this week, requested Saturday off
+
+Complete weekend constraint means nurses work both days or neither.
+
+Options:
+1. Patrick: Both days OFF (already worked 4 days)
+2. Andrea: Both days working (can do Late both days for HeadNurse requirement)
+3. Stefaan: Both days working (continue Night)
+4. Sara: Both days OFF (requested Saturday Late off, only 3 days worked)
+5. Nguyen: Both days OFF (requested Saturday off)
+
+This leaves us short on coverage. Let's revise:
+
+**SATURDAY:**
+- Patrick: OFF
+- Andrea: Late (HeadNurse requirement)
+- Stefaan: Night (continues, satisfies Nurse requirement)
+- Sara: Early (works weekend, avoids Late as requested)
+- Nguyen: OFF (requested)
+
+Missing optimal: Late-Nurse (Weight: 30)
+
+**SUNDAY:**
+- Patrick: OFF (complete weekend)
+- Andrea: Late (complete weekend, HeadNurse requirement)
+- Stefaan: Night (complete weekend, satisfies Nurse requirement)
+- Sara: Early (complete weekend)
+- Nguyen: OFF (complete weekend)
+
+Missing optimal: Late-Nurse (Weight: 30)
+
+**Running penalty: 255 + 30 + 30 = 315**
+
+**Final Weekly Roster:**
+- Monday: Patrick-Night, Andrea-Early, Stefaan-Late, Sara-OFF, Nguyen-Night
+- Tuesday: Patrick-OFF, Andrea-OFF, Stefaan-Early, Sara-Late, Nguyen-Night
+- Wednesday: Patrick-Early, Andrea-Night, Stefaan-OFF, Sara-Late, Nguyen-Night
+- Thursday: Patrick-Early, Andrea-Night, Stefaan-Night, Sara-Late, Nguyen-Night
+- Friday: Patrick-Early, Andrea-Late, Stefaan-Night, Sara-OFF, Nguyen-OFF
+- Saturday: Patrick-OFF, Andrea-Late, Stefaan-Night, Sara-Early, Nguyen-OFF
+- Sunday: Patrick-OFF, Andrea-Late, Stefaan-Night, Sara-Early, Nguyen-OFF
+
+**Total Penalty: 315**

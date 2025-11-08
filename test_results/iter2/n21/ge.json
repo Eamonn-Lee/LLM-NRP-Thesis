@@ -1,0 +1,25 @@
+{
+  "scenario" : "n021w4_2",
+  "week" : 1,
+  "assignments" : [
+  {"day": "Monday", "shiftType": "Early", "skill": "Nurse", "nurse": "NU_3"},
+  {"day": "Monday", "shiftType": "Early", "skill": "Caretaker", "nurse": "CT_13"},
+  {"day": "Monday", "shiftType": "Early", "skill": "Trainee", "nurse": "TR_18"},
+  {"day": "Monday", "shiftType": "Day", "skill": "Nurse", "nurse": "NU_8"},
+  {"day": "Monday", "shiftType": "Day", "skill": "Caretaker", "nurse": "CT_12"},
+  {"day": "Monday", "shiftType": "Day", "skill": "Trainee", "nurse": "TR_17"},
+  {"day": "Monday", "shiftType": "Late", "skill": "Nurse", "nurse": "NU_5"},
+  {"day": "Monday", "shiftType": "Late", "skill": "Caretaker", "nurse": "CT_11"},
+  {"day": "Monday", "shiftType": "Night", "skill": "Nurse", "nurse": "NU_9"},
+  {"day": "Monday", "shiftType": "Night", "skill": "Caretaker", "nurse": "CT_15"},
+  {"day": "Monday", "shiftType": "Night", "skill": "Trainee", "nurse": "TR_19"},
+  
+  {"day": "Tuesday", "shiftType": "Early", "skill": "Nurse", "nurse": "NU_7"},
+  {"day": "Tuesday", "shiftType": "Early", "skill": "Caretaker", "nurse": "CT_14"},
+  {"day": "Tuesday", "shiftType": "Early", "skill": "Trainee", "nurse": "TR_20"},
+  {"day": "Tuesday", "shiftType": "Day", "skill": "Nurse", "nurse": "NU_10"},
+  {"day": "Tuesday", "shiftType": "Day", "skill": "Caretaker", "nurse": "CT_13"},
+  {"day": "Tuesday", "shiftType": "Day", "skill": "Trainee", "nurse": "TR_16"}
+]
+
+}

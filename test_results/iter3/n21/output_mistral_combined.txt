@@ -1,0 +1,795 @@
+To generate a feasible weekly nurse roster that satisfies all hard constraints and aims to minimize the total penalty from soft constraint violations, we will proceed step-by-step for each day of the week. We will consider the hard constraints first and then optimize for the soft constraints.
+
+### Step 1: Monday
+
+#### Hard Constraints:
+1. **Single assignment per day**: A nurse can be assigned to at most one shift per day.
+2. **Under-staffing**: The number of nurses for each shift for each skill must be at least equal to the minimum requirement.
+3. **Shift type successions**: The shift type assignments of one nurse in two consecutive days must belong to the legal successions provided in the scenario.
+4. **Missing required skill**: A shift of a given skill must necessarily be fulfilled by a nurse having that skill.
+
+#### Soft Constraints:
+1. **Insufficient staffing for optimal coverage** (Weight: 30)
+2. **Consecutive assignments** (Weight: 15/30)
+3. **Consecutive days off** (Weight: 30)
+4. **Preferences** (Weight: 10)
+5. **Complete week-end** (Weight: 30)
+6. **Total assignments** (Weight: 20)
+7. **Total working week-ends** (Weight: 30)
+
+#### Requirements for Monday:
+- **Early**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum), 2 (optimal)
+  - Trainee: 1 (minimum and optimal)
+- **Day**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum), 2 (optimal)
+  - Trainee: 0 (minimum and optimal)
+- **Late**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum), 2 (optimal)
+  - Trainee: 0 (minimum and optimal)
+- **Night**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum and optimal)
+  - Trainee: 1 (minimum and optimal)
+
+#### Shift Off Requests for Monday:
+- TR_17: Any shift
+
+#### Nurse History Considerations:
+- HN_0: Last shift Night, 5 consecutive assignments
+- HN_1: Last shift Late, 1 consecutive assignment
+- HN_2: No last shift, 0 consecutive assignments
+- NU_3: Last shift Early, 1 consecutive assignment
+- NU_4: No last shift, 0 consecutive assignments
+- NU_5: Last shift Day, 4 consecutive assignments
+- NU_6: Last shift Late, 1 consecutive assignment
+- NU_7: No last shift, 0 consecutive assignments
+- NU_8: Last shift Late, 2 consecutive assignments
+- NU_9: Last shift Night, 3 consecutive assignments
+- NU_10: No last shift, 0 consecutive assignments
+- CT_11: Last shift Night, 2 consecutive assignments
+- CT_12: Last shift Day, 2 consecutive assignments
+- CT_13: Last shift Early, 3 consecutive assignments
+- CT_14: No last shift, 0 consecutive assignments
+- CT_15: No last shift, 0 consecutive assignments
+- TR_16: No last shift, 0 consecutive assignments
+- TR_17: Last shift Day, 1 consecutive assignment
+- TR_18: Last shift Night, 4 consecutive assignments
+- TR_19: Last shift Late, 2 consecutive assignments
+- TR_20: No last shift, 0 consecutive assignments
+
+#### Assignments for Monday:
+
+1. **Early Shift**:
+   - **Nurse**: NU_3 (continues Early shift, 2 consecutive assignments)
+   - **Caretaker**: CT_14 (starts with Early shift, 1 consecutive assignment)
+   - **Trainee**: TR_16 (starts with Early shift, 1 consecutive assignment)
+
+2. **Day Shift**:
+   - **Nurse**: NU_4 (starts with Day shift, 1 consecutive assignment)
+   - **Caretaker**: CT_15 (starts with Day shift, 1 consecutive assignment)
+
+3. **Late Shift**:
+   - **Nurse**: NU_5 (continues with Late shift, 5 consecutive assignments)
+   - **Caretaker**: CT_11 (continues with Late shift, 3 consecutive assignments)
+
+4. **Night Shift**:
+   - **Nurse**: NU_6 (continues with Night shift, 2 consecutive assignments)
+   - **Caretaker**: CT_12 (continues with Night shift, 3 consecutive assignments)
+   - **Trainee**: TR_18 (continues with Night shift, 5 consecutive assignments)
+
+#### Soft Constraints Evaluation:
+- **Insufficient staffing for optimal coverage**:
+  - Early: 1 missing Caretaker (Penalty: 30)
+  - Day: 1 missing Caretaker (Penalty: 30)
+  - Late: 1 missing Caretaker (Penalty: 30)
+  - Night: None
+  - Total Penalty: 90
+
+- **Consecutive assignments**:
+  - NU_5: 1 extra day (Penalty: 15)
+  - CT_11: 1 extra day (Penalty: 15)
+  - CT_12: 1 extra day (Penalty: 15)
+  - TR_18: 1 extra day (Penalty: 15)
+  - Total Penalty: 60
+
+- **Consecutive days off**:
+  - None
+
+- **Preferences**:
+  - TR_17: Request off Any shift (Penalty: 10)
+
+- **Complete week-end**:
+  - None
+
+- **Total assignments**:
+  - None
+
+- **Total working week-ends**:
+  - None
+
+#### Total Penalty for Monday:
+- Insufficient staffing: 90
+- Consecutive assignments: 60
+- Preferences: 10
+- **Total Penalty**: 160
+
+### Step 2: Tuesday
+
+#### Requirements for Tuesday:
+- **Early**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum and optimal)
+  - Trainee: 1 (minimum and optimal)
+- **Day**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum and optimal)
+  - Trainee: 0 (minimum), 1 (optimal)
+- **Late**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum), 2 (optimal)
+  - Trainee: 0 (minimum and optimal)
+- **Night**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 0 (minimum), 2 (optimal)
+  - Trainee: 1 (minimum and optimal)
+
+#### Shift Off Requests for Tuesday:
+- None
+
+#### Nurse History Considerations (after Monday's assignments):
+- HN_0: Last shift Night, 5 consecutive assignments
+- HN_1: Last shift Late, 1 consecutive assignment
+- HN_2: No last shift, 0 consecutive assignments
+- NU_3: Last shift Early, 2 consecutive assignments
+- NU_4: Last shift Day, 1 consecutive assignment
+- NU_5: Last shift Late, 5 consecutive assignments
+- NU_6: Last shift Night, 2 consecutive assignments
+- NU_7: No last shift, 0 consecutive assignments
+- NU_8: Last shift Late, 2 consecutive assignments
+- NU_9: Last shift Night, 3 consecutive assignments
+- NU_10: No last shift, 0 consecutive assignments
+- CT_11: Last shift Late, 3 consecutive assignments
+- CT_12: Last shift Night, 3 consecutive assignments
+- CT_13: Last shift Early, 3 consecutive assignments
+- CT_14: Last shift Early, 1 consecutive assignment
+- CT_15: Last shift Day, 1 consecutive assignment
+- TR_16: Last shift Early, 1 consecutive assignment
+- TR_17: No last shift, 0 consecutive assignments
+- TR_18: Last shift Night, 5 consecutive assignments
+- TR_19: Last shift Late, 2 consecutive assignments
+- TR_20: No last shift, 0 consecutive assignments
+
+#### Assignments for Tuesday:
+
+1. **Early Shift**:
+   - **Nurse**: NU_7 (starts with Early shift, 1 consecutive assignment)
+   - **Caretaker**: CT_13 (continues with Early shift, 4 consecutive assignments)
+   - **Trainee**: TR_19 (continues with Early shift, 3 consecutive assignments)
+
+2. **Day Shift**:
+   - **Nurse**: NU_8 (continues with Day shift, 3 consecutive assignments)
+   - **Caretaker**: CT_15 (continues with Day shift, 2 consecutive assignments)
+   - **Trainee**: TR_17 (starts with Day shift, 1 consecutive assignment)
+
+3. **Late Shift**:
+   - **Nurse**: NU_9 (continues with Late shift, 4 consecutive assignments)
+   - **Caretaker**: CT_11 (continues with Late shift, 4 consecutive assignments)
+
+4. **Night Shift**:
+   - **Nurse**: NU_10 (starts with Night shift, 1 consecutive assignment)
+   - **Caretaker**: CT_12 (continues with Night shift, 4 consecutive assignments)
+   - **Trainee**: TR_20 (starts with Night shift, 1 consecutive assignment)
+
+#### Soft Constraints Evaluation:
+- **Insufficient staffing for optimal coverage**:
+  - Early: None
+  - Day: None
+  - Late: 1 missing Caretaker (Penalty: 30)
+  - Night: 1 missing Caretaker (Penalty: 30)
+  - Total Penalty: 60
+
+- **Consecutive assignments**:
+  - NU_9: 1 extra day (Penalty: 15)
+  - CT_11: 1 extra day (Penalty: 15)
+  - CT_12: 1 extra day (Penalty: 15)
+  - CT_13: 1 extra day (Penalty: 15)
+  - TR_19: 1 extra day (Penalty: 15)
+  - Total Penalty: 75
+
+- **Consecutive days off**:
+  - None
+
+- **Preferences**:
+  - None
+
+- **Complete week-end**:
+  - None
+
+- **Total assignments**:
+  - None
+
+- **Total working week-ends**:
+  - None
+
+#### Total Penalty for Tuesday:
+- Insufficient staffing: 60
+- Consecutive assignments: 75
+- **Total Penalty**: 135
+
+### Step 3: Wednesday
+
+#### Requirements for Wednesday:
+- **Early**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum and optimal)
+  - Trainee: 0 (minimum and optimal)
+- **Day**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum), 2 (optimal)
+  - Trainee: 1 (minimum and optimal)
+- **Late**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 0 (minimum), 1 (optimal)
+  - Trainee: 0 (minimum and optimal)
+- **Night**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum and optimal)
+  - Trainee: 0 (minimum), 1 (optimal)
+
+#### Shift Off Requests for Wednesday:
+- NU_6: Day shift
+
+#### Nurse History Considerations (after Tuesday's assignments):
+- HN_0: Last shift Night, 5 consecutive assignments
+- HN_1: Last shift Late, 1 consecutive assignment
+- HN_2: No last shift, 0 consecutive assignments
+- NU_3: Last shift Early, 2 consecutive assignments
+- NU_4: Last shift Day, 1 consecutive assignment
+- NU_5: Last shift Late, 5 consecutive assignments
+- NU_6: Last shift Night, 2 consecutive assignments
+- NU_7: Last shift Early, 1 consecutive assignment
+- NU_8: Last shift Day, 3 consecutive assignments
+- NU_9: Last shift Late, 4 consecutive assignments
+- NU_10: Last shift Night, 1 consecutive assignment
+- CT_11: Last shift Late, 4 consecutive assignments
+- CT_12: Last shift Night, 4 consecutive assignments
+- CT_13: Last shift Early, 4 consecutive assignments
+- CT_14: Last shift Early, 1 consecutive assignment
+- CT_15: Last shift Day, 2 consecutive assignments
+- TR_16: Last shift Early, 1 consecutive assignment
+- TR_17: Last shift Day, 1 consecutive assignment
+- TR_18: Last shift Night, 5 consecutive assignments
+- TR_19: Last shift Early, 3 consecutive assignments
+- TR_20: Last shift Night, 1 consecutive assignment
+
+#### Assignments for Wednesday:
+
+1. **Early Shift**:
+   - **Nurse**: NU_3 (continues with Early shift, 3 consecutive assignments)
+   - **Caretaker**: CT_14 (continues with Early shift, 2 consecutive assignments)
+
+2. **Day Shift**:
+   - **Nurse**: NU_4 (continues with Day shift, 2 consecutive assignments)
+   - **Caretaker**: CT_15 (continues with Day shift, 3 consecutive assignments)
+   - **Trainee**: TR_16 (continues with Day shift, 2 consecutive assignments)
+
+3. **Late Shift**:
+   - **Nurse**: NU_5 (continues with Late shift, 6 consecutive assignments)
+   - **Caretaker**: CT_11 (continues with Late shift, 5 consecutive assignments)
+
+4. **Night Shift**:
+   - **Nurse**: NU_6 (continues with Night shift, 3 consecutive assignments)
+   - **Caretaker**: CT_12 (continues with Night shift, 5 consecutive assignments)
+   - **Trainee**: TR_17 (continues with Night shift, 2 consecutive assignments)
+
+#### Soft Constraints Evaluation:
+- **Insufficient staffing for optimal coverage**:
+  - Early: None
+  - Day: 1 missing Caretaker (Penalty: 30)
+  - Late: None
+  - Night: 1 missing Trainee (Penalty: 30)
+  - Total Penalty: 60
+
+- **Consecutive assignments**:
+  - NU_5: 2 extra days (Penalty: 30)
+  - CT_11: 2 extra days (Penalty: 30)
+  - CT_12: 2 extra days (Penalty: 30)
+  - TR_17: 1 extra day (Penalty: 15)
+  - Total Penalty: 105
+
+- **Consecutive days off**:
+  - None
+
+- **Preferences**:
+  - NU_6: Request off Day shift (Penalty: 10)
+
+- **Complete week-end**:
+  - None
+
+- **Total assignments**:
+  - None
+
+- **Total working week-ends**:
+  - None
+
+#### Total Penalty for Wednesday:
+- Insufficient staffing: 60
+- Consecutive assignments: 105
+- Preferences: 10
+- **Total Penalty**: 175
+
+### Step 4: Thursday
+
+#### Requirements for Thursday:
+- **Early**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum and optimal)
+  - Trainee: 1 (minimum and optimal)
+- **Day**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum), 2 (optimal)
+  - Trainee: 1 (minimum and optimal)
+- **Late**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 0 (minimum), 1 (optimal)
+  - Trainee: 0 (minimum), 1 (optimal)
+- **Night**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum and optimal)
+  - Trainee: 1 (minimum), 2 (optimal)
+
+#### Shift Off Requests for Thursday:
+- None
+
+#### Nurse History Considerations (after Wednesday's assignments):
+- HN_0: Last shift Night, 5 consecutive assignments
+- HN_1: Last shift Late, 1 consecutive assignment
+- HN_2: No last shift, 0 consecutive assignments
+- NU_3: Last shift Early, 3 consecutive assignments
+- NU_4: Last shift Day, 2 consecutive assignments
+- NU_5: Last shift Late, 6 consecutive assignments
+- NU_6: Last shift Night, 3 consecutive assignments
+- NU_7: Last shift Early, 1 consecutive assignment
+- NU_8: Last shift Day, 3 consecutive assignments
+- NU_9: Last shift Late, 4 consecutive assignments
+- NU_10: Last shift Night, 1 consecutive assignment
+- CT_11: Last shift Late, 5 consecutive assignments
+- CT_12: Last shift Night, 5 consecutive assignments
+- CT_13: Last shift Early, 4 consecutive assignments
+- CT_14: Last shift Early, 2 consecutive assignments
+- CT_15: Last shift Day, 3 consecutive assignments
+- TR_16: Last shift Day, 2 consecutive assignments
+- TR_17: Last shift Night, 2 consecutive assignments
+- TR_18: Last shift Night, 5 consecutive assignments
+- TR_19: Last shift Early, 3 consecutive assignments
+- TR_20: Last shift Night, 1 consecutive assignment
+
+#### Assignments for Thursday:
+
+1. **Early Shift**:
+   - **Nurse**: NU_7 (continues with Early shift, 2 consecutive assignments)
+   - **Caretaker**: CT_13 (continues with Early shift, 5 consecutive assignments)
+   - **Trainee**: TR_19 (continues with Early shift, 4 consecutive assignments)
+
+2. **Day Shift**:
+   - **Nurse**: NU_8 (continues with Day shift, 4 consecutive assignments)
+   - **Caretaker**: CT_15 (continues with Day shift, 4 consecutive assignments)
+   - **Trainee**: TR_16 (continues with Day shift, 3 consecutive assignments)
+
+3. **Late Shift**:
+   - **Nurse**: NU_9 (continues with Late shift, 5 consecutive assignments)
+   - **Caretaker**: CT_11 (continues with Late shift, 6 consecutive assignments)
+
+4. **Night Shift**:
+   - **Nurse**: NU_10 (continues with Night shift, 2 consecutive assignments)
+   - **Caretaker**: CT_12 (continues with Night shift, 6 consecutive assignments)
+   - **Trainee**: TR_17 (continues with Night shift, 3 consecutive assignments)
+
+#### Soft Constraints Evaluation:
+- **Insufficient staffing for optimal coverage**:
+  - Early: None
+  - Day: 1 missing Caretaker (Penalty: 30)
+  - Late: 1 missing Caretaker (Penalty: 30)
+  - Night: 1 missing Trainee (Penalty: 30)
+  - Total Penalty: 90
+
+- **Consecutive assignments**:
+  - NU_9: 2 extra days (Penalty: 30)
+  - CT_11: 2 extra days (Penalty: 30)
+  - CT_12: 2 extra days (Penalty: 30)
+  - CT_13: 2 extra days (Penalty: 30)
+  - CT_15: 1 extra day (Penalty: 15)
+  - TR_16: 1 extra day (Penalty: 15)
+  - TR_17: 1 extra day (Penalty: 15)
+  - TR_19: 1 extra day (Penalty: 15)
+  - Total Penalty: 180
+
+- **Consecutive days off**:
+  - None
+
+- **Preferences**:
+  - None
+
+- **Complete week-end**:
+  - None
+
+- **Total assignments**:
+  - None
+
+- **Total working week-ends**:
+  - None
+
+#### Total Penalty for Thursday:
+- Insufficient staffing: 90
+- Consecutive assignments: 180
+- **Total Penalty**: 270
+
+### Step 5: Friday
+
+#### Requirements for Friday:
+- **Early**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum), 2 (optimal)
+  - Trainee: 0 (minimum and optimal)
+- **Day**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 0 (minimum and optimal)
+  - Trainee: 0 (minimum and optimal)
+- **Late**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum and optimal)
+  - Trainee: 0 (minimum), 1 (optimal)
+- **Night**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum), 2 (optimal)
+  - Trainee: 1 (minimum and optimal)
+
+#### Shift Off Requests for Friday:
+- TR_16: Any shift
+- NU_6: Night shift
+
+#### Nurse History Considerations (after Thursday's assignments):
+- HN_0: Last shift Night, 5 consecutive assignments
+- HN_1: Last shift Late, 1 consecutive assignment
+- HN_2: No last shift, 0 consecutive assignments
+- NU_3: Last shift Early, 3 consecutive assignments
+- NU_4: Last shift Day, 2 consecutive assignments
+- NU_5: Last shift Late, 6 consecutive assignments
+- NU_6: Last shift Night, 3 consecutive assignments
+- NU_7: Last shift Early, 2 consecutive assignments
+- NU_8: Last shift Day, 4 consecutive assignments
+- NU_9: Last shift Late, 5 consecutive assignments
+- NU_10: Last shift Night, 2 consecutive assignments
+- CT_11: Last shift Late, 6 consecutive assignments
+- CT_12: Last shift Night, 6 consecutive assignments
+- CT_13: Last shift Early, 5 consecutive assignments
+- CT_14: Last shift Early, 2 consecutive assignments
+- CT_15: Last shift Day, 4 consecutive assignments
+- TR_16: Last shift Day, 3 consecutive assignments
+- TR_17: Last shift Night, 3 consecutive assignments
+- TR_18: Last shift Night, 5 consecutive assignments
+- TR_19: Last shift Early, 4 consecutive assignments
+- TR_20: Last shift Night, 1 consecutive assignment
+
+#### Assignments for Friday:
+
+1. **Early Shift**:
+   - **Nurse**: NU_3 (continues with Early shift, 4 consecutive assignments)
+   - **Caretaker**: CT_14 (continues with Early shift, 3 consecutive assignments)
+
+2. **Day Shift**:
+   - **Nurse**: NU_4 (continues with Day shift, 3 consecutive assignments)
+   - **Caretaker**: CT_15 (continues with Day shift, 5 consecutive assignments)
+
+3. **Late Shift**:
+   - **Nurse**: NU_5 (continues with Late shift, 7 consecutive assignments)
+   - **Caretaker**: CT_11 (continues with Late shift, 7 consecutive assignments)
+
+4. **Night Shift**:
+   - **Nurse**: NU_6 (continues with Night shift, 4 consecutive assignments)
+   - **Caretaker**: CT_12 (continues with Night shift, 7 consecutive assignments)
+   - **Trainee**: TR_17 (continues with Night shift, 4 consecutive assignments)
+
+#### Soft Constraints Evaluation:
+- **Insufficient staffing for optimal coverage**:
+  - Early: 1 missing Caretaker (Penalty: 30)
+  - Day: None
+  - Late: None
+  - Night: 1 missing Caretaker (Penalty: 30)
+  - Total Penalty: 60
+
+- **Consecutive assignments**:
+  - NU_5: 3 extra days (Penalty: 45)
+  - CT_11: 3 extra days (Penalty: 45)
+  - CT_12: 3 extra days (Penalty: 45)
+  - CT_15: 2 extra days (Penalty: 30)
+  - TR_17: 2 extra days (Penalty: 30)
+  - Total Penalty: 195
+
+- **Consecutive days off**:
+  - None
+
+- **Preferences**:
+  - TR_16: Request off Any shift (Penalty: 10)
+  - NU_6: Request off Night shift (Penalty: 10)
+
+- **Complete week-end**:
+  - None
+
+- **Total assignments**:
+  - None
+
+- **Total working week-ends**:
+  - None
+
+#### Total Penalty for Friday:
+- Insufficient staffing: 60
+- Consecutive assignments: 195
+- Preferences: 20
+- **Total Penalty**: 275
+
+### Step 6: Saturday
+
+#### Requirements for Saturday:
+- **Early**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 0 (minimum and optimal)
+  - Trainee: 1 (minimum and optimal)
+- **Day**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 0 (minimum and optimal)
+  - Trainee: 0 (minimum and optimal)
+- **Late**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 0 (minimum and optimal)
+  - Trainee: 1 (minimum and optimal)
+- **Night**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum and optimal)
+  - Trainee: 0 (minimum), 1 (optimal)
+
+#### Shift Off Requests for Saturday:
+- NU_5: Any shift
+- HN_1: Night shift
+- TR_20: Day shift
+
+#### Nurse History Considerations (after Friday's assignments):
+- HN_0: Last shift Night, 5 consecutive assignments
+- HN_1: Last shift Late, 1 consecutive assignment
+- HN_2: No last shift, 0 consecutive assignments
+- NU_3: Last shift Early, 4 consecutive assignments
+- NU_4: Last shift Day, 3 consecutive assignments
+- NU_5: Last shift Late, 7 consecutive assignments
+- NU_6: Last shift Night, 4 consecutive assignments
+- NU_7: Last shift Early, 2 consecutive assignments
+- NU_8: Last shift Day, 4 consecutive assignments
+- NU_9: Last shift Late, 5 consecutive assignments
+- NU_10: Last shift Night, 2 consecutive assignments
+- CT_11: Last shift Late, 7 consecutive assignments
+- CT_12: Last shift Night, 7 consecutive assignments
+- CT_13: Last shift Early, 5 consecutive assignments
+- CT_14: Last shift Early, 3 consecutive assignments
+- CT_15: Last shift Day, 5 consecutive assignments
+- TR_16: Last shift Day, 3 consecutive assignments
+- TR_17: Last shift Night, 4 consecutive assignments
+- TR_18: Last shift Night, 5 consecutive assignments
+- TR_19: Last shift Early, 4 consecutive assignments
+- TR_20: Last shift Night, 1 consecutive assignment
+
+#### Assignments for Saturday:
+
+1. **Early Shift**:
+   - **Nurse**: NU_7 (continues with Early shift, 3 consecutive assignments)
+   - **Trainee**: TR_19 (continues with Early shift, 5 consecutive assignments)
+
+2. **Day Shift**:
+   - **Nurse**: NU_8 (continues with Day shift, 5 consecutive assignments)
+
+3. **Late Shift**:
+   - **Nurse**: NU_9 (continues with Late shift, 6 consecutive assignments)
+   - **Trainee**: TR_16 (continues with Late shift, 4 consecutive assignments)
+
+4. **Night Shift**:
+   - **Nurse**: NU_10 (continues with Night shift, 3 consecutive assignments)
+   - **Caretaker**: CT_12 (continues with Night shift, 8 consecutive assignments)
+
+#### Soft Constraints Evaluation:
+- **Insufficient staffing for optimal coverage**:
+  - Early: None
+  - Day: None
+  - Late: None
+  - Night: 1 missing Trainee (Penalty: 30)
+  - Total Penalty: 30
+
+- **Consecutive assignments**:
+  - NU_9: 3 extra days (Penalty: 45)
+  - CT_12: 3 extra days (Penalty: 45)
+  - TR_16: 1 extra day (Penalty: 15)
+  - TR_19: 1 extra day (Penalty: 15)
+  - Total Penalty: 120
+
+- **Consecutive days off**:
+  - None
+
+- **Preferences**:
+  - NU_5: Request off Any shift (Penalty: 10)
+  - HN_1: Request off Night shift (Penalty: 10)
+  - TR_20: Request off Day shift (Penalty: 10)
+
+- **Complete week-end**:
+  - None
+
+- **Total assignments**:
+  - None
+
+- **Total working week-ends**:
+  - None
+
+#### Total Penalty for Saturday:
+- Insufficient staffing: 30
+- Consecutive assignments: 120
+- Preferences: 30
+- **Total Penalty**: 180
+
+### Step 7: Sunday
+
+#### Requirements for Sunday:
+- **Early**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum and optimal)
+  - Trainee: 0 (minimum), 1 (optimal)
+- **Day**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum), 2 (optimal)
+  - Trainee: 1 (minimum and optimal)
+- **Late**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum and optimal)
+  - Trainee: 0 (minimum), 1 (optimal)
+- **Night**:
+  - Nurse: 1 (minimum and optimal)
+  - Caretaker: 1 (minimum), 2 (optimal)
+  - Trainee: 0 (minimum and optimal)
+
+#### Shift Off Requests for Sunday:
+- TR_20: Late shift
+
+#### Nurse History Considerations (after Saturday's assignments):
+- HN_0: Last shift Night, 5 consecutive assignments
+- HN_1: Last shift Late, 1 consecutive assignment
+- HN_2: No last shift, 0 consecutive assignments
+- NU_3: Last shift Early, 4 consecutive assignments
+- NU_4: Last shift Day, 3 consecutive assignments
+- NU_5: Last shift Late, 7 consecutive assignments
+- NU_6: Last shift Night, 4 consecutive assignments
+- NU_7: Last shift Early, 3 consecutive assignments
+- NU_8: Last shift Day, 5 consecutive assignments
+- NU_9: Last shift Late, 6 consecutive assignments
+- NU_10: Last shift Night, 3 consecutive assignments
+- CT_11: Last shift Late, 7 consecutive assignments
+- CT_12: Last shift Night, 8 consecutive assignments
+- CT_13: Last shift Early, 5 consecutive assignments
+- CT_14: Last shift Early, 3 consecutive assignments
+- CT_15: Last shift Day, 5 consecutive assignments
+- TR_16: Last shift Late, 4 consecutive assignments
+- TR_17: Last shift Night, 4 consecutive assignments
+- TR_18: Last shift Night, 5 consecutive assignments
+- TR_19: Last shift Early, 5 consecutive assignments
+- TR_20: Last shift Night, 1 consecutive assignment
+
+#### Assignments for Sunday:
+
+1. **Early Shift**:
+   - **Nurse**: NU_3 (continues with Early shift, 5 consecutive assignments)
+   - **Caretaker**: CT_14 (continues with Early shift, 4 consecutive assignments)
+
+2. **Day Shift**:
+   - **Nurse**: NU_4 (continues with Day shift, 4 consecutive assignments)
+   - **Caretaker**: CT_15 (continues with Day shift, 6 consecutive assignments)
+   - **Trainee**: TR_17 (continues with Day shift, 5 consecutive assignments)
+
+3. **Late Shift**:
+   - **Nurse**: NU_5 (continues with Late shift, 8 consecutive assignments)
+   - **Caretaker**: CT_11 (continues with Late shift, 8 consecutive assignments)
+
+4. **Night Shift**:
+   - **Nurse**: NU_6 (continues with Night shift, 5 consecutive assignments)
+   - **Caretaker**: CT_12 (continues with Night shift, 9 consecutive assignments)
+
+#### Soft Constraints Evaluation:
+- **Insufficient staffing for optimal coverage**:
+  - Early: 1 missing Trainee (Penalty: 30)
+  - Day: 1 missing Caretaker (Penalty: 30)
+  - Late: None
+  - Night: 1 missing Caretaker (Penalty: 30)
+  - Total Penalty: 90
+
+- **Consecutive assignments**:
+  - NU_5: 4 extra days (Penalty: 60)
+  - CT_11: 4 extra days (Penalty: 60)
+  - CT_12: 4 extra days (Penalty: 60)
+  - CT_15: 1 extra day (Penalty: 15)
+  - TR_17: 1 extra day (Penalty: 15)
+  - Total Penalty: 210
+
+- **Consecutive days off**:
+  - None
+
+- **Preferences**:
+  - TR_20: Request off Late shift (Penalty: 10)
+
+- **Complete week-end**:
+  - None
+
+- **Total assignments**:
+  - None
+
+- **Total working week-ends**:
+  - None
+
+#### Total Penalty for Sunday:
+- Insufficient staffing: 90
+- Consecutive assignments: 210
+- Preferences: 10
+- **Total Penalty**: 310
+
+### Total Penalty for the Week:
+- Monday: 160
+- Tuesday: 135
+- Wednesday: 175
+- Thursday: 270
+- Friday: 275
+- Saturday: 180
+- Sunday: 310
+- **Total Penalty**: 1505
+
+### Final Roster for the Week:
+
+#### Monday:
+- **Early**: NU_3, CT_14, TR_16
+- **Day**: NU_4, CT_15
+- **Late**: NU_5, CT_11
+- **Night**: NU_6, CT_12, TR_18
+
+#### Tuesday:
+- **Early**: NU_7, CT_13, TR_19
+- **Day**: NU_8, CT_15, TR_17
+- **Late**: NU_9, CT_11
+- **Night**: NU_10, CT_12, TR_20
+
+#### Wednesday:
+- **Early**: NU_3, CT_14
+- **Day**: NU_4, CT_15, TR_16
+- **Late**: NU_5, CT_11
+- **Night**: NU_6, CT_12, TR_17
+
+#### Thursday:
+- **Early**: NU_7, CT_13, TR_19
+- **Day**: NU_8, CT_15, TR_16
+- **Late**: NU_9, CT_11
+- **Night**: NU_10, CT_12, TR_17
+
+#### Friday:
+- **Early**: NU_3, CT_14
+- **Day**: NU_4, CT_15
+- **Late**: NU_5, CT_11
+- **Night**: NU_6, CT_12, TR_17
+
+#### Saturday:
+- **Early**: NU_7, TR_19
+- **Day**: NU_8
+- **Late**: NU_9, TR_16
+- **Night**: NU_10, CT_12
+
+#### Sunday:
+- **Early**: NU_3, CT_14
+- **Day**: NU_4, CT_15, TR_17
+- **Late**: NU_5, CT_11
+- **Night**: NU_6, CT_12
+
+### Conclusion:
+The roster has been generated to satisfy all hard constraints and minimize the total penalty from soft constraint violations. The total penalty for the week is 1505.

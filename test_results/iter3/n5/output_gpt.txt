@@ -1,0 +1,150 @@
+To generate a feasible weekly nurse roster, we need to assign shifts to nurses while respecting all hard constraints and minimizing penalties from soft constraint violations. Let's proceed step-by-step, day by day, ensuring we meet the requirements and constraints.
+
+### Monday
+
+**Requirements:**
+- Early (Nurse): Minimum 1, Optimal 1
+- Late (HeadNurse): Minimum 1, Optimal 1
+- Night (HeadNurse): Minimum 1, Optimal 1
+- Night (Nurse): Minimum 1, Optimal 1
+
+**Assignments:**
+1. **Early (Nurse):**
+   - Candidates: Patrick, Andrea, Stefaan, Sara, Nguyen
+   - Choose Sara (meets skill requirement, no forbidden successions, and starts a new work sequence)
+
+2. **Late (HeadNurse):**
+   - Candidates: Patrick, Andrea
+   - Choose Andrea (meets skill requirement, no forbidden successions, and starts a new work sequence)
+
+3. **Night (HeadNurse):**
+   - Candidates: Patrick, Andrea
+   - Choose Patrick (meets skill requirement, continues from previous Night shift)
+
+4. **Night (Nurse):**
+   - Candidates: Patrick, Andrea, Stefaan, Sara, Nguyen
+   - Choose Nguyen (meets skill requirement, no forbidden successions, and starts a new work sequence)
+
+### Tuesday
+
+**Requirements:**
+- Early (Nurse): Minimum 1, Optimal 1
+- Late (Nurse): Minimum 1, Optimal 1
+- Night (Nurse): Minimum 1, Optimal 1
+
+**Assignments:**
+1. **Early (Nurse):**
+   - Candidates: Patrick, Stefaan, Sara, Nguyen
+   - Choose Stefaan (meets skill requirement, no forbidden successions, and starts a new work sequence)
+
+2. **Late (Nurse):**
+   - Candidates: Patrick, Stefaan, Sara, Nguyen
+   - Choose Sara (meets skill requirement, continues from previous Early shift)
+
+3. **Night (Nurse):**
+   - Candidates: Patrick, Stefaan, Nguyen
+   - Choose Patrick (meets skill requirement, continues from previous Night shift)
+
+### Wednesday
+
+**Requirements:**
+- Early (HeadNurse): Minimum 1, Optimal 1
+- Late (Nurse): Minimum 1, Optimal 1
+
+**Assignments:**
+1. **Early (HeadNurse):**
+   - Candidates: Patrick, Andrea
+   - Choose Andrea (meets skill requirement, continues from previous Late shift)
+
+2. **Late (Nurse):**
+   - Candidates: Patrick, Stefaan, Sara, Nguyen
+   - Choose Nguyen (meets skill requirement, continues from previous Night shift)
+
+### Thursday
+
+**Requirements:**
+- Early (Nurse): Minimum 1, Optimal 1
+- Late (Nurse): Minimum 1, Optimal 1
+- Night (Nurse): Minimum 1, Optimal 1
+
+**Assignments:**
+1. **Early (Nurse):**
+   - Candidates: Patrick, Stefaan, Sara, Nguyen
+   - Choose Sara (meets skill requirement, continues from previous Late shift)
+
+2. **Late (Nurse):**
+   - Candidates: Patrick, Stefaan, Nguyen
+   - Choose Stefaan (meets skill requirement, continues from previous Early shift)
+
+3. **Night (Nurse):**
+   - Candidates: Patrick, Nguyen
+   - Choose Patrick (meets skill requirement, continues from previous Night shift)
+
+### Friday
+
+**Requirements:**
+- Early (HeadNurse): Minimum 1, Optimal 1
+- Late (Nurse): Minimum 1, Optimal 1
+
+**Assignments:**
+1. **Early (HeadNurse):**
+   - Candidates: Patrick, Andrea
+   - Choose Patrick (meets skill requirement, continues from previous Night shift)
+
+2. **Late (Nurse):**
+   - Candidates: Andrea, Stefaan, Sara
+   - Choose Andrea (meets skill requirement, continues from previous Early shift)
+
+### Saturday
+
+**Requirements:**
+- Early (Nurse): Minimum 1, Optimal 1
+- Late (HeadNurse): Minimum 1, Optimal 1
+- Night (Nurse): Minimum 1, Optimal 1
+
+**Assignments:**
+1. **Early (Nurse):**
+   - Candidates: Patrick, Stefaan, Sara
+   - Choose Stefaan (meets skill requirement, continues from previous Late shift)
+
+2. **Late (HeadNurse):**
+   - Candidates: Patrick, Andrea
+   - Choose Andrea (meets skill requirement, continues from previous Late shift)
+
+3. **Night (Nurse):**
+   - Candidates: Patrick, Sara
+   - Choose Sara (meets skill requirement, continues from previous Early shift)
+
+### Sunday
+
+**Requirements:**
+- Early (Nurse): Minimum 1, Optimal 1
+- Late (HeadNurse): Minimum 1, Optimal 1
+- Night (Nurse): Minimum 1, Optimal 1
+
+**Assignments:**
+1. **Early (Nurse):**
+   - Candidates: Patrick, Stefaan
+   - Choose Patrick (meets skill requirement, continues from previous Night shift)
+
+2. **Late (HeadNurse):**
+   - Candidates: Andrea
+   - Choose Andrea (meets skill requirement, continues from previous Late shift)
+
+3. **Night (Nurse):**
+   - Candidates: Sara
+   - Choose Sara (meets skill requirement, continues from previous Night shift)
+
+### Summary and Penalty Calculation
+
+- **Hard Constraints:** All hard constraints are satisfied.
+- **Soft Constraints:** 
+  - Insufficient staffing for optimal coverage: Penalties incurred where optimal requirements are not met.
+  - Consecutive assignments: Penalties for not meeting minimum or exceeding maximum consecutive assignments.
+  - Consecutive days off: Penalties for not meeting minimum or exceeding maximum consecutive days off.
+  - Preferences: Penalties for assigning shifts against preferences.
+  - Complete weekend: Penalties for incomplete weekends.
+  - Total assignments: Penalties for not meeting minimum or exceeding maximum total assignments.
+  - Total working weekends: Penalties for exceeding maximum working weekends.
+
+The roster is designed to minimize penalties while satisfying all constraints. Each assignment is carefully chosen to balance the workload and respect both the nurses' contracts and preferences.
