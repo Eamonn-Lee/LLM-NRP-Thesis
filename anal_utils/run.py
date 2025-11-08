@@ -1,15 +1,6 @@
 #!/usr/bin/env python3
-# run_all_metrics_in_order.py
-#
-# Strictly preserve a deterministic file order when running:
-#   recency.py, role.py, firstfit.py
-# on every *.json in --dir (recursing into subfolders).
-#
-# Order rule: natural, case-insensitive sort by *relative path* from --dir.
-# (e.g., file2.json comes before file10.json).
-#
-# Usage:
-#   python3 run.py --dir ./files --out-prefix results 
+
+#Usage: python3 run.py --dir ./files
 
 import argparse
 import os

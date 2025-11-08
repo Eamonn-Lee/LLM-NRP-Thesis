@@ -1,0 +1,430 @@
+Objective:
+Generate the first week's schedule for a four-week nurse rostering period, ensuring all hard constraints are satisfied while minimizing soft constraint violations for an optimal schedule. 
+Before assigning shifts for the week, identify areas with the most constraints(such as largest minimum coverage required) and schedule those first. Then, fill in the rest.
+
+Problem Definition:
+We have:
+Nurses (N) working over Days (D), Weekends (W), Shift Types (S), and Skills (SK).Decision Variable:
+x(n,d,s,sk) → Indicates if nurse n is assigned to shift s with skill sk on day d.
+Auxiliary Variables:
+o(n,d,s) → Indicates if nurse n works shift s on day d.p(n,d) → Indicates if nurse n works any shift on day d.q(n,w) → Indicates if nurse n works any shift on weekend w.
+
+Hard Constraints (Must Be Satisfied):
+
+Single Assignment Per Day: A nurse can only work one shift per day.
+∑(s ∈ S) o(n,d,s) ≤ 1, for all n ∈ N, d ∈ D
+
+Under-Staffing Prevention: Minimum required nurses per shift and skill must be met.
+∑(n ∈ N) x(n,d,s,sk) ≥ Cmin(d,s,sk), for all d ∈ D, s ∈ S, sk ∈ SK
+
+Shift Type Successions: Certain shift transitions are forbidden.
+If (s1, s2) is a forbidden sequence:
+o(n,d,s1) + o(n,d+1,s2) ≤ 1, for all n ∈ N, d ∈ D
+
+
+Skill Requirements: Nurses can only be assigned shifts they are qualified for.
+x(n,d,s,sk) = 0, for all n ∈ N, d ∈ D, s ∈ S, sk ∉ SK(n)
+
+
+Soft Constraints (Can be broken, but attempt to minimize Violations):
+Minimize the total violation cost, prioritising breaking lower cost constraints over larger weighted constraints:
+W(Copt) * V(Copt) + W(CWmax) * V(CWmax) + W(CWmin) * V(CWmin) +  
+W(CFmax) * V(CFmax) + W(CFmin) * V(CFmin) + W(CW) * V(CW) +  
+W(SOR) * V(SOR) + W(DOR) * V(DOR) + W(Tmax) * V(Tmax) +  
+W(Tmin) * V(Tmin) + W(TWmax) * V(TWmax)
+
+1. **Optimal Staffing Levels:**  
+   - **Copt(d,s,sk)** is the optimal number of nurses required per shift.
+	   - Weight: W(Copt) = 30
+   - Violation count:  
+     - V(Copt) = ∑(n ∈ N, d ∈ D, s ∈ S) max(0, Copt(d,s,sk) - ∑(sk ∈ SK) x(n,d,s,sk))  
+
+2. **Consecutive Working Days:**  
+   - **CWmax(n)** is the maximum allowed consecutive working days. 
+	   - Weight: W(CWmax) = 30 
+   - **CWmin(n)** is the minimum allowed consecutive working days.  
+	   - Weight: W(CWmin) = 15
+   - Violation count:  
+     - V(CWmax) = ∑(n ∈ N) ∑(d=-hCW(n) to |D|-1-CWmax(n)) max(0, (∑(i=0 to CWmax(n)) tw(n,d,i)) - CWmax(n))  
+     - V(CWmin) = ∑(n ∈ N, d ∈ D) (CWmin(n) * tw(n,d,0) - ∑(i=0 to CWmin(n)-1) tw(n,d,i))  
+
+3. **Consecutive Days Off:**  
+   - **CFmax(n)** is the maximum allowed consecutive free days.  
+	   - Weight: W(CFmax) = 30 
+   - **CFmin(n)** is the minimum allowed consecutive free days.  
+	   - Weight: W(CFmin) = 30 
+   - Violation count:  
+     - V(CFmax) = ∑(n ∈ N) ∑(d=-hCF(n) to |D|-1-CFmax(n)) max(0, (∑(i=0 to CFmax(n)) tf(n,d,i)) - CFmax(n))  
+     - V(CFmin) = ∑(n ∈ N) ∑(d=0 to |D|-CFmin(n)) (CFmin(n) * tf(n,d,0) - ∑(i=0 to CFmin(n)-1) tf(n,d,i))  
+     
+    - Examples:
+		  Input: 
+				minimumNumberOfConsecutiveDaysOff = 3
+				{ "nurse": "n1",    "day": "Sat", "shiftType": "2j3", "skill": "Nurse" },
+				{ "nurse": "n1",    "day": "Mon", "shiftType": "89c", "skill": "Nurse" }
+			Output: 60 cost
+			
+			Input:
+				minimumNumberOfConsecutiveDaysOff = 2
+				{ "nurse": "ab", "day": "Thu", "shiftType": "8io", "skill": "Nurse" },
+				{ "nurse": "ab", "day": "Sun", "shiftType": "zd9", "skill": "HeadNurse" }
+			Output: 0 cost
+			
+			Input:
+				minimumNumberOfConsecutiveDaysOff = 4
+				{ "nurse": "i7",  "day": "Tue", "shiftType": "inm3", "skill": "abe" },
+				{ "nurse": "i7",  "day": "Thu", "shiftType": "on1", "skill": "in7" }
+			Output: 90 cost
+
+4. **Shift Preferences:**  
+   - **Shift-Off Requests (SOR)** → If nurse **n** requested not to work shift **s** on day **d**, minimize violations.
+	   - Weight: W(SOR) = 10
+     - Violation count: V(SOR) = ∑(sor ∈ SOR) o(n,d,s)  
+   - **Day-Off Requests (DOR)** → If nurse **n** requested a full day off, minimize violations.  
+	   - Weight: W(DOR) = 10
+     - Violation count: V(DOR) = ∑(dor ∈ DOR) p(n,d)  
+
+5. **Complete Weekend Work Rule:**  
+   - If a nurse is required to work a **complete weekend** (i.e., both Saturday and Sunday or none), minimize violations.  
+	   - Weight: W(CW) = 30
+     - Violation count: V(CW) = ∑(n ∈ N, w ∈ W) CW(n) * (2 * q(n,w) - (p(n,dw,1) + p(n,dw,2)))  
+
+6. **Total Assignments:**  
+   - **Tmax(n)** is the maximum number of shifts a nurse **n** can work.  
+	   - Weight: W(Tmax) = 30
+   - **Tmin(n)** is the minimum number of shifts a nurse **n** must work. 
+	   - Weight: W(Tmin) = 30 
+   - Violation count:  
+     - V(Tmax) = ∑(n ∈ N) max(0, (∑(d ∈ D, s ∈ S) o(n,d,s)) - Tmax(n))  
+     - V(Tmin) = ∑(n ∈ N) max(0, Tmin(n) - (∑(d ∈ D, s ∈ S) o(n,d,s)))  
+
+7. **Total Working Weekends:**  
+   - **TWmax(n)** is the maximum number of weekends a nurse **n** can work.
+	   - Weight: W(TWmax) = 30   
+   - Violation count:  
+     - V(TWmax) = ∑(n ∈ N) max(0, (∑(w ∈ W) q(n,w)) - TWmax(n))  
+
+Input Data:
+
+Problem Scenario:
+{
+  "id" : "n005w4",
+  "numberOfWeeks" : 4,
+  "skills" : [ "HeadNurse", "Nurse" ],
+  "shiftTypes" : [ {
+    "id" : "Early",
+    "minimumNumberOfConsecutiveAssignments" : 2,
+    "maximumNumberOfConsecutiveAssignments" : 5
+  }, {
+    "id" : "Late",
+    "minimumNumberOfConsecutiveAssignments" : 2,
+    "maximumNumberOfConsecutiveAssignments" : 3
+  }, {
+    "id" : "Night",
+    "minimumNumberOfConsecutiveAssignments" : 4,
+    "maximumNumberOfConsecutiveAssignments" : 5
+  } ],
+  "forbiddenShiftTypeSuccessions" : [ {
+    "precedingShiftType" : "Early",
+    "succeedingShiftTypes" : [ ]
+  }, {
+    "precedingShiftType" : "Late",
+    "succeedingShiftTypes" : [ "Early" ]
+  }, {
+    "precedingShiftType" : "Night",
+    "succeedingShiftTypes" : [ "Early", "Late" ]
+  } ],
+  "contracts" : [ {
+    "id" : "FullTime",
+    "minimumNumberOfAssignments" : 15,
+    "maximumNumberOfAssignments" : 22,
+    "minimumNumberOfConsecutiveWorkingDays" : 3,
+    "maximumNumberOfConsecutiveWorkingDays" : 5,
+    "minimumNumberOfConsecutiveDaysOff" : 2,
+    "maximumNumberOfConsecutiveDaysOff" : 3,
+    "maximumNumberOfWorkingWeekends" : 2,
+    "completeWeekends" : 1
+  }, {
+    "id" : "PartTime",
+    "minimumNumberOfAssignments" : 7,
+    "maximumNumberOfAssignments" : 11,
+    "minimumNumberOfConsecutiveWorkingDays" : 3,
+    "maximumNumberOfConsecutiveWorkingDays" : 5,
+    "minimumNumberOfConsecutiveDaysOff" : 3,
+    "maximumNumberOfConsecutiveDaysOff" : 5,
+    "maximumNumberOfWorkingWeekends" : 2,
+    "completeWeekends" : 1
+  } ],
+  "nurses" : [ {
+    "id" : "Patrick",
+    "contract" : "FullTime",
+    "skills" : [ "HeadNurse", "Nurse" ]
+  }, {
+    "id" : "Andrea",
+    "contract" : "FullTime",
+    "skills" : [ "HeadNurse", "Nurse" ]
+  }, {
+    "id" : "Stefaan",
+    "contract" : "PartTime",
+    "skills" : [ "HeadNurse", "Nurse" ]
+  }, {
+    "id" : "Sara",
+    "contract" : "PartTime",
+    "skills" : [ "Nurse" ]
+  }, {
+    "id" : "Nguyen",
+    "contract" : "FullTime",
+    "skills" : [ "Nurse" ]
+  } ]
+}
+
+###Previous Week Assignments (Be sure to take into account previous weeks assignments for consecutive assignment tracking):
+{
+  "assignments": [
+    { "nurse": "Sara",     "day": "Mon", "shiftType": "Early", "skill": "Nurse" },
+    { "nurse": "Patrick",  "day": "Mon", "shiftType": "Night", "skill": "HeadNurse" },
+
+    { "nurse": "Nguyen",   "day": "Tue", "shiftType": "Early", "skill": "Nurse" },
+    { "nurse": "Andrea",   "day": "Tue", "shiftType": "Late",  "skill": "HeadNurse" },
+    { "nurse": "Sara",     "day": "Tue", "shiftType": "Late",  "skill": "Nurse" },
+    { "nurse": "Patrick",  "day": "Tue", "shiftType": "Night", "skill": "HeadNurse" },
+    { "nurse": "Stefaan",  "day": "Tue", "shiftType": "Night", "skill": "Nurse" },
+
+    { "nurse": "Nguyen",   "day": "Wed", "shiftType": "Early", "skill": "Nurse" },
+    { "nurse": "Andrea",   "day": "Wed", "shiftType": "Late",  "skill": "HeadNurse" },
+    { "nurse": "Sara",     "day": "Wed", "shiftType": "Late",  "skill": "Nurse" },
+    { "nurse": "Patrick",  "day": "Wed", "shiftType": "Night", "skill": "HeadNurse" },
+    { "nurse": "Stefaan",  "day": "Wed", "shiftType": "Night", "skill": "Nurse" },
+
+    { "nurse": "Nguyen",   "day": "Thu", "shiftType": "Early", "skill": "Nurse" },
+    { "nurse": "Andrea",   "day": "Thu", "shiftType": "Late",  "skill": "Nurse" },
+    { "nurse": "Stefaan",  "day": "Thu", "shiftType": "Night", "skill": "Nurse" },
+
+    { "nurse": "Nguyen",   "day": "Fri", "shiftType": "Early", "skill": "Nurse" },
+    { "nurse": "Sara",     "day": "Fri", "shiftType": "Late",  "skill": "Nurse" },
+
+    { "nurse": "Nguyen",   "day": "Sat", "shiftType": "Early", "skill": "Nurse" },
+    { "nurse": "Patrick",  "day": "Sat", "shiftType": "Night", "skill": "HeadNurse" },
+    { "nurse": "Sara",     "day": "Sat", "shiftType": "Night", "skill": "Nurse" },
+
+    { "nurse": "Stefaan",  "day": "Sun", "shiftType": "Early", "skill": "Nurse" },
+    { "nurse": "Andrea",   "day": "Sun", "shiftType": "Late",  "skill": "Nurse" },
+    { "nurse": "Patrick",  "day": "Sun", "shiftType": "Night", "skill": "HeadNurse" },
+    { "nurse": "Sara",     "day": "Sun", "shiftType": "Night", "skill": "Nurse" }
+  ]
+}
+
+###Current Week Requirements
+{
+  "scenario" : "n005w4",
+  "requirements" : [ {
+    "shiftType" : "Early",
+    "skill" : "HeadNurse",
+    "requirementOnMonday" : {
+      "minimum" : 0,
+      "optimal" : 0
+    },
+    "requirementOnTuesday" : {
+      "minimum" : 0,
+      "optimal" : 0
+    },
+    "requirementOnWednesday" : {
+      "minimum" : 0,
+      "optimal" : 0
+    },
+    "requirementOnThursday" : {
+      "minimum" : 0,
+      "optimal" : 0
+    },
+    "requirementOnFriday" : {
+      "minimum" : 0,
+      "optimal" : 0
+    },
+    "requirementOnSaturday" : {
+      "minimum" : 0,
+      "optimal" : 0
+    },
+    "requirementOnSunday" : {
+      "minimum" : 0,
+      "optimal" : 0
+    }
+  }, {
+    "shiftType" : "Early",
+    "skill" : "Nurse",
+    "requirementOnMonday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnTuesday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnWednesday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnThursday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnFriday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnSaturday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnSunday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    }
+  }, {
+    "shiftType" : "Late",
+    "skill" : "HeadNurse",
+    "requirementOnMonday" : {
+      "minimum" : 0,
+      "optimal" : 0
+    },
+    "requirementOnTuesday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnWednesday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnThursday" : {
+      "minimum" : 0,
+      "optimal" : 0
+    },
+    "requirementOnFriday" : {
+      "minimum" : 0,
+      "optimal" : 0
+    },
+    "requirementOnSaturday" : {
+      "minimum" : 0,
+      "optimal" : 0
+    },
+    "requirementOnSunday" : {
+      "minimum" : 0,
+      "optimal" : 0
+    }
+  }, {
+    "shiftType" : "Late",
+    "skill" : "Nurse",
+    "requirementOnMonday" : {
+      "minimum" : 0,
+      "optimal" : 1
+    },
+    "requirementOnTuesday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnWednesday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnThursday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnFriday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnSaturday" : {
+      "minimum" : 0,
+      "optimal" : 1
+    },
+    "requirementOnSunday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    }
+  }, {
+    "shiftType" : "Night",
+    "skill" : "HeadNurse",
+    "requirementOnMonday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnTuesday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnWednesday" : {
+      "minimum" : 0,
+      "optimal" : 0
+    },
+    "requirementOnThursday" : {
+      "minimum" : 0,
+      "optimal" : 0
+    },
+    "requirementOnFriday" : {
+      "minimum" : 0,
+      "optimal" : 0
+    },
+    "requirementOnSaturday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnSunday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    }
+  }, {
+    "shiftType" : "Night",
+    "skill" : "Nurse",
+    "requirementOnMonday" : {
+      "minimum" : 0,
+      "optimal" : 1
+    },
+    "requirementOnTuesday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnWednesday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnThursday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnFriday" : {
+      "minimum" : 0,
+      "optimal" : 1
+    },
+    "requirementOnSaturday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    },
+    "requirementOnSunday" : {
+      "minimum" : 1,
+      "optimal" : 1
+    }
+  } ],
+  "shiftOffRequests" : [ {
+    "nurse" : "Andrea",
+    "shiftType" : "Late",
+    "day" : "Friday"
+  }, {
+    "nurse" : "Andrea",
+    "shiftType" : "Any",
+    "day" : "Saturday"
+  } ]
+}
+
+-----
+
+Output the resulting assignments in a .json file, in the format:
+        "assignments" : [ {{
+            "nurse" : "nurse_name",
+            "day" : "three letter abbreviation of day",
+            "shiftType" : {["Early", "Late", "Night"]},
+            "skill" : {["Nurse", "HeadNurse"]}
+        }}]
+
+
+
+------

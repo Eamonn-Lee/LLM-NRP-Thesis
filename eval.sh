@@ -12,6 +12,8 @@ H="0"
 TARGET_SCRIPT_DIR="mischeck_eval"
 TARGET_SCRIPT="run.sh"
 
+shopt -s nullglob   #antiglob
+
 #Checking for solution files
 json_files=( *.json )   
 
@@ -20,8 +22,6 @@ if [ ${#json_files[@]} -eq 0 ]; then
     echo "No JSON files found."
     exit 1
 fi
-
-shopt -s nullglob   #antiglob
 
 #travel in
 cd "$TARGET_SCRIPT_DIR" || { echo "Failed to enter directory $TARGET_DIR"; exit 1; }

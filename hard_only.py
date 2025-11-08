@@ -1,6 +1,11 @@
 import json
 from collections import defaultdict
 import pprint
+from util import init
+import sys
+import os
+
+INSTANCE = "n005w4_0_1-2-3-3"
 
 # === Utility Functions ===
 
@@ -161,20 +166,22 @@ def check_skill_violations(assignments, scenario_data):
     return violations
 
 def main():
-    schedule_path = "gpt_r.json"
+    if len(sys.argv) <= 1:
+        print("Requires json roster as arg")
+        sys.exit(1)
 
-    requirements_path = "json_Dataset/n005w4/WD-n005w4-1.json"
-    scenario_path = "json_Dataset/n005w4/Sc-n005w4.json"
-    history_path = "json_Dataset/n005w4/H0-n005w4-0.json"
+    schedule_path = sys.argv[1]
 
-    #requirements_path = "json_Dataset/n021w4/WD-n021w4-8.json"
-    #scenario_path = "json_Dataset/n021w4/Sc-n021w4.json"
-    #history_path = "json_Dataset/n021w4/H0-n021w4-2.json"
+    if not os.path.isfile(schedule_path):
+        print(f"MISSING FILE: {sys.argv[1]}")
+        sys.exit(1)
+
+    inst = init(INSTANCE)
 
     schedule_data = load_json(schedule_path)
-    requirements_data = load_json(requirements_path)
-    scenario_data = load_json(scenario_path)
-    history_data = load_json(history_path)
+    requirements_data = load_json(inst["week"][0])  #1st week only
+    scenario_data = load_json(inst["sce"])
+    history_data = load_json(inst["his"])
 
     assignments = schedule_data["assignments"]
     requirements = requirements_data["requirements"]

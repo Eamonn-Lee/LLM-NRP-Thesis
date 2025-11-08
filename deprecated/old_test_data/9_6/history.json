@@ -1,0 +1,51 @@
+{
+  "week": 2,
+  "scenario": "n005w4",
+  "nurseHistory": [
+    {
+      "nurse": "Sara",
+      "numberOfAssignments": 16,
+      "numberOfWorkingWeekends": 3,
+      "lastAssignedShiftType": "Late",
+      "numberOfConsecutiveAssignments": 1,
+      "numberOfConsecutiveWorkingDays": 1,
+      "numberOfConsecutiveDaysOff": 0
+    },
+    {
+      "nurse": "Patrick",
+      "numberOfAssignments": 18,
+      "numberOfWorkingWeekends": 3,
+      "lastAssignedShiftType": "Night",
+      "numberOfConsecutiveAssignments": 2,
+      "numberOfConsecutiveWorkingDays": 2,
+      "numberOfConsecutiveDaysOff": 0
+    },
+    {
+      "nurse": "Andrea",
+      "numberOfAssignments": 14,
+      "numberOfWorkingWeekends": 2,
+      "lastAssignedShiftType": "None",
+      "numberOfConsecutiveAssignments": 0,
+      "numberOfConsecutiveWorkingDays": 0,
+      "numberOfConsecutiveDaysOff": 4
+    },
+    {
+      "nurse": "Nguyen",
+      "numberOfAssignments": 15,
+      "numberOfWorkingWeekends": 2,
+      "lastAssignedShiftType": "Early",
+      "numberOfConsecutiveAssignments": 2,
+      "numberOfConsecutiveWorkingDays": 2,
+      "numberOfConsecutiveDaysOff": 0
+    },
+    {
+      "nurse": "Stefaan",
+      "numberOfAssignments": 16,
+      "numberOfWorkingWeekends": 3,
+      "lastAssignedShiftType": "Night",
+      "numberOfConsecutiveAssignments": 7,
+      "numberOfConsecutiveWorkingDays": 3,
+      "numberOfConsecutiveDaysOff": 0
+    }
+  ]
+}
